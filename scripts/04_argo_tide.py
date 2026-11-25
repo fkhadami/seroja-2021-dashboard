@@ -14,6 +14,13 @@ if os.path.exists(fa):
     log_dataset("Argo", id="ArgoFloats (Argo GDAC via Ifremer ERDDAP)", version="GDAC snapshot saat unduh", url=A,
                 domain="110–128° BT, 6–20° LS", period="2021-02-15 – 2021-05-31")
 
+# Argo Juli–Agustus 2021 (profil musim timur untuk skenario H8)
+fj = os.path.join(RAW, "argo_2021JA.csv")
+if not os.path.exists(fj):
+    q = (A + "?platform_number,cycle_number,time,longitude,latitude,pres,temp,psal,temp_qc,psal_qc,pres_qc"
+         "&longitude>=112&longitude<=128&latitude>=-18&latitude<=-7&time>=2021-07-01&time<=2021-08-31")
+    get(q, fj, timeout=900)
+
 # ---- IOC Sea Level Monitoring
 STATIONS = {"rote": "Rote", "waik": "Waikelo (Sumba)", "lemba": "Lembar (Lombok)", "beno": "Benoa (Bali)",
             "brom": "Broome", "darw": "Darwin"}

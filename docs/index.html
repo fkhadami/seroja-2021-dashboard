@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siklon Seroja 2021 – Laut mendadak dingin setelah badai</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="ttl">
+    <div class="kicker">OSPAN · Kasus contoh · Laut Sawu, Rote, Kupang · Maret–Mei 2021</div>
+    <h1>Siklon Seroja 2021: laut mendadak dingin setelah badai</h1>
+  </div>
+  <nav id="tabs">
+    <button data-p="ringkasan" class="on">1 · Ringkasan</button>
+    <button data-p="peta">2 · Peta</button>
+    <button data-p="stasiun">3 · Stasiun &amp; deret waktu</button>
+    <button data-p="prediksi">4 · Prediksi vs hasil</button>
+    <button data-p="klaim">5 · Uji klaim</button>
+    <button data-p="kalkulator">6 · Bagaimana jika</button>
+    <button data-p="skenario">7 · Skenario H8</button>
+    <button data-p="metode">8 · Metode &amp; data</button>
+  </nav>
+</header>
+
+<main>
+<section id="ringkasan" class="panel on">
+  <div class="cols">
+    <div class="prose" id="sum-text"></div>
+    <div class="side">
+      <div class="kpis" id="sum-kpi"></div>
+      <div id="sum-chart" class="chart"></div>
+    </div>
+  </div>
+</section>
+
+<section id="peta" class="panel">
+  <div class="mapwrap">
+    <div id="map"></div>
+    <div class="mapctl">
+      <label>Lapisan
+        <select id="layer"></select>
+      </label>
+      <div id="timebox">
+        <label>Waktu <span id="tlabel"></span></label>
+        <input type="range" id="tslider" min="0" max="0" value="0">
+        <button id="play">▶</button>
+      </div>
+      <div id="layerinfo" class="small"></div>
+      <label class="chk"><input type="checkbox" id="showtrack" checked> Lintasan IBTrACS</label>
+      <label class="chk"><input type="checkbox" id="showpts" checked> Titik analisis, stasiun, Argo</label>
+      <div id="cursor" class="small mono"></div>
+    </div>
+  </div>
+  <div class="cols two">
+    <div><h3>Sisi cold wake terhadap lintasan</h3><div id="xtrack" class="chart"></div><p class="small" id="xtrack-note"></p></div>
+    <div><h3>Kekuatan siklon sepanjang lintasan</h3><div id="trackchart" class="chart"></div></div>
+  </div>
+</section>
+
+<section id="stasiun" class="panel">
+  <div class="cols st">
+    <div><div id="map2"></div><div id="stlist" class="small"></div></div>
+    <div id="stview"><p class="hint">Klik stasiun pasut, titik analisis, atau float Argo di peta.</p></div>
+  </div>
+</section>
+
+<section id="prediksi" class="panel">
+  <p class="lead">Prediksi B1 dikunci di commit <a id="b1commit" target="_blank">pertama repositori</a> sebelum data diunduh. Nilai data dihitung otomatis oleh <code>scripts/10_process.py</code>.</p>
+  <table id="predtab" class="tbl"></table>
+</section>
+
+<section id="klaim" class="panel">
+  <div class="claim">“Air dingin setelah siklon berasal dari hujan deras dan berkurangnya sinar matahari, bukan dari laut.”</div>
+  <div id="verdict"></div>
+  <div id="evidence" class="evgrid"></div>
+  <div class="cols two">
+    <div><h3>Budget panas lapisan campuran (2–12 Apr, kumulatif)</h3><div id="budgetbar" class="chart"></div></div>
+    <div><h3>Profil Argo sebelum vs sesudah siklon</h3><div id="argoprof" class="chart"></div></div>
+  </div>
+</section>
+
+<section id="kalkulator" class="panel">
+  <div class="cols two">
+    <div>
+      <h3>A. Siklon di atas laut berlapis</h3>
+      <div id="calcA" class="sliders"></div>
+      <div id="outA" class="out"></div>
+      <div id="calcAchart" class="chart"></div>
+    </div>
+    <div>
+      <h3>B. Muka laut di pantai: inverse barometer + setup angin</h3>
+      <div id="calcB" class="sliders"></div>
+      <div id="outB" class="out"></div>
+      <p class="small" id="calcBnote"></p>
+    </div>
+  </div>
+  <p class="small" id="calcsrc"></p>
+</section>
+
+<section id="skenario" class="panel">
+  <div class="claim sc">Skenario H8 (usulan dosen): “Bagaimana jika siklon dengan kekuatan dan kecepatan sama dengan Seroja melintas pada akhir Juli, ketika musim timur sudah berjalan? Lebih besar atau lebih kecil pendinginannya, dan apa artinya bagi budidaya rumput laut?”</div>
+  <div class="cols two">
+    <div class="prose" id="h8text"></div>
+    <div><div id="h8chart" class="chart tall"></div></div>
+  </div>
+  <table id="h8tab" class="tbl"></table>
+</section>
+
+<section id="metode" class="panel">
+  <h3>Dataset</h3>
+  <table id="dstab" class="tbl"></table>
+  <h3>Langkah pengolahan</h3>
+  <ol id="steps" class="prose"></ol>
+  <h3>Keterbatasan</h3>
+  <ul id="limits" class="prose"></ul>
+  <h3>Repositori dan reprodusibilitas</h3>
+  <p class="prose" id="repo"></p>
+  <h3>Pembagian kerja</h3>
+  <table class="tbl" id="team"></table>
+</section>
+</main>
+<footer>Data turunan dibaca dari <code>data/derived/*.json</code> di repositori; tidak ada angka yang diketik tangan. <span id="buildinfo"></span></footer>
+<script src="narrative.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

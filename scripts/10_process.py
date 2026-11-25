@@ -365,7 +365,7 @@ def mixing_entrainment():
         h = z[k]
         rm = rho[:k + 1].mean(); db = g * (rho[k + 1] - rm) / rho0
         U = M / (rho0 * h)
-        if db * h / U ** 2 >= 0.6:
+        if db * h / U ** 2 >= 0.65:
             res = (h, T[:k + 1].mean()); break
     calc["entrainment"] = dict(tau_peak_Nm2=float(tau.max()), t_peak=str(tp), impulse_Nsm2=M, window_h=Thalf / 3600,
                                h0_m=h0, h_after_m=res[0] if res else None,
@@ -379,7 +379,7 @@ def mixing_entrainment():
         Tz[z < h0] = T[0]; rz[z < h0] = rho[0]
         for k in range(k0, len(z) - 1):
             h = z[k]; db = g * (rz[k + 1] - rz[:k + 1].mean()) / rho0; U = M / (rho0 * h)
-            if db * h / U ** 2 >= 0.6:
+            if db * h / U ** 2 >= 0.65:
                 calc["entrainment"]["h_after_with_upwelling_m"] = h
                 calc["entrainment"]["dSST_entrain_upw_C"] = float(Tz[:k + 1].mean() - T[0]); break
 
@@ -616,6 +616,11 @@ def tide_gauges():
                  pred=np.round(pred, 3), resid=np.round(resid, 3), lowpass=np.round(lp, 3),
                  harmonics=[dict(name=n, A_cm=round(float(A) * 100, 1), g_deg=round(float(gg), 1))
                             for n, A, gg in zip(coef.name, coef.A, coef.g)])
+        # spektrum Welch (segmen 15 hari) untuk mentah & residu
+        fill = lambda x: pd.Series(x).interpolate(limit_direction="both").values
+        fq, Sr = signal.welch(fill(h.values), fs=24.0, nperseg=24 * 15)
+        _, Sx = signal.welch(fill(resid), fs=24.0, nperseg=24 * 15)
+        o["spec"] = dict(cpd=fq[1:], raw=Sr[1:], resid=Sx[1:])
         # inverse barometer & angin dari ERA5 terdekat
         if ERA is not None:
             lon_ = {"rote": 123.06, "waik": 119.22, "lemba": 116.07, "beno": 115.22, "brom": 122.22, "darw": 130.85}[code]
@@ -635,6 +640,8 @@ def tide_gauges():
             beta, *_ = np.linalg.lstsq(X, dfr.y, rcond=None)
             fit = X @ beta
             ws = beta[1] * dfr.tx + beta[2] * dfr.ty
+            yy = dfr.y - dfr.y.mean(); xx = dfr.ib - dfr.ib.mean(); lags = np.arange(-72, 73, 3)
+            o["lagcorr"] = dict(lag_h=lags, r=[float(np.corrcoef(yy.values[max(0, l):len(yy) + min(0, l)], xx.values[max(0, -l):len(xx) - max(0, l)])[0, 1]) for l in lags])
             st = dfr.loc["2021-04-02":"2021-04-08"]
             ii = st.y.idxmax()
             o["regression"] = dict(a_ib=beta[0], b_taux=beta[1], c_tauy=beta[2], r2=float(1 - np.var(dfr.y - fit) / np.var(dfr.y)))
@@ -665,8 +672,47 @@ def sla():
     calc["sla"] = dict(min_drop_cm=float(d.min() * 100))
 
 
+@block
+def scenario_h8():
+    """H8: siklon identik (impuls momentum & w_E Seroja) lewat akhir Juli di atas profil musim timur."""
+    if not have("argo_2021JA.csv") or "entrainment" not in calc or not PRE_PROFILE:
+        return
+    a = pd.read_csv(P("argo_2021JA.csv"), skiprows=[1])
+    a["time"] = pd.to_datetime(a.time).dt.tz_localize(None)
+    a = a[(a.temp_qc.astype(str).str[0].isin(["1", "2"])) & a.pres.notna() & a.temp.notna()]
+    lo0, la0 = PRE_PROFILE["lonlat"]
+    best = None
+    for (pn, cy), d in a.groupby(["platform_number", "cycle_number"]):
+        d = d.sort_values("pres")
+        if d.pres.min() > 10 or d.pres.max() < 300: continue
+        dd = dist_km(lo0, la0, d.longitude.iloc[0], d.latitude.iloc[0])
+        if best is None or dd < best[0]: best = (dd, pn, cy, d)
+    dd, pn, cy, d = best
+    J = profile_props(d.pres.values, d.temp.values, d.psal.values)
+    M = calc["entrainment"]["impulse_Nsm2"]; eta = calc["entrainment"]["eta_local_m"]
+    def deepen(z, T, rho, h0, eta):
+        if eta > 0:
+            T = np.interp(z + eta, z, T); rho = np.interp(z + eta, z, rho)
+        k0 = int(np.searchsorted(z, h0))
+        T = T.copy(); rho = rho.copy(); T[:k0] = T[0]; rho[:k0] = rho[0]
+        for k in range(k0, len(z) - 1):
+            h = z[k]; db = g * (rho[k + 1] - rho[:k + 1].mean()) / rho0; U = M / (rho0 * h)
+            if db * h / U ** 2 >= 0.65:
+                return h, float(T[:k + 1].mean())
+        return None, None
+    hJ, TJ = deepen(J["z"], J["T"], J["rho"], J["mld"], eta)
+    hA, TA = deepen(PRE_PROFILE["z"], PRE_PROFILE["T"], PRE_PROFILE["rho"], PRE_PROFILE["mld"], eta)
+    calc["h8"] = dict(profile=f"{int(pn)}_{int(cy)}", time=str(d.time.iloc[0]), lonlat=[float(d.longitude.iloc[0]), float(d.latitude.iloc[0])],
+                      dist_from_april_profile_km=float(dd), sst_jul=J["sst"], mld_jul=J["mld"], z20_jul=J["z20"],
+                      sst_apr=PRE_PROFILE["sst"], mld_apr=PRE_PROFILE["mld"], z20_apr=PRE_PROFILE["z20"],
+                      h_after_jul=hJ, dSST_jul=(TJ - J["T"][0]) if TJ else None, T_after_jul=TJ,
+                      h_after_apr=hA, dSST_apr=(TA - PRE_PROFILE["T"][0]) if TA else None, T_after_apr=TA,
+                      c1_jul=J["c1_mode"], impulse_Nsm2=M, eta_m=eta)
+    dump("h8_profiles.json", dict(jul={k: J[k] for k in ["z", "T", "N2"]}, apr={k: PRE_PROFILE[k] for k in ["z", "T", "N2"]}))
+
+
 for b in [track_stats, era5, sst, choose_points, argo, argo_pre_post, pre_jump, inertial_and_froude, mixing_entrainment,
-          glorys, point_series, heat_budget, recovery_chl, east_monsoon, tide_gauges, sla]:
+          glorys, point_series, heat_budget, recovery_chl, east_monsoon, tide_gauges, sla, scenario_h8]:
     b()
 
 dump("calc.json", dict(calc=calc, notes=notes))
