@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+xarray
+netCDF4
+h5netcdf
+zarr
+gcsfs
+requests
+copernicusmarine
+utide
