@@ -5,7 +5,7 @@
   "url": "https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.SI.list.v04r01.csv",
   "domain": "Cekungan South Indian; difilter NAME=SEROJA, SEASON=2021",
   "period": "2021-04-02 12:00:00 \u2013 2021-04-12 00:00:00",
-  "download_utc": "2026-11-25 02:43"
+  "download_utc": "2026-11-25 03:03"
  },
  "MUR": {
   "id": "jplMURSST41 (MUR SST v4.1, JPL/GHRSST)",
@@ -37,7 +37,7 @@
   "url": "https://erddap.ifremer.fr/erddap/tabledap/ArgoFloats.csv",
   "domain": "110\u2013128\u00b0 BT, 6\u201320\u00b0 LS",
   "period": "2021-02-15 \u2013 2021-05-31",
-  "download_utc": "2026-11-25 02:54"
+  "download_utc": "2026-11-25 03:03"
  },
  "ERA5": {
   "id": "ERA5 hourly single levels via ARCO-ERA5 (full_37-1h-0p25deg-chunk-1.zarr-v3)",
@@ -57,5 +57,14 @@
    "tp"
   ],
   "download_utc": "2026-11-25 02:58"
+ },
+ "IOC_SLM": {
+  "id": "IOC Sea Level Station Monitoring Facility (VLIZ/IOC-UNESCO), data mentah tanpa QC",
+  "version": "real-time raw",
+  "url": "https://www.ioc-sealevelmonitoring.org/service.php",
+  "domain": "stasiun: lemba=Lembar (Lombok), beno=Benoa (Bali), brom=Broome, darw=Darwin",
+  "period": "2021-03-01 \u2013 2021-05-31",
+  "note": "Kupang tidak tersedia di IOC; dipakai Rote (\u00b180 km barat daya Kupang) sebagai stasiun terdekat",
+  "download_utc": "2026-11-25 03:04"
  }
 }

@@ -1,3 +1,205 @@
+===== 00_probe2.py =====
+{
+ "ioc_match": [
+  {
+   "Code": "iske",
+   "Location": "Iskenderun",
+   "country": "TUR",
+   "type": "SF",
+   "DCP_ID": null,
+   "WMO": null,
+   "XMtInt": 2,
+   "Lat": 36.594230651855,
+   "Lon": 36.176769256592,
+   "Har": null,
+   "GlossID": null,
+   "OT12Code": null,
+   "Example": null,
+   "UTCOffset": 0,
+   "OperatorID": null,
+   "status": 5,
+   "status_description": "ISKENDERUN station location has been moved to ARSUZ since 17.12.2020 (Didem Cambaz, 2023-04-27)",
+   "localoperator": 95,
+   "performanceoperator1": 162,
+   "performanceoperator2": null,
+   "performanceoperator3": null,
+   "date_created": "2016-08-16 15:50:26.797",
+   "url": "http://sea.koeri.boun.edu.tr/worldSealevelinterface/Default.aspx?id=814",
+   "SysStartTime": "2023-04-23 22:34:05.0000000",
+   "SysEndTime": "9999-12-31 23:59:59.9999999",
+   "code": null,
+   "sensorid": 2340,
+   "statday": null,
+   "observations": null,
+   "first": null,
+   "last": null,
+   "updatedata": null,
+   "timestampdata": null,
+   "timestampupdate": null,
+   "sensor": "rad",
+   "rate": 0.5,
+   "samples": 4,
+   "units": "M",
+   "i": null,
+   "offset": 0,
+   "timeorder": 1,
+   "lasttime": "2023-02-16 23:57:00.000",
+   "lastupdate": "2023-02-17 00:00:05.000",
+   "lastvalue": 2.104,
+   "connect": "SF",
+   "lat": 36.594,
+   "lon": 36.177,
+   "countryname": "Turkey"
+  },
+  {
+   "Code": "oste1",
+   "Location": "Oostende Haven ",
+   "country": "BEL",
+   "type": "SW",
+   "DCP_ID": null,
+   "WMO": null,
+   "XMtInt": 5,
+   "Lat": 51.23428611,
+   "Lon": 2.926680556,
+   "Har": null,
+   "GlossID": null,
+   "OT12Code": null,
+   "Example": null,
+   "UTCOffset": 0,
+   "OperatorID": "OHMWS5",
+   "status": 1,
+   "status_description": null,
+   "localoperator": 134,
+   "performanceoperator1": null,
+   "performanceoperator2": null,
+   "performanceoperator3": null,
+   "date_created": "2023-10-05 17:28:33.730",
+   "url": "https://meetnetvlaamsebanken.be/map",
+   "SysStartTime": "2023-04-23 22:34:05.0000000",
+   "SysEndTime": "9999-12-31 23:59:59.9999999",
+   "code": null,
+   "sensorid": 3326,
+   "statday": null,
+   "observations": null,
+   "first": null,
+   "last": null,
+   "updatedata": null,
+   "timestampdata": null,
+   "timestampupdate": null,
+   "sensor": "bub",
+   "rate": 5,
+   "samples": 1,
+   "units": "M",
+   "i": null,
+   "offset": null,
+   "timeorder": 1,
+   "lasttime": "2026-11-25 02:50:00.000",
+   "lastupdate": "2026-11-25 02:59:20.000",
+   "lastvalue": 2.8,
+   "connect": "SW",
+   "lat": 51.234,
+   "lon": 2.927,
+   "countryname": "Belgium"
+  },
+  {
+   "Code": "rote",
+   "Location": "Rote",
+   "country": "IDN",
+   "type": "SL",
+   "DCP_ID": "22E7E6D2",
+   "WMO": "SXXX32",
+   "XMtInt": 15,
+   "Lat": -10.708,
+   "Lon": 123.0597,
+   "Har": 0,
+   "GlossID": null,
+   "OT12Code": "ID-ROTE-11",
+   "Example": "22E7E6D2-ALL           0 at 15",
+   "UTCOffset": 0,
+   "OperatorID": null,
+   "status": 5,
+   "status_description": null,
+   "localoperator": 3,
+   "performanceoperator1": null,
+   "performanceoperator2": null,
+   "performanceoperator3": null,
+   "date_created": "2011-02-16 13:48:31.580",
+   "url": null,
+   "SysStartTime": "2016-02-10 16:40:46.0000000",
+   "SysEndTime": "9999-12-31 23:59:59.9999999",
+   "code": null,
+   "sensorid": 1268,
+   "statday": null,
+   "observations": null,
+   "first": null,
+   "last": null,
+   "updatedata": null,
+   "timestampdata": null,
+   "timestampupdate": null,
+   "sensor": "prs",
+   "rate": 1,
+   "samples": 30,
+   "units": "M",
+   "i": null,
+   "offset": 12,
+   "timeorder": 1,
+   "lasttime": "2015-02-02 02:21:00.000",
+   "lastupdate": "2015-02-02 02:33:02.520",
+   "lastvalue": 0,
+   "connect": "SXXX32",
+   "lat": -10.708,
+   "lon": 123.06,
+   "countryname": "Indonesia"
+  }
+ ],
+ "ioc_rote_details": {
+  "status": 200,
+  "head": ""
+ },
+ "ioc_rote_2021-04-01": {
+  "status": 200,
+  "head": "[]"
+ },
+ "ioc_rote_2022-04-01": {
+  "status": 200,
+  "head": "[]"
+ },
+ "ioc_rote_2024-04-01": {
+  "status": 200,
+  "head": "[]"
+ },
+ "info_nesdisVHNnoaa20chlaDaily": {
+  "status": 200,
+  "head": "Row Type,Variable Name,Attribute Name,Data Type,Value\nattribute,NC_GLOBAL,cdm_data_type,String,Grid\nattribute,NC_GLOBAL,Conventions,String,\"CF-1.6, COARDS, ACDD-1.3\"\nattribute,NC_GLOBAL,creator_email,String,coastwatch.info@noaa.gov\nattribute,NC_GLOBAL,creator_name,String,NOAA/NESDIS/STAR\nattribute,NC_GLOBAL,creator_url,String,https://coastwatch.noaa.gov\nattribute,NC_GLOBAL,date_created,String,2026-11-23T16:24:37Z\nattribute,NC_GLOBAL,Easternmost_Easting,double,180.01874999999998\nattribute,NC_GLOBAL,geospatial_lat_max,double,89.75625000000001\nattribute,NC_GLOBAL,geospatial_lat_min,double,-89.75625000000002\nattribute,NC_GLOBAL,geospatial_lat_resolution,double,0.03750000000000001\nattribute,NC_GLOBAL,geospatial_lat_units,String,degrees_north\nattribute,NC_GLOBAL,geospatial_lon_max,double,180.01874999999998\nattribute,NC_GLOBAL,geospatial_lon_min,double,-180.01875\nattribute,NC_GLOBAL,geospatial_lon_resolution,double,0.037500000000000006\nattribute,NC_GLOBAL,geospatial_lon_units,String,degrees_east\nattribute,NC_GLOBAL,geospatial_vertical_max,double,0.0\nattribute,NC_GLOBAL,geospatial_vertical_min,double,0.0\nattribute,NC_GLOBAL,geospatial_vertical_positive,String,up\nattribute,NC_GLOBAL,geospatial_vertical_units,String,m\nattribute,NC_GLOBAL,identifier_product_doi_authority,String,https://dx.doi.org\nattribute,NC_GLOBAL,infoUrl,String,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/near-real-time/viirs-snpp.html\nattribute,NC_GLOBAL,institution,String,NOAA NESDIS CoastWatch\nattribute,NC_GLOBAL,instrument,String,VIIRS\nattribute,NC_GLOBAL,keywords,String,\"algorithm, altitude, chemistry, chlor_a, chlorophyll, color, concentration, data, default, Earth Science  > Oceans  > Ocean Chemistry  > Chlorophyll, imager, imager/radiometer, imaging, infrared, L3, level, level-3, mass, mass_concentration_of_chlorophyll_a_in_sea_water, n20, national, NOAA-20, ocean, ocean color, oceans, Oceans  > Ocean Optics  > Ocean Color, optics, orbiting, partnership, polar, polar-orbiting, radiometer, sea, seawater, star, suite, suite/N20, time, VIIRS, viirs, viirs-n, visible, water, ww00\"\nattribute,NC_GLOBAL,keywords_vocabulary,String,GCMD Science Keywords\nattribute,NC_GLOBAL,license,String,\"https://science.nasa.gov/earth-science/earth-science-data/data-information-policy/\\nThe data may be used and redistributed for free but is not intended\\nfor legal use, since it may contain inaccuracies. Neither the data\\nContributor, ERD, NOAA, nor the United States Government, nor any\\nof th"
+ },
+ "info_nesdisVHNSQchlaDaily": {
+  "status": 200,
+  "head": "Row Type,Variable Name,Attribute Name,Data Type,Value\nattribute,NC_GLOBAL,cdm_data_type,String,Grid\nattribute,NC_GLOBAL,comment,String,This is science quality data.\nattribute,NC_GLOBAL,Conventions,String,\"CF-1.6, COARDS, ACDD-1.3\"\nattribute,NC_GLOBAL,creator_email,String,coastwatch.info@noaa.gov\nattribute,NC_GLOBAL,creator_name,String,NOAA CoastWatch\nattribute,NC_GLOBAL,creator_type,String,institution\nattribute,NC_GLOBAL,creator_url,String,https://coastwatch.noaa.gov\nattribute,NC_GLOBAL,Easternmost_Easting,double,179.98125\nattribute,NC_GLOBAL,geospatial_lat_max,double,89.75625\nattribute,NC_GLOBAL,geospatial_lat_min,double,-89.75625\nattribute,NC_GLOBAL,geospatial_lat_resolution,double,0.0375\nattribute,NC_GLOBAL,geospatial_lat_units,String,degrees_north\nattribute,NC_GLOBAL,geospatial_lon_max,double,179.98125\nattribute,NC_GLOBAL,geospatial_lon_min,double,-179.98125\nattribute,NC_GLOBAL,geospatial_lon_resolution,double,0.0375\nattribute,NC_GLOBAL,geospatial_lon_units,String,degrees_east\nattribute,NC_GLOBAL,geospatial_vertical_max,double,0.0\nattribute,NC_GLOBAL,geospatial_vertical_min,double,0.0\nattribute,NC_GLOBAL,geospatial_vertical_positive,String,up\nattribute,NC_GLOBAL,geospatial_vertical_units,String,m\nattribute,NC_GLOBAL,grid_mapping_name,String,latitude_longitude\nattribute,NC_GLOBAL,history,String,\"/data/data369/hgu/v224/bin/l3mapgen par=/data/data652/coastwatch/oc/L3/scripts/bin/../config/l3mapgen_par_chlor_a ifile=/data/data652/coastwatch/oc/L3/scripts/bin/../temp/Config_bmw/infile_2km_G.nc ofile=/data/data369/viirs/L3/2026/11/06/V2026310_D1_WW00_chlor_a.nc   Sun Nov 15 19:15:28 2026\\n: /data/data652/coastwatch/oc/L3/scripts/bin/l3cnvtr -r 4 /data/data369/viirs/L3/2026/11/06/V2026310_D1_WW00_chlor_a.nc /data/aftp/socd1/mecb/coastwatch/viirs/science/L3/global/chlora/daily/WW00/V2026310_D1_WW00_chlora.nc\"\nattribute,NC_GLOBAL,id,String,noaacwNPPVIIRSSQchlaDaily\nattribute,NC_GLOBAL,identifier_product_doi,String,https://dx.doi.org\nattribute,NC_GLOBAL,identifier_product_doi_authority,String,https://dx.doi.org\nattribute,NC_GLOBAL,infoUrl,String,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/science-quality/viirs-snpp.html\nattribute,NC_GLOBAL,institution,String,NOAA NESDIS CoastWatch\nattribute,NC_GLOBAL,instrument,String,VIIRS\nattribute,NC_GLOBAL,keywords,String,\"algorithm, altitude, chemistry, chlor_a, chlorophyll, color, concentration, daily, data, default, Earth Science  > Oceans  > Ocean Chemistry  > Chlorophyll, image, imager, imager/rad"
+ },
+ "info_erdMH1chla1day": {
+  "status": 200,
+  "head": "Row Type,Variable Name,Attribute Name,Data Type,Value\nattribute,NC_GLOBAL,_lastModified,String,2022-07-25T06:41:17.000Z\nattribute,NC_GLOBAL,_NCProperties,String,\"version=2,netcdf=4.7.3,hdf5=1.12.0,\"\nattribute,NC_GLOBAL,cdm_data_type,String,Grid\nattribute,NC_GLOBAL,Conventions,String,\"CF-1.6, COARDS, ACDD-1.3\"\nattribute,NC_GLOBAL,creator_email,String,data@oceancolor.gsfc.nasa.gov\nattribute,NC_GLOBAL,creator_name,String,NASA/GSFC/OBPG\nattribute,NC_GLOBAL,creator_type,String,group\nattribute,NC_GLOBAL,creator_url,String,https://oceandata.sci.gsfc.nasa.gov\nattribute,NC_GLOBAL,date_created,String,2022-07-25T06:41:17.000Z\nattribute,NC_GLOBAL,Easternmost_Easting,double,179.9792\nattribute,NC_GLOBAL,geospatial_lat_max,double,89.97916\nattribute,NC_GLOBAL,geospatial_lat_min,double,-89.97917\nattribute,NC_GLOBAL,geospatial_lat_resolution,double,0.04166666589488307\nattribute,NC_GLOBAL,geospatial_lat_units,String,degrees_north\nattribute,NC_GLOBAL,geospatial_lon_max,double,179.9792\nattribute,NC_GLOBAL,geospatial_lon_min,double,-179.9792\nattribute,NC_GLOBAL,geospatial_lon_resolution,double,0.041666674383609215\nattribute,NC_GLOBAL,geospatial_lon_units,String,degrees_east\nattribute,NC_GLOBAL,history,String,\"Files downloaded daily from https://oceandata.sci.gsfc.nasa.gov/MODIS-Aqua/L3SMI to NOAA SWFSC ERD (erd.data@noaa.gov)\\nERDDAP adds the time dimension.\\nDirect read of HDF4 file through CDM library\"\nattribute,NC_GLOBAL,identifier_product_doi,String,10.5067/AQUA/MODIS/L3M/CHL/2018\nattribute,NC_GLOBAL,identifier_product_doi_authority,String,https://dx.doi.org\nattribute,NC_GLOBAL,infoUrl,String,https://coastwatch.pfeg.noaa.gov/infog/MH1_chla_las.html\nattribute,NC_GLOBAL,institution,String,NOAA NMFS SWFSC ERD\nattribute,NC_GLOBAL,instrument,String,MODIS\nattribute,NC_GLOBAL,keywords,String,\"algorithm, biology, center, chemistry, chlor_a, chlorophyll, color, concentration, data, Earth Science > Oceans > Ocean Chemistry > Chlorophyll, Earth Science > Oceans > Ocean Optics > Ocean Color, ecology, flight, goddard, group, gsfc, image, imaging, L3, laboratory, level, level-3, mapped, mass, mass_concentration_chlorophyll_concentration_in_sea_water, moderate, modis, nasa, ocean, ocean color, oceans, oci, optics, processing, resolution, sea, seawater, smi, space, spectroradiometer, standard, time, water\"\nattribute,NC_GLOBAL,keywords_vocabulary,String,GCMD Science Keywords\nattribute,NC_GLOBAL,l2_flag_names,String,\"ATMFAIL,LAND,HILT,HISATZEN,STRAYLIGHT,CLDICE,COCCOLITH,LOWLW,CHLWARN,CHLFAI"
+ },
+ "info_erdMH1chla8day": {
+  "status": 200,
+  "head": "Row Type,Variable Name,Attribute Name,Data Type,Value\nattribute,NC_GLOBAL,_lastModified,String,2022-06-10T00:07:20.000Z\nattribute,NC_GLOBAL,_NCProperties,String,\"version=2,netcdf=4.7.3,hdf5=1.12.0,\"\nattribute,NC_GLOBAL,cdm_data_type,String,Grid\nattribute,NC_GLOBAL,Conventions,String,\"CF-1.6, COARDS, ACDD-1.3\"\nattribute,NC_GLOBAL,creator_email,String,data@oceancolor.gsfc.nasa.gov\nattribute,NC_GLOBAL,creator_name,String,NASA/GSFC/OBPG\nattribute,NC_GLOBAL,creator_type,String,group\nattribute,NC_GLOBAL,creator_url,String,https://oceandata.sci.gsfc.nasa.gov\nattribute,NC_GLOBAL,date_created,String,2022-06-10T00:07:20.000Z\nattribute,NC_GLOBAL,Easternmost_Easting,double,179.9792\nattribute,NC_GLOBAL,geospatial_lat_max,double,89.97916\nattribute,NC_GLOBAL,geospatial_lat_min,double,-89.97917\nattribute,NC_GLOBAL,geospatial_lat_resolution,double,0.04166666589488307\nattribute,NC_GLOBAL,geospatial_lat_units,String,degrees_north\nattribute,NC_GLOBAL,geospatial_lon_max,double,179.9792\nattribute,NC_GLOBAL,geospatial_lon_min,double,-179.9792\nattribute,NC_GLOBAL,geospatial_lon_resolution,double,0.041666674383609215\nattribute,NC_GLOBAL,geospatial_lon_units,String,degrees_east\nattribute,NC_GLOBAL,history,String,\"Files downloaded daily from https://oceandata.sci.gsfc.nasa.gov/MODIS-Aqua/L3SMI to NOAA SWFSC ERD (erd.data@noaa.gov)\\nERDDAP adds the time dimension.\\nDirect read of HDF4 file through CDM library\"\nattribute,NC_GLOBAL,identifier_product_doi,String,10.5067/AQUA/MODIS/L3M/CHL/2018\nattribute,NC_GLOBAL,identifier_product_doi_authority,String,https://dx.doi.org\nattribute,NC_GLOBAL,infoUrl,String,https://coastwatch.pfeg.noaa.gov/infog/MH1_chla_las.html\nattribute,NC_GLOBAL,institution,String,NASA/GSFC OBPG\nattribute,NC_GLOBAL,instrument,String,MODIS\nattribute,NC_GLOBAL,keywords,String,\"algorithm, biology, center, chemistry, chlor_a, chlorophyll, color, concentration, concentration_of_chlorophyll_in_sea_water, data, Earth Science > Oceans > Ocean Chemistry > Chlorophyll, Earth Science > Oceans > Ocean Optics > Ocean Color, flight, goddard, group, gsfc, image, imaging, L3, level, level-3, mapped, moderate, modis, nasa, obpg, ocean, ocean color, oceans, oci, optics, processing, resolution, sea, seawater, smi, space, spectroradiometer, standard, time, water\"\nattribute,NC_GLOBAL,keywords_vocabulary,String,GCMD Science Keywords\nattribute,NC_GLOBAL,l2_flag_names,String,\"ATMFAIL,LAND,HILT,HISATZEN,STRAYLIGHT,CLDICE,COCCOLITH,LOWLW,CHLWARN,CHLFAIL,NAVWARN,MAXAERITER,ATMWARN,HISOLZEN,NAVF"
+ },
+ "info_nesdisVHNchlaGapFilledDaily": {
+  "status": 404,
+  "head": "Error {\n    code=404;\n    message=\"Not Found: Currently unknown datasetID=nesdisVHNchlaGapFilledDaily\";\n}\n"
+ },
+ "info_noaacwNPPN20VIIRSchlaSciDaily": {
+  "status": 404,
+  "head": "Error {\n    code=404;\n    message=\"Not Found: Currently unknown datasetID=noaacwNPPN20VIIRSchlaSciDaily\";\n}\n"
+ },
+ "search_chl_sci": {
+  "status": 200,
+  "head": "griddap,Subset,tabledap,Make A Graph,wms,files,Accessible,Title,Summary,FGDC,ISO 19115,Info,Background Info,RSS,Email,Institution,Dataset ID\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNSQchlaDaily/request,,public,\"Chlorophyll, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012 to 2026-11-02, Daily\",\"Level-3 Standard Mapped Image (SMI), Global, 4km, Chlorophyll, Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). These are science quality data with a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04 and were release by CoastWatch as of 2017-08-07. VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite and is the successor to MODIS. Suomi-NPP is the initial spacecraft in the JPSS (Joint Polar Satellite Systems) series of spacecraft. JPSS is our Nation's next generation polar-orbiting operational environmental satellite system. JPSS is a collaborative program between NOAA and its acquisition agent NASA.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, Default Algorithm, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNSQchlaDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNSQchlaDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNSQchlaDaily/index.csv,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/science-quality/viirs-snpp.html,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNSQchlaDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNSQchlaDaily&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNSQchlaDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily_Lon0360,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily_Lon0360.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNSQchlaDaily_Lon0360/request,,public,\"Chlorophyll, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012 to 2026-11-02, Daily, Lon0360\",\"Level-3 Standard Mapped Image (SMI), Global, 4km, Chlorophyll, Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). These are science quality data with a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04 and were release by CoastWatch as of 2017-08-07. VIIRS is a multi-disciplinary instrument that flies on the Suomi-NPP (National Polar-orbiting Partnership) satellite and is the successor to MODIS. Suomi-NPP is the initial spacecraft in the JPSS (Joint Polar Satellite Systems) series of spacecraft. JPSS is our Nation's next generation polar-orbiting operational environmental satellite system. JPSS is a collaborative program between NOAA and its acquisition agent NASA.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, Default Algorithm, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNSQchlaDaily_Lon0360_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNSQchlaDaily_Lon0360_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNSQchlaDaily_Lon0360/index.csv,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/science-quality/viirs-snpp.html,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNSQchlaDaily_Lon0360.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNSQchlaDaily_Lon0360&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNSQchlaDaily_Lon0360\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20, VIIRS, Science Quality, Global 9km, 2018-recent,  Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP NOAA-20 (VIIRS) Level-3 (WW00), Chlorophyll, DINEOF, Gap filled, MSL12,  Science Quality,Global, Daily, processed by NOAA.  EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily/index.csv,https://coastwatch.noaa.gov/,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20, VIIRS, Science Quality, Global 9km, 2018-recent,  Daily, Lon0360\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP NOAA-20 (VIIRS) Level-3 (WW00), Chlorophyll, DINEOF, Gap filled, MSL12,  Science Quality,Global, Daily, processed by NOAA.  EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360/index.csv,https://coastwatch.noaa.gov/,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/noaacwNPPN20S3ASCIDINEOF2kmDaily/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20 VIIRS and Copernicus S-3A OLCI, Science Quality, Global 2km, 2018-recent, Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP and NOAA-20 (VIIRS) and Sentinel-3A OLCI DINEOF gap filled L4 data. NOAA National Environmental Satellite, Data, and Information Service (NESDIS) STAR data. Sentinel-3A courtesy of Copernicus Program\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/noaacwNPPN20S3ASCIDINEOF2kmDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/noaacwNPPN20S3ASCIDINEOF2kmDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/noaacwNPPN20S3ASCIDINEOF2kmDaily/index.csv,https://"
+ },
+ "search_chl_gap": {
+  "status": 200,
+  "head": "griddap,Subset,tabledap,Make A Graph,wms,files,Accessible,Title,Summary,FGDC,ISO 19115,Info,Background Info,RSS,Email,Institution,Dataset ID\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/noaacwNPPN20S3ASCIDINEOF2kmDaily/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20 VIIRS and Copernicus S-3A OLCI, Science Quality, Global 2km, 2018-recent, Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP and NOAA-20 (VIIRS) and Sentinel-3A OLCI DINEOF gap filled L4 data. NOAA National Environmental Satellite, Data, and Information Service (NESDIS) STAR data. Sentinel-3A courtesy of Copernicus Program\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/noaacwNPPN20S3ASCIDINEOF2kmDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/noaacwNPPN20S3ASCIDINEOF2kmDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/noaacwNPPN20S3ASCIDINEOF2kmDaily/index.csv,https://coastwatch.noaa.gov,https://coastwatch.pfeg.noaa.gov/erddap/rss/noaacwNPPN20S3ASCIDINEOF2kmDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=noaacwNPPN20S3ASCIDINEOF2kmDaily&showErrors=false&email=,NOAA NESDIS STAR,noaacwNPPN20S3ASCIDINEOF2kmDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisNPPN20S3ASCIDINEOFDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisNPPN20S3ASCIDINEOFDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisNPPN20S3ASCIDINEOFDaily/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20 VIIRS and Copernicus S-3A OLCI, Science Quality, Global 9km, 2018-\\nrecent, Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP and NOAA-20 (VIIRS) and Sentinel-3A OLCI DINEOF gap filled L4 data. NOAA National Environmental Satellite, Data, and Information Service (NESDIS) STAR data. Sentinel-3A courtesy of Copernicus Program\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisNPPN20S3ASCIDINEOFDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisNPPN20S3ASCIDINEOFDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisNPPN20S3ASCIDINEOFDaily/index.csv,https://coastwatch.noaa.gov,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisNPPN20S3ASCIDINEOFDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisNPPN20S3ASCIDINEOFDaily&showErrors=false&email=,NOAA NESDIS STAR,nesdisNPPN20S3ASCIDINEOFDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20, VIIRS, Near Real-Time, Global 9km, 2020 to 2026-11-02,  Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP NOAA-20 (VIIRS) Level-3 (WW00), Chlorophyll, DINEOF, Gap filled, MSL12,  Global, Daily, processed by NOAA.  EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily/index.csv,https://coastwatch.noaa.gov/,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNnoaaSNPPnoaa20NRTchlaGapfilledDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20, VIIRS, Science Quality, Global 9km, 2018-recent,  Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP NOAA-20 (VIIRS) Level-3 (WW00), Chlorophyll, DINEOF, Gap filled, MSL12,  Science Quality,Global, Daily, processed by NOAA.  EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily/index.csv,https://coastwatch.noaa.gov/,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360/request,,public,\"Chlorophyll (Gap-filled DINEOF), NOAA S-NPP NOAA-20, VIIRS, Science Quality, Global 9km, 2018-recent,  Daily, Lon0360\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP NOAA-20 (VIIRS) Level-3 (WW00), Chlorophyll, DINEOF, Gap filled, MSL12,  Science Quality,Global, Daily, processed by NOAA.  EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, DINEOF Gap-Filled, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360/index.csv,https://coastwatch.noaa.gov/,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNnoaaSNPPnoaa20chlaGapfilledDaily_Lon0360
+===== 00_probe2.py selesai dalam 14 s =====
 ===== 01_ibtracs.py =====
 SID: <ArrowStringArray>
 ['2021093S11122']
@@ -80,69 +282,29 @@ Length: 1, dtype: str n = 77
 162410  2021-04-11 18:00:00 -30.6  117.4      45.0      60.0     979.0     15.0     15.0         37.0
 162411  2021-04-11 21:00:00 -32.0  118.9      35.0      50.0     986.0      NaN     15.0         41.0
 162412  2021-04-12 00:00:00 -33.6  120.7      25.0      40.0     992.0      NaN     15.0         42.0
-===== 01_ibtracs.py selesai dalam 4 s =====
-===== 03_erddap.py =====
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-01-01T09:00:00Z):1:(2021-01-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-02-01T09:00:00Z):1:(2021-02-28T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-03-01T09:00:00Z):1:(2021-03-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-04-01T09:00:00Z):1:(2021-04-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-05-01T09:00:00Z):1:(2021-05-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-06-01T09:00:00Z):1:(2021-06-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-07-01T09:00:00Z):1:(2021-07-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-08-01T09:00:00Z):1:(2021-08-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-09-01T09:00:00Z):1:(2021-09-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-10-01T09:00:00Z):1:(2021-10-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-11-01T09:00:00Z):1:(2021-11-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-12-01T09:00:00Z):1:(2021-12-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday.nc?sst[(2003-01-16T00:00:00Z):1:(2020-12-16T00:00:00Z)][(-18.0):10:(-7.0)][(112.0):10:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg_LonPM180.nc?sst[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-18.0):1:(-7.0)][(112.0):1:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  HTTP 404 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(1 :: 
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="h-100">
-  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="Sorry, but you&#039;ve gone too deep.. The page you have requested cannot be found. Here are your opt
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-===== 03_erddap.py selesai dalam 626 s =====
+===== 01_ibtracs.py selesai dalam 2 s =====
 ===== 04_argo_tide.py =====
+waik tidak ada data IOC untuk periode ini
+lemba 115023 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0117, 'stime': '2021-04-21 02:28:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:34:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:40:00', 'sensor': 'bat'}]
+beno 144701 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0118, 'stime': '2021-04-16 03:52:00', 'sensor': 'bat'}, {'slevel': 0.0116, 'stime': '2021-04-16 03:58:00', 'sensor': 'bat'}, {'slevel': 0.0118, 'stime': '2021-04-16 04:04:00', 'sensor': 'bat'}]
+brom 132157 ['slevel', 'stime', 'sensor'] [{'slevel': 3.049, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 3.08, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 3.111, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
+darw 132183 ['slevel', 'stime', 'sensor'] [{'slevel': 5.867, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 5.841, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 5.814, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
+===== 04_argo_tide.py selesai dalam 103 s =====
+===== 05_cmems.py =====
+Secret CMEMS belum ada – dilewati.
+===== 05_cmems.py selesai dalam 0 s =====
+===== 02_era5.py =====
+sudah ada data/raw/era5_hourly.nc
+===== 02_era5.py selesai dalam 0 s =====
+===== 10_process.py =====
+/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py:547: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  doy = s21.index.dayofyear.values
 Traceback (most recent call last):
-  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/04_argo_tide.py", line 37, in <module>
-    d = pd.read_csv(fo)
-        ^^^^^^^^^^^^^^^
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 21, in w
+    fn()
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 580, in tide_gauges
+    d = pd.read_csv(f)
+        ^^^^^^^^^^^^^^
   File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
     return _read(filepath_or_buffer, kwds)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -160,35 +322,255 @@ Traceback (most recent call last):
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "pandas/_libs/parsers.pyx", line 735, in pandas._libs.parsers.TextReader.__cinit__
 pandas.errors.EmptyDataError: No columns to parse from file
-!!!!! 04_argo_tide.py GAGAL/timeout
-===== 04_argo_tide.py selesai dalam 6 s =====
-===== 05_cmems.py =====
-Secret CMEMS belum ada – dilewati.
-===== 05_cmems.py selesai dalam 0 s =====
-===== 02_era5.py =====
-<xarray.Dataset> Size: 269MB
-Dimensions:    (time: 2208, latitude: 49, longitude: 69)
-Coordinates:
-  * time       (time) datetime64[ns] 18kB 2021-03-01 ... 2021-05-31T23:00:00
-  * latitude   (latitude) float32 196B -6.5 -6.75 -7.0 ... -18.0 -18.25 -18.5
-  * longitude  (longitude) float32 276B 111.5 111.8 112.0 ... 128.0 128.2 128.5
-Data variables:
-    u10        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    v10        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    msl        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    sst        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    sshf       (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    slhf       (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    ssr        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    str        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-    tp         (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
-Attributes:
-    last_updated:           2026-11-23 08:13:32.129789+00:00
-    valid_time_start:       1940-01-01
-    valid_time_stop:        2026-06-30
-    valid_time_stop_era5t:  2026-11-17
-selesai 2021-03 744
-selesai 2021-04 720
-selesai 2021-05 744
-tersimpan data/raw/era5_hourly.nc 156.034257 MB
-===== 02_era5.py selesai dalam 268 s =====
+--- track_stats
+--- era5
+--- sst
+--- choose_points
+--- argo
+--- argo_pre_post
+--- pre_jump
+--- inertial_and_froude
+--- mixing_entrainment
+--- glorys
+GLORYS belum ada (secret CMEMS)
+--- point_series
+--- heat_budget
+--- recovery_chl
+--- east_monsoon
+--- tide_gauges
+--- sla
+--- scenario_h8
+{
+ "track": {
+  "t_first_in_box": "2021-04-02 12:00:00",
+  "t_last_in_box": "2021-04-07 10:00:00",
+  "vmax_in_box_ms": 30.86664,
+  "pmin_in_box_hpa": 980.0,
+  "rmw_median_km": 46.3,
+  "Uh_median_ms": 2.57222,
+  "Uh_min_ms": 0.51444,
+  "Uh_max_ms": 7.71666,
+  "closest_Kupang_km": 16.899410080985973,
+  "closest_Kupang_time": "2021-04-04 09:00:00",
+  "closest_Rote_km": 12.989024748372536,
+  "closest_Rote_time": "2021-04-03 06:00:00"
+ },
+ "era5_storm": {
+  "U10max_ms": 24.24669075012207,
+  "taumax_Nm2": 1.4575512409210205,
+  "curl_min_Nm3": -4.358002053222685e-05,
+  "wE_max_m_day": 129.65735870042414,
+  "wE_median_core_m_day": 35.2994190783418,
+  "pmin_hpa": 988.4157104492188,
+  "eta_max_m": 70.72187742992625,
+  "eta_max_casebox_m": 68.05503891254949,
+  "eta_max_lonlat": [
+   123.25,
+   -8.0
+  ]
+ },
+ "sst": {
+  "cooling_max_C": -3.367999999999995,
+  "cooling_max_lonlat": [
+   125.16999816894531,
+   -8.15999984741211
+  ],
+  "cooling_max_date": "2021-04-05",
+  "cooling_max_casebox_C": -3.2754285714285736,
+  "cooling_max_casebox_lonlat": [
+   123.55000305175781,
+   -10.770000457763672
+  ],
+  "area_cooling_gt1C_km2": 1149397.2990709422
+ },
+ "coldwake_side": {
+  "mean_left_0_150km_C": -1.588435044213097,
+  "mean_right_0_150km_C": -1.6112379406667958,
+  "x_of_min_km": 37.5,
+  "stronger_side": "kanan"
+ },
+ "argo_pair": {
+  "float": 2902794,
+  "pre": {
+   "id": "2902794_44",
+   "time": "2021-04-02 21:24:00",
+   "lon": 113.138,
+   "lat": -15.664
+  },
+  "post": {
+   "id": "2902794_45",
+   "time": "2021-04-12 21:58:00",
+   "lon": 113.047,
+   "lat": -15.621
+  },
+  "dmin_track_km": 27.067605544179788,
+  "mld_pre": 24.0,
+  "mld_post": 50.0,
+  "sst_pre": 29.844,
+  "sst_post": 29.246,
+  "z20_pre": 141.52695809388518,
+  "z20_post": 134.94117647058823,
+  "c1_mode": 2.5058826034747312,
+  "c1_2layer": 2.1446415040912044,
+  "gprime": 0.03249901815892494,
+  "N2_max": 0.0005297017471694916,
+  "N2_max_depth": 138.0,
+  "dT_jump_C": 2.0665000000000013
+ },
+ "inertial": {
+  "f_10S": -2.5325197527300454e-05,
+  "T_inertial_h": 68.91670835391795
+ },
+ "froude": {
+  "c1_ms": 2.5058826034747312,
+  "Uh_ms": 2.57222,
+  "ratio": 1.0264726673281834,
+  "R1_km": 98.94819579485612,
+  "wake_wavelength_km": 638.1681680236135
+ },
+ "entrainment": {
+  "tau_peak_Nm2": 0.6570141911506653,
+  "t_peak": "2021-04-08 00:00:00",
+  "impulse_Nsm2": 21595.482421875,
+  "window_h": 22.1619621952449,
+  "h0_m": 24.0,
+  "h_after_m": 42.0,
+  "dSST_entrain_C": -0.5319488123558287,
+  "U_ml_ms": 0.5016372223432056,
+  "eta_local_m": 4.168960144845167,
+  "h_after_with_upwelling_m": 42.0,
+  "dSST_entrain_upw_C": -0.698022414851259
+ },
+ "heat_budget": {
+  "W1": {
+   "h_m": 24.0,
+   "dT_jump_C": 2.0665000000000013,
+   "dT_obs": -0.07099999999999795,
+   "flux": -0.28627980307616296,
+   "rain": -0.034157369285821915,
+   "upwelling": -3.1521019943864412,
+   "entrain_resid": 3.401539165105199
+  },
+  "T0": {
+   "h_m": 24.0,
+   "dT_jump_C": 2.0665000000000013,
+   "dT_obs": -1.061,
+   "flux": -0.27173658812043855,
+   "rain": -0.04847239330410957,
+   "upwelling": -5.332876559158499,
+   "entrain_resid": 4.5920855368290185
+  },
+  "L100": {
+   "h_m": 24.0,
+   "dT_jump_C": 2.0665000000000013,
+   "dT_obs": -0.18499999999999872,
+   "flux": -0.4703793738186959,
+   "rain": -0.039341166615486145,
+   "upwelling": -2.37054589324656,
+   "entrain_resid": 2.695266433091491
+  },
+  "R100": {
+   "h_m": 24.0,
+   "dT_jump_C": 2.0665000000000013,
+   "dT_obs": -1.1950000000000003,
+   "flux": -0.530003953238004,
+   "rain": -0.05744383856654167,
+   "upwelling": -1.2134730495511699,
+   "entrain_resid": 0.6059208431874377
+  },
+  "KPG": {
+   "h_m": 24.0,
+   "dT_jump_C": 2.0665000000000013,
+   "dT_obs": -1.3440000000000012,
+   "flux": -0.013558654358425034,
+   "rain": -0.042808931320905685,
+   "upwelling": -1.600784682472884,
+   "entrain_resid": 0.3131522732008186
+  },
+  "ROTE": {
+   "h_m": 24.0,
+   "dT_jump_C": 2.0665000000000013,
+   "dT_obs": -0.3329999999999984,
+   "flux": -0.21970930786804396,
+   "rain": -0.03322693333029747,
+   "upwelling": -4.848621735013727,
+   "entrain_resid": 4.768557977850298
+  }
+ },
+ "recovery": {
+  "W1": {
+   "pre": 30.321428571428573,
+   "dmin": -3.2754285714285736,
+   "tmin": "2021-04-06",
+   "efold_days": 1.8623482906190936,
+   "offset_C": -1.109197376753574,
+   "t90_days": 12
+  },
+  "T0": {
+   "pre": 30.110857142857146,
+   "dmin": -2.5678571428571466,
+   "tmin": "2021-04-07",
+   "efold_days": 2.489184877735864,
+   "offset_C": -1.2911171409794806,
+   "t90_days": null
+  },
+  "L100": {
+   "pre": 29.76114285714286,
+   "dmin": -1.7641428571428612,
+   "tmin": "2021-04-04",
+   "efold_days": 4.2342095958562815,
+   "offset_C": -0.36103804743066326,
+   "t90_days": 11
+  },
+  "ROTE": {
+   "pre": 30.029857142857143,
+   "dmin": -2.4498571428571445,
+   "tmin": "2021-04-07",
+   "efold_days": 208975.95137430093,
+   "offset_C": -3494.749237648648,
+   "t90_days": null
+  },
+  "KPG": {
+   "pre": 30.234142857142853,
+   "dmin": -2.306142857142852,
+   "tmin": "2021-04-06",
+   "efold_days": 239577.9933493281,
+   "offset_C": 3660.7391232796936,
+   "t90_days": null
+  }
+ },
+ "east_monsoon": {
+  "clim_box_cooling_C": -3.2573108673095703,
+  "clim_box_months_below_halfdeg": 6,
+  "box_2021_min_anom_Apr": -1.2284218775841964,
+  "W1_seroja_cooling_C": -3.2754285714285736,
+  "W1_eastmonsoon_min_minus_pre_C": -3.4214285714285744,
+  "W1_days_below_pre_minus1C_JulSep": 92
+ },
+ "h8": {
+  "profile": "2902794_56",
+  "time": "2021-08-01 06:15:00",
+  "lonlat": [
+   112.438,
+   -15.309
+  ],
+  "dist_from_april_profile_km": 84.76294032688996,
+  "sst_jul": 27.08,
+  "mld_jul": 46.0,
+  "z20_jul": 157.2449255751015,
+  "sst_apr": 29.844,
+  "mld_apr": 24.0,
+  "z20_apr": 141.52695809388518,
+  "h_after_jul": 48.0,
+  "dSST_jul": -0.029723545118489625,
+  "T_after_jul": 27.05027645488151,
+  "h_after_apr": 42.0,
+  "dSST_apr": -0.6980494574141254,
+  "T_after_apr": 29.145950542585876,
+  "c1_jul": 2.613250358004861,
+  "impulse_Nsm2": 21595.482421875,
+  "eta_m": 4.168960144845167
+ }
+}
+NOTES {'tide_gauges': 'GAGAL: dtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 3006, in _make_engine\n    return mapping[engine](f, **self.options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 107, in __init__\n    self._reader = parsers.TextReader(src, **kwds)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "pandas/_libs/parsers.pyx", line 735, in pandas._libs.parsers.TextReader.__cinit__\npandas.errors.EmptyDataError: No columns to parse from file\n'}
+===== 10_process.py selesai dalam 6 s =====
