@@ -13,7 +13,7 @@
   "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41",
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS, stride 3 (\u22480,03\u00b0)",
   "period": "2021-01-01 \u2013 2021-12-31, harian",
-  "download_utc": "2026-11-25 02:48"
+  "download_utc": "2026-11-25 03:08"
  },
  "MUR_mday": {
   "id": "jplMURSST41mday (MUR bulanan)",
@@ -21,7 +21,7 @@
   "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday",
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS, stride 10 (\u22480,1\u00b0)",
   "period": "2003\u20132020 bulanan (klimatologi)",
-  "download_utc": "2026-11-25 02:51"
+  "download_utc": "2026-11-25 03:08"
  },
  "OISST": {
   "id": "ncdcOisst21Agg_LonPM180 (NOAA OISST v2.1 AVHRR)",
@@ -29,7 +29,7 @@
   "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg_LonPM180",
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS (0,25\u00b0)",
   "period": "2021-03-01 \u2013 2021-05-31, harian",
-  "download_utc": "2026-11-25 02:51"
+  "download_utc": "2026-11-25 03:08"
  },
  "Argo": {
   "id": "ArgoFloats (Argo GDAC via Ifremer ERDDAP)",
@@ -66,5 +66,23 @@
   "period": "2021-03-01 \u2013 2021-05-31",
   "note": "Kupang tidak tersedia di IOC; dipakai Rote (\u00b180 km barat daya Kupang) sebagai stasiun terdekat",
   "download_utc": "2026-11-25 03:04"
+ },
+ "CHL_nesdisVHNSQchlaDaily": {
+  "id": "nesdisVHNSQchlaDaily (VIIRS SNPP L3 chlor_a OC3, science quality (NOAA STAR))",
+  "version": "VIIRS SNPP L3 chlor_a OC3, science quality (NOAA STAR)",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily",
+  "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS",
+  "period": "2021-03-01 \u2013 2021-05-31, harian",
+  "files": 3,
+  "download_utc": "2026-11-25 03:09"
+ },
+ "CHL_erdMH1chla1day": {
+  "id": "erdMH1chla1day (MODIS Aqua L3 chlorophyll OCI R2022 (NASA OBPG))",
+  "version": "MODIS Aqua L3 chlorophyll OCI R2022 (NASA OBPG)",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla1day",
+  "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS",
+  "period": "2021-03-01 \u2013 2021-05-31, harian",
+  "files": 3,
+  "download_utc": "2026-11-25 03:09"
  }
 }
