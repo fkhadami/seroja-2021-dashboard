@@ -124,11 +124,15 @@ def era5():
     # perpindahan termoklin kumulatif η = ∫ w_E dt (2021-04-01..04-12)
     ww = ERA.wE.sel(time=slice("2021-04-01", "2021-04-12"))
     eta = (ww * 3600).sum("time", min_count=1)
-    eta = eta.where(ERA.sst.isel(time=0).notnull())
+    oc = ERA.sst.isel(time=0).notnull()
+    inner = oc.rolling(latitude=3, longitude=3, center=True).min() > 0      # jauh ≥ 1 sel dari darat
+    eta = eta.where(inner)
     ERA["eta"] = eta
     calc["era5_storm"]["eta_max_m"] = float(eta.max())
     box = eta.sel(longitude=slice(CASE_BOX[0], CASE_BOX[1]), latitude=slice(CASE_BOX[2], CASE_BOX[3]))
     calc["era5_storm"]["eta_max_casebox_m"] = float(box.max())
+    jb, ib_ = np.unravel_index(int(np.nanargmax(box.values)), box.shape)
+    calc["era5_storm"]["eta_max_casebox_lonlat"] = [float(box.longitude[ib_]), float(box.latitude[jb])]
     iy, ix = np.unravel_index(int(np.nanargmax(eta.values)), eta.shape)
     calc["era5_storm"]["eta_max_lonlat"] = [float(eta.longitude[ix]), float(eta.latitude[iy])]
 
@@ -692,7 +696,9 @@ def tide_gauges():
         d["t"] = pd.to_datetime(d[tcol].astype(str).str.strip())
         # pilih sensor dengan data terbanyak
         if "sensor" in d:
-            sen = d.sensor.value_counts().index[0]; d = d[d.sensor == sen]
+            d = d[~d.sensor.isin(["bat", "bat2"])]
+            pref = [x for x in ["rad", "prs", "pr1", "pr2", "enc", "flt", "aqu", "uhslc"] if x in set(d.sensor)]
+            sen = pref[0] if pref else d.sensor.value_counts().index[0]; d = d[d.sensor == sen]
         else:
             sen = None
         s = d.set_index("t")[vcol].astype(float).sort_index()
@@ -752,6 +758,8 @@ def tide_gauges():
             yy = dfr.y - dfr.y.mean(); xx = dfr.ib - dfr.ib.mean(); lags = np.arange(-72, 73, 3)
             o["lagcorr"] = dict(lag_h=lags, r=[float(np.corrcoef(yy.values[max(0, l):len(yy) + min(0, l)], xx.values[max(0, -l):len(xx) - max(0, l)])[0, 1]) for l in lags])
             st = dfr.loc["2021-04-02":"2021-04-08"]
+            if len(st) < 24:
+                out[code] = o; continue
             ii = st.y.idxmax()
             o["regression"] = dict(a_ib=beta[0], b_taux=beta[1], c_tauy=beta[2], r2=float(1 - np.var(dfr.y - fit) / np.var(dfr.y)))
             o["storm"] = dict(t_max_resid=str(ii), resid_lp_max_cm=float(st.y.max() * 100), resid_raw_max_cm=float(r.loc["2021-04-02":"2021-04-08"].max() * 100),
@@ -773,6 +781,25 @@ def tide_gauges():
 
 
 # ------------------------------------------------------------ SLA
+@block
+def kupang_estimate():
+    """Kupang tidak punya data pasut terbuka: perkiraan IB dan setup angin Teluk Kupang dari ERA5.
+       Sumbu teluk diasumsikan mengarah ke 60° (BD→TL); L = 25 km, h = 30 m (asumsi orde besaran)."""
+    if ERA is None: return
+    e = ERA.sel(longitude=123.5, latitude=-10.25, method="nearest")
+    pm = e.msl.to_series(); pre = pm.loc["2021-03-25":"2021-03-31"].mean()
+    st = pm.loc["2021-04-02":"2021-04-07"]; tmin = st.idxmin()
+    ib = (pre - st.min()) * 100 / (rho0 * g) * 100
+    ang = math.radians(60.0)
+    tin = (e.taux * math.sin(ang) + e.tauy * math.cos(ang)).to_series().loc["2021-04-02":"2021-04-07"]
+    L, h = 25e3, 30.0
+    setup = tin.max() * L / (rho0 * g * h) * 100
+    U = np.hypot(e.u10, e.v10).to_series().loc["2021-04-02":"2021-04-07"]
+    calc["kupang"] = dict(msl_pre_hpa=float(pre), msl_min_hpa=float(st.min()), t_msl_min=str(tmin), dp_hpa=float(pre - st.min()),
+                          ib_cm=float(ib), tau_into_bay_max_Nm2=float(tin.max()), t_tau_max=str(tin.idxmax()), setup_cm=float(setup),
+                          U10_max_ms=float(U.max()), L_km=25, h_m=30, bay_axis_deg=60)
+
+
 @block
 def sla():
     if not have("sla_2021.nc"):
@@ -825,7 +852,7 @@ def scenario_h8():
 
 
 for b in [track_stats, era5, sst, choose_points, argo, argo_pre_post, pre_jump, glorys, inertial_and_froude, mixing_entrainment,
-          point_series, heat_budget, recovery, chlorophyll, east_monsoon, tide_gauges, sla, scenario_h8]:
+          point_series, heat_budget, recovery, chlorophyll, east_monsoon, tide_gauges, kupang_estimate, sla, scenario_h8]:
     b()
 
 dump("calc.json", dict(calc=calc, notes=notes))
