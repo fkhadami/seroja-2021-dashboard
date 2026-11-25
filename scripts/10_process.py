@@ -681,9 +681,10 @@ def east_monsoon():
 def tide_gauges():
     import utide
     out = {}
-    for code in ["rote", "waik", "lemba", "beno", "brom", "darw"]:
-        f = P(f"ioc_{code}_2021MAM.csv")
-        if not os.path.exists(f):
+    meta = json.load(open("data/raw_small/tide_stations.json")) if os.path.exists("data/raw_small/tide_stations.json") else {}
+    for code, mt in meta.items():
+        f = P(mt["file"])
+        if not os.path.exists(f) or os.path.getsize(f) < 100:
             continue
         d = pd.read_csv(f)
         tcol = "stime" if "stime" in d else d.columns[d.columns.str.contains("time")][0]
@@ -706,7 +707,7 @@ def tide_gauges():
             print(code, "data terlalu sedikit", frac); continue
         h = h - h.mean()
         tt = h.dropna()
-        lat = {"rote": -10.708, "waik": -9.39, "lemba": -8.73, "beno": -8.77, "brom": -18.0, "darw": -12.47}[code]
+        lat = mt["lat"]
         coef = utide.solve(tt.index.to_pydatetime(), tt.values, lat=lat, method="ols", conf_int="none", verbose=False,
                            constit=["M2", "S2", "N2", "K2", "K1", "O1", "P1", "Q1", "MSF", "MF", "M4", "MS4", "MM"])
         pred = utide.reconstruct(h.index.to_pydatetime(), coef, verbose=False).h
@@ -731,7 +732,7 @@ def tide_gauges():
         o["spec"] = dict(cpd=fq[1:], raw=Sr[1:], resid=Sx[1:])
         # inverse barometer & angin dari ERA5 terdekat
         if ERA is not None:
-            lon_ = {"rote": 123.06, "waik": 119.22, "lemba": 116.07, "beno": 115.22, "brom": 122.22, "darw": 130.85}[code]
+            lon_ = mt["lon"]
             e = ERA.sel(longitude=lon_, latitude=lat, method="nearest")
             pm = e.msl.to_series()
             ib = -(pm - pm.mean()) * 100 / (rho0 * g)          # m
@@ -756,13 +757,19 @@ def tide_gauges():
             o["storm"] = dict(t_max_resid=str(ii), resid_lp_max_cm=float(st.y.max() * 100), resid_raw_max_cm=float(r.loc["2021-04-02":"2021-04-08"].max() * 100),
                               ib_at_max_cm=float(dfr.ib.loc[ii] * 100), wind_at_max_cm=float(ws.loc[ii] * 100),
                               msl_min_hpa=float(pm.loc["2021-04-02":"2021-04-08"].min()))
+        o.update(name=mt["name"], lon=mt["lon"], lat=mt["lat"], source=mt["source"])
+        o["dist_track_km"] = float(np.nanmin(dist_km(trh.lon.values, trh.lat.values, mt["lon"], mt["lat"])))
         out[code] = o
         print(code, o.get("storm"), o.get("regression"))
     dump("tide.json", out)
-    if "rote" in out:
-        calc["rote_sealevel"] = dict(**out["rote"].get("storm", {}), **out["rote"].get("regression", {}),
-                                     M2_cm=next((h["A_cm"] for h in out["rote"]["harmonics"] if h["name"] == "M2"), None),
-                                     K1_cm=next((h["A_cm"] for h in out["rote"]["harmonics"] if h["name"] == "K1"), None))
+    if out:
+        key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan
+        o = out[key]
+        calc["rote_sealevel"] = dict(station=key, name=o["name"], source=o["source"], dist_track_km=o["dist_track_km"],
+                                     **o.get("storm", {}), **o.get("regression", {}),
+                                     M2_cm=next((h["A_cm"] for h in o["harmonics"] if h["name"] == "M2"), None),
+                                     K1_cm=next((h["A_cm"] for h in o["harmonics"] if h["name"] == "K1"), None))
+        calc["tide_stations"] = {c: dict(name=v["name"], dist_track_km=v["dist_track_km"], source=v["source"], **v.get("storm", {})) for c, v in out.items()}
 
 
 # ------------------------------------------------------------ SLA

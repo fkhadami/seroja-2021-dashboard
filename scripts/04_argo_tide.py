@@ -22,11 +22,14 @@ if not os.path.exists(fj):
     get(q, fj, timeout=900)
 
 # ---- IOC Sea Level Monitoring
-STATIONS = {"rote": "Rote", "waik": "Waikelo (Sumba)", "lemba": "Lembar (Lombok)", "beno": "Benoa (Bali)",
-            "brom": "Broome", "darw": "Darwin"}
+STATIONS = {"rote": ("Rote", 123.0597, -10.708), "waik": ("Waikelo (Sumba)", 119.2188, -9.3898), "lemba": ("Lembar (Lombok)", 116.0723, -8.7309),
+            "beno": ("Benoa (Bali)", 115.2166, -8.7666), "saum": ("Saumlaki", 131.2906, -7.9827), "brom": ("Broome", 122.2186, -18.0008),
+            "darw": ("Darwin", 130.8458, -12.4719)}
 IOC = "https://www.ioc-sealevelmonitoring.org/service.php"
 meta = {}
-for code, name in STATIONS.items():
+TS = "data/raw_small/tide_stations.json"
+tmeta = json.load(open(TS)) if os.path.exists(TS) else {}
+for code, (name, lon, lat) in STATIONS.items():
     fo = os.path.join(RAW, f"ioc_{code}_2021MAM.csv")
     if not os.path.exists(fo):
         frames = []
@@ -47,6 +50,8 @@ for code, name in STATIONS.items():
         d = pd.read_csv(fo)
         print(code, len(d), d.columns.tolist(), d.head(3).to_dict("records"))
         meta[code] = name
+        tmeta[code] = dict(name=name, lon=lon, lat=lat, file=os.path.basename(fo), source="IOC SLMF")
+json.dump(tmeta, open(TS, "w"), indent=1)
 log_dataset("IOC_SLM", id="IOC Sea Level Station Monitoring Facility (VLIZ/IOC-UNESCO), data mentah tanpa QC",
             version="real-time raw", url=IOC, domain="stasiun: " + ", ".join(f"{k}={v}" for k, v in meta.items()),
             period="2021-03-01 – 2021-05-31", note="Kupang tidak tersedia di IOC; dipakai Rote (±80 km barat daya Kupang) sebagai stasiun terdekat")
