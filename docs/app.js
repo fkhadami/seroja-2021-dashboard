@@ -15,6 +15,7 @@ function pick(obj, path) { return path.split(".").reduce((o, k) => (o == null ? 
 function fmt(v, d = 1) {
   if (v === null || v === undefined || (typeof v === "number" && !isFinite(v))) return "–";
   if (typeof v !== "number") return String(v);
+  if (Number.isInteger(v) && Math.abs(v) >= 100000) return String(v);   // ID float, dll.
   return v.toLocaleString("id-ID", {minimumFractionDigits: d, maximumFractionDigits: d});
 }
 /* templat: {calc.sst.cooling_max_C:1} | {abs:calc.x:1} | {neg:..} */
@@ -317,6 +318,7 @@ async function initPred() {
     const diff = (typeof p === "number" && typeof d === "number") ? d - p : null;
     tb.innerHTML += `<tr><td>${lab}</td><td class="n">${fmt(p, dg)}</td><td class="n">${fmt(d, dg)}</td><td class="n">${diff == null ? "–" : (diff > 0 ? "+" : "") + fmt(diff, dg)}</td><td>${u}</td><td class="small">${N.pred?.[key] ? tpl(N.pred[key], {c: C, p: P, a: A}) : ""}</td></tr>`;
   }
+  if (N.fail) $("#prediksi").insertAdjacentHTML("beforeend", `<h3>Di mana teori sederhana gagal (B4d)</h3><div class="prose">${tpl(N.fail, {c: C, p: P})}</div>`);
   tb.innerHTML += `<tr><td>Sisi cold wake terkuat</td><td>kiri</td><td>${C.coldwake_side?.stronger_side ?? "–"}</td><td></td><td></td><td class="small">${N.pred?.side ? tpl(N.pred.side, {c: C}) : ""}</td></tr>`;
 }
 
