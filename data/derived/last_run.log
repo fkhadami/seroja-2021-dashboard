@@ -1,169 +1,68 @@
-===== 00_probe3.py =====
-{
- "ioc_waik": {
-  "status": 200,
-  "head": "[]"
+===== 00_probe4.py =====
+[
+ {
+  "id": "125",
+  "name": "b'Prigi'",
+  "lat": -8.286499977111816,
+  "lon": 111.72722625732422,
+  "t0": "2007-02-25",
+  "t1": "2026-09-30"
  },
- "ioc_lemba": {
-  "status": 200,
-  "head": "[]"
+ {
+  "id": "163",
+  "name": "b'Benoa'",
+  "lat": -8.746430397033691,
+  "lon": 115.20986938476562,
+  "t0": "2006-01-24",
+  "t1": "2026-09-30"
  },
- "ioc_beno": {
-  "status": 200,
-  "head": "[]"
+ {
+  "id": "166",
+  "name": "b'Broome'",
+  "lat": -18.001699447631836,
+  "lon": 122.21829986572266,
+  "t0": "1986-07-12",
+  "t1": "2026-09-30"
  },
- "ioc_brom": {
-  "status": 200,
-  "head": "[{\"slevel\":2.282,\"stime\":\"2021-04-03 00:00:00\",\"sensor\":\"aqu\"},{\"slevel\":2.2839999999999998,\"stime\":\"2021-04-03 00:01:00\",\"sensor\":\"aqu\"},{\"slevel\":2.286,\"stime\":\"2021-04-03 00:02:00\",\"sensor\":\"aqu\"},{\"slevel\":2.2890000000000001,\"stime\":\"2021-04-03 00:03:00\",\"sensor\":\"aqu\"},{\"slevel\":2.2919999999999998,\"stime\":\"2021-04-03 00:04:00\",\"sensor\":\"aqu\"},{\"slevel\":2.2959999999999998,\"stime\":\"2021-04-03 0"
+ {
+  "id": "168",
+  "name": "b'Darwin'",
+  "lat": -12.471699714660645,
+  "lon": 130.84669494628906,
+  "t0": "1984-01-01",
+  "t1": "2026-09-30"
  },
- "ioc_darw": {
-  "status": 200,
-  "head": "[{\"slevel\":6.7519999999999998,\"stime\":\"2021-04-03 00:00:00\",\"sensor\":\"aqu\"},{\"slevel\":6.7590000000000003,\"stime\":\"2021-04-03 00:01:00\",\"sensor\":\"aqu\"},{\"slevel\":6.7649999999999997,\"stime\":\"2021-04-03 00:02:00\",\"sensor\":\"aqu\"},{\"slevel\":6.7709999999999999,\"stime\":\"2021-04-03 00:03:00\",\"sensor\":\"aqu\"},{\"slevel\":6.7759999999999998,\"stime\":\"2021-04-03 00:04:00\",\"sensor\":\"aqu\"},{\"slevel\":6.780999999999"
+ {
+  "id": "417",
+  "name": "b'Sadeng'",
+  "lat": -8.190194129943848,
+  "lon": 110.79798126220703,
+  "t0": "2008-07-18",
+  "t1": "2016-04-13"
  },
- "ioc_saum": {
-  "status": 200,
-  "head": "[{\"slevel\":0.0123,\"stime\":\"2021-04-03 00:02:00\",\"sensor\":\"bat\"},{\"slevel\":0.0124,\"stime\":\"2021-04-03 00:08:00\",\"sensor\":\"bat\"},{\"slevel\":0.0123,\"stime\":\"2021-04-03 00:14:00\",\"sensor\":\"bat\"},{\"slevel\":0.0123,\"stime\":\"2021-04-03 00:20:00\",\"sensor\":\"bat\"},{\"slevel\":0.0124,\"stime\":\"2021-04-03 00:26:00\",\"sensor\":\"bat\"},{\"slevel\":0.0124,\"stime\":\"2021-04-03 00:32:00\",\"sensor\":\"bat\"},{\"slevel\":0.0124,\"sti"
+ {
+  "id": "418",
+  "name": "b'Waikelo'",
+  "lat": -9.399999618530273,
+  "lon": 119.23300170898438,
+  "t0": "2008-04-11",
+  "t1": "2019-11-10"
  },
- "ioc_dbal": {
-  "status": 200,
-  "head": "[]"
+ {
+  "id": "419",
+  "name": "b'Lembar'",
+  "lat": -8.730890274047852,
+  "lon": 116.07225799560547,
+  "t0": "2008-09-22",
+  "t1": "2026-09-30"
  },
- "ioc_djve": {
-  "status": 200,
-  "head": "[{\"slevel\":5657.5209999999997,\"stime\":\"2021-04-03 00:00:00\",\"sensor\":\"prt\"},{\"slevel\":5657.5900000000001,\"stime\":\"2021-04-03 00:15:00\",\"sensor\":\"prt\"},{\"slevel\":5657.6750000000002,\"stime\":\"2021-04-03 00:30:00\",\"sensor\":\"prt\"},{\"slevel\":5657.7749999999996,\"stime\":\"2021-04-03 00:45:00\",\"sensor\":\"prt\"},{\"slevel\":5657.8900000000003,\"stime\":\"2021-04-03 01:00:00\",\"sensor\":\"prt\"},{\"slevel\":5658.015999999"
- },
- "uhslc_http": {
-  "status": 200,
-  "head": "<html>\r\n<head><title>Index of /data/csv/fast/hourly/</title></head>\r\n<body>\r\n<h1>Index of /data/csv/fast/hourly/</h1><hr><pre><a href=\"../\">../</a>\r\n<a href=\"h001.csv\">h001.csv</a>                                           31-Oct-2026 06:31             3703523\r\n<a href=\"h002.csv\">h002.csv</a>                                           31-Oct-2026 07:22             5195923\r\n<a href=\"h003.csv\">h003.csv</a>                                           31-Oct-2026 06:39             6435837\r\n<a href=\"h004.csv\">h004.csv</a>                                           31-Oct-2026 09:39             5103507\r\n<a href=\"h005.csv\">h005.csv</a>                                           31-Oct-2026 06:17             5028880\r\n<a href=\"h007.csv\">h007.csv</a>                                           09-Nov-2026 20:26             8786894\r\n<a href=\"h008.csv\">h008.csv</a>                                           05-Nov-2026 00:39             8875569\r\n<a href=\"h009.csv\">h009.csv</a>                                           31-Oct-2026 06:33             4716591\r\n<a href=\"h010.csv\">h010.csv</a>                                           04-Nov-2026 06:16             5552907\r\n<a href=\"h011.csv\">h011.csv</a>                                           05-Nov-2026 00:38             7792447\r\n<a href=\"h013.csv\">h013.csv</a>                                           05-Nov-2026 00:37             8373045\r\n<a href=\"h014.csv\">h014.csv</a>                                           18-Nov-2026 21:51             1101216\r\n<a href=\"h015.csv\">h015.csv</a>                                           05-Nov-2026 00:39             7897246\r\n<a href=\"h016.csv\">h016.csv</a>                                           31-Oct-2026 08:05             8518292\r\n<a href=\"h017.csv\">h017.csv</a>                                           05-Nov-2026 00:41             2352497\r\n<a href=\"h018.csv\">h018.csv</a>                                           31-Oct-2026 06:59             4318864\r\n<a href=\"h019.csv\">h019.csv</a>                                           31-Oct-2026 06:24             8947904\r\n<a href=\"h021.csv\">h021.csv</a>                                           31-Oct-2026 06:27             6156198\r\n<a href=\"h022.csv\">h022.csv</a>                                           31-Oct-2026 07:31             8816342\r\n<a href=\"h023.csv\">h023.csv</a>                                           31-Oct-2026 07:10             4895842\r\n<a href=\"h024.csv\">h024.csv</a>                                           05-Nov-2026 00:39             7619456\r\n<a href=\"h025.csv\">h025.csv</a>                                           31-Oct-2026 10:23             5175608\r\n<a href=\"h028.csv\">h028.csv</a>                                           09-Nov-2026 20:27             7400410\r\n<a href=\"h029.csv\">h029.csv</a>                                           11-Nov-2026 17:42             7360993\r\n<a href=\"h030.csv\">h030.csv</a>                                           31-Oct-2026 07:11             7322627\r\n<a href=\"h031.csv\">h031.cs"
- },
- "uhslc_https_fast": {
-  "status": 200,
-  "head": "<html>\r\n<head><title>Index of /data/csv/fast/hourly/</title></head>\r\n<body>\r\n<h1>Index of /data/csv/fast/hourly/</h1><hr><pre><a href=\"../\">../</a>\r\n<a href=\"h001.csv\">h001.csv</a>                                           31-Oct-2026 06:31             3703523\r\n<a href=\"h002.csv\">h002.csv</a>                                           31-Oct-2026 07:22             5195923\r\n<a href=\"h003.csv\">h003.csv</a>                                           31-Oct-2026 06:39             6435837\r\n<a href=\"h004.csv\">h004.csv</a>                                           31-Oct-2026 09:39             5103507\r\n<a href=\"h005.csv\">h005.csv</a>                                           31-Oct-2026 06:17             5028880\r\n<a href=\"h007.csv\">h007.csv</a>                                           09-Nov-2026 20:26             8786894\r\n<a href=\"h008.csv\">h008.csv</a>                                           05-Nov-2026 00:39             8875569\r\n<a href=\"h009.csv\">h009.csv</a>                                           31-Oct-2026 06:33             4716591\r\n<a href=\"h010.csv\">h010.csv</a>                                           04-Nov-2026 06:16             5552907\r\n<a href=\"h011.csv\">h011.csv</a>                                           05-Nov-2026 00:38             7792447\r\n<a href=\"h013.csv\">h013.csv</a>                                           05-Nov-2026 00:37             8373045\r\n<a href=\"h014.csv\">h014.csv</a>                                           18-Nov-2026 21:51             1101216\r\n<a href=\"h015.csv\">h015.csv</a>                                           05-Nov-2026 00:39             7897246\r\n<a href=\"h016.csv\">h016.csv</a>                                           31-Oct-2026 08:05             8518292\r\n<a href=\"h017.csv\">h017.csv</a>                                           05-Nov-2026 00:41             2352497\r\n<a href=\"h018.csv\">h018.csv</a>                                           31-Oct-2026 06:59             4318864\r\n<a href=\"h019.csv\">h019.csv</a>                                           31-Oct-2026 06:24             8947904\r\n<a href=\"h021.csv\">h021.csv</a>                                           31-Oct-2026 06:27             6156198\r\n<a href=\"h022.csv\">h022.csv</a>                                           31-Oct-2026 07:31             8816342\r\n<a href=\"h023.csv\">h023.csv</a>                                           31-Oct-2026 07:10             4895842\r\n<a href=\"h024.csv\">h024.csv</a>                                           05-Nov-2026 00:39             7619456\r\n<a href=\"h025.csv\">h025.csv</a>                                           31-Oct-2026 10:23             5175608\r\n<a href=\"h028.csv\">h028.csv</a>                                           09-Nov-2026 20:27             7400410\r\n<a href=\"h029.csv\">h029.csv</a>                                           11-Nov-2026 17:42             7360993\r\n<a href=\"h030.csv\">h030.csv</a>                                           31-Oct-2026 07:11             7322627\r\n<a href=\"h031.csv\">h031.cs"
- },
- "pacioos_search": {
-  "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='pae-paha.pacioos.hawaii.edu', port=443): Max retries exceeded with url: /erddap/search/index.csv?page=1&itemsPerPage=50&searchFor=sea%20level%20hourly (Caused by ConnectTimeoutError(<HTTPSConnection(host='pae-paha.pacioos.hawaii.edu', port=443)"
- },
- "big_ina": {
-  "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'ina-sealevelmonitoring.big.go.id\\', port=443): Max retries exceeded with url: /ipasut/ (Caused by NameResolutionError(\"HTTPSConnection(host=\\'ina-sealevelmonitoring.big.go.id\\', port=443): Failed to resolve \\'ina-sealevelmonitoring.big.go.id\\"
- },
- "big_srgi": {
-  "status": 200,
-  "head": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>Sistem Referensi Geospasial Indonesia</title>\n    <meta charset=\"utf-8\"/>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n<meta name=\"description\" content=\"\"/>\n<meta name=\"csrf-token\" content=\"iiINz2r478DTc26Ulgkpxf0aTrUWYOM5AXJr4ctV\">\n<!-- Favicon-->\n<link rel=\"icon\" href=\"https://srgi.big.go.id/favicon.ico\" type=\"image/x-icon\">\n<!-- font-->\n<link href=\"https://fonts.cdnfonts.com/css/montserrat\" rel=\"styl"
- },
- "noaa_erddap_uhslc": {
-  "status": 404,
-  "head": "Error {\n    code=404;\n    message=\"Not Found: Resource not found: Your query produced no matching results. Check the spelling of the word(s) you searched for.\";\n}\n"
- },
- "osmc_uhslc": {
-  "status": 200,
-  "head": "griddap,Subset,tabledap,Make A Graph,wms,files,Title,Summary,FGDC,ISO 19115,Info,Background Info,RSS,Email,Institution,Dataset ID\n,https://osmc.noaa.gov/erddap/tabledap/global_daily_rqds.subset,https://osmc.noaa.gov/erddap/tabledap/global_daily_rqds,https://osmc.noaa.gov/erddap/tabledap/global_daily_rqds.graph,,,JASL/UHSLC Research Quality Tide Gauge Data (daily),\"The Joint Archive for Sea Level (JASL) Research Quality Data Set (RQDS) is a collaboration between the University of Hawaii Sea Level Center (UHSLC) and the World Data Center for Oceanography of the National Centers for Environmental Information (NCEI), National Oceanic and Atmospheric Administration (NOAA). The objective of the JASL RQDS is to assemble a well-documented, quality-controlled archive of hourly and daily sea level values that is appropriate for scientific research applications. The JASL RQDS is the largest global collection of quality-controlled hourly sea level data, and ongoing efforts seek to acquire new sites and uncover historic records as available.\\n\\ncdm_data_type = TimeSeries\\nVARIABLES:\\nsea_level (relative sea level, millimeters)\\ntime (seconds since 1970-01-01T00:00:00Z)\\nquality (data quality level)\\nlatitude (degrees_north)\\nlongitude (degrees_east)\\nstation_name\\nstation_country (station country (ISO 3166-1))\\nstation_country_code (station country code (ISO 3166-1 numeric))\\nrecord_id (unique identifier for each record (i.e., station and version) in the database)\\nuhslc_id (unique station ID number used by the University of Hawaii Sea Level Center (UHSLC))\\nversion (station version)\\ngloss_id (unique station ID number used by the WMO/IOC Global Sea Level Observing System (GLOSS))\\nssc_id (unique station ID code in the Sealevel Station Catalog (SSC) produced by the WMO/IOC Sea Level Monitoring Facility (VLIZ))\\nreference_datum (datum reference level)\\n\",https://osmc.noaa.gov/erddap/metadata/fgdc/xml/global_daily_rqds_fgdc.xml,https://osmc.noaa.gov/erddap/metadata/iso19115/xml/global_daily_rqds_iso19115.xml,https://osmc.noaa.gov/erddap/info/global_daily_rqds/index.csv,https://uhslc.soest.hawaii.edu/data/,https://osmc.noaa.gov/erddap/rss/global_daily_rqds.rss,https://osmc.noaa.gov/erddap/subscriptions/add.html?datasetID=global_daily_rqds&showErrors=false&email=,University of Hawaii Sea Level Center,global_daily_rqds\n,https://osmc.noaa.gov/erddap/tabledap/global_hourly_rqds.subset,https://osmc.noaa.gov/erddap/tabledap/global_hourly_rqds,https://osmc.noaa.gov/erddap/tabledap/global_hourly_rqds.graph,,,JASL/UHSLC Research Quality Tide Gauge Data (hourly),\"The Joint Archive for Sea Level (JASL) Research Quality Data Set (RQDS) is a collaboration between the University of Hawaii Sea Level Center (UHSLC) and the World Data Center for Oceanography of the National Centers for Environmental Information (NCEI), National Oceanic and Atmospheric Administration (NOAA). The objective of the JASL RQDS is to assemble a well-documented, quality-controlled archive of hourly and daily sea level values that is appropriate for scientific research applications. The JASL RQDS is the largest global collection of quality-controlled hourly sea level data, and ongoing efforts seek to acquire new sites and uncover historic records as available.\\n\\ncdm_data_type = TimeSeries\\nVARIABLES:\\nsea_level (relative sea level, millimeters)\\ntime (seconds since 1970-01-01T00:00:00Z)\\nquality (data quality level)\\nlatitude (degrees_north)\\nlongitude (degrees_east)\\nstation_name\\nstation_country (station country (ISO 3166-1))\\nstation_country_code (station country code (ISO 3166-1 numeric))\\nrecord_id (unique identifier for each record (i.e., station and version) in the database)\\nuhslc_id (unique station ID number used by the University of Hawaii Sea Level Center (UHSLC))\\nversion (station version)\\ngloss_id (unique station ID number used by the WMO/IOC Global Sea Level Observing System (GLOSS))\\nssc_id (unique station ID code in the Sealevel Station Catalog (SSC) produced by the WMO/IOC Sea Level Monitoring Facility (VLIZ))\\nreference_datum (datum reference level)\\n\",https://osmc.noaa.gov/erddap/metadata/fgdc/xml/global_hourly_rqds_fgdc.xml,https://osmc.noaa.gov/erddap/metadata/iso19115/xml/global_hourly_rqds_iso19115.xml,https://osmc.noaa.gov/erddap/info/global_hourly_rqds/index.csv,https://uhslc.soest.hawaii.edu/data/,https://osmc.noaa.gov/erddap/rss/global_hourly_rqds.rss,https://osmc.noaa.gov/erddap/subscriptions/add.html?datasetID=global_hourly_rqds&showErrors=false&email=,University of Hawaii Sea Level Center,global_hourly_rqds\n,https://osmc.noaa.gov/erddap/tabledap/OSMC_30day.subset,https://osmc.noaa.gov/erddap/tabledap/OSMC_30day,https://osmc.noaa.gov/erddap/tabledap/OSMC_30day.graph,,,OSMC 90 day RT data,\"Observing System Monitoring Center (OSMC) 30 day RT data. OSMC data from a local source.\\n\\ncdm_data_type = Point\\nVARIABLES:\\nplatform_code (WMO id or Ship call sign)\\nplatform_type\\ncountry\\ntime (observation date, seconds since 1970-01-01T00:00:00Z)\\nlatitude (degrees_north)\\nlongitude (degrees_east)\\nobservation_depth\\nsst (sea surface temperature, Deg C)\\natmp (air temperature, Deg C)\\nprecip (precipitation, mm)\\nsss (sea surface salinity, 1)\\nztmp (profile water temperature, Deg C)\\nzsal (profile salinity)\\nslp (sea level pressure, hPa)\\nwindspd (wind speed, m/s)\\nwinddir (wind from direction, Deg true)\\nwvht (sea surface wave significant height, m)\\nwaterlevel (m)\\nclouds (cloud cover, oktas)\\ndewpoint (dew point temperature, Deg C)\\nuo (eastward sea water velocity, m s-1)\\nvo (northward sea water velocity, m s-1)\\nwo (upward sea water velocity, m s-1)\\nrainfall_rate (m s-1)\\nhur (relative humidity)\\nsea_water_elec_conductivity (sea water electrical conductivity, S m-1)\\nsea_water_pressure (dbar)\\n... (7 more variables)\\n\",https://osmc.noaa.gov/erddap/metadata/fgdc/xml/OSMC_30day_fgdc.xml,https://osmc.noaa.gov/erddap/metadata/iso19115/xml/OSMC_30day_iso19115.xml,https://osmc.noaa.gov/erddap/info/OSMC_30day/index.csv,???,htt"
+ {
+  "id": "420",
+  "name": "b'Saumlaki'",
+  "lat": -7.9814910888671875,
+  "lon": 131.29058837890625,
+  "t0": "2008-10-01",
+  "t1": "2026-09-30"
  }
-}
-===== 00_probe3.py selesai dalam 148 s =====
-===== 03_erddap.py =====
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla1day.nc?chlorophyll[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla1day.nc?chlorophyll[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chla1day.nc?chlorophyll[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-===== 03_erddap.py selesai dalam 460 s =====
+] 329
+===== 00_probe4.py selesai dalam 24 s =====
