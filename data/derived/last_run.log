@@ -1,3 +1,104 @@
+===== 03_erddap.py =====
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+===== 03_erddap.py selesai dalam 399 s =====
 ===== 04_argo_tide.py =====
 waik tidak ada data IOC untuk periode ini
 lemba 115023 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0117, 'stime': '2021-04-21 02:28:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:34:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:40:00', 'sensor': 'bat'}]
@@ -5,7 +106,7 @@ beno 144701 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0118, 'stime': '2021-04-
 saum 286199 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0125, 'stime': '2021-03-01 00:02:00', 'sensor': 'bat'}, {'slevel': 0.0125, 'stime': '2021-03-01 00:08:00', 'sensor': 'bat'}, {'slevel': 0.0125, 'stime': '2021-03-01 00:14:00', 'sensor': 'bat'}]
 brom 132157 ['slevel', 'stime', 'sensor'] [{'slevel': 3.049, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 3.08, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 3.111, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
 darw 132183 ['slevel', 'stime', 'sensor'] [{'slevel': 5.867, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 5.841, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 5.814, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
-===== 04_argo_tide.py selesai dalam 33 s =====
+===== 04_argo_tide.py selesai dalam 2 s =====
 ===== 06_uhslc.py =====
 contoh properti: {'name': 'Pohnpei', 'timezone_name': 'Pacific/Pohnpei', 'uhslc_id': 1, 'uhslc_code': 'deke', 'ssc_id': 'deke', 'gloss_id': 115, 'country': 'Micronesia, Federated States of', 'country_code': '583', 'country_code_alpha': 'FM', 'fd_span': {'oldest': '2001-12-17', 'latest': '2026-09-30'}, 'rq_span': {'oldest': '1969-05-08', 'latest': '2021-12-31'}, 'rq_basin': 'pacific', 'rq_versions': {'a': {'begin': '1969-05-08', 'end': '1971-02-28', 'coordinates': [158.2333, 6.9833]}, 'b': {'begin': '1974-04-21', 'end': '2004-12-31', 'coordinates': [158.2433, 6.9867]}, 'c': {'begin': '2001-12-16', 'end': '2021-12-31', 'coordinates': [158.1967, 6.9783]}}}
   HTTP 404 https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/h158.csv :: <!DOCTYPE html>
@@ -29,30 +130,27 @@ contoh properti: {'name': 'Pohnpei', 'timezone_name': 'Pacific/Pohnpei', 'uhslc_
 417 Sadeng data 2021 tidak cukup 0
 418 Waikelo data 2021 tidak cukup 0
 ['Prigi (125)', 'Benoa (163)', 'Broome (166)', 'Darwin (168)', 'Lembar (419)', 'Saumlaki (420)']
-===== 06_uhslc.py selesai dalam 4 s =====
+===== 06_uhslc.py selesai dalam 3 s =====
+===== 05_cmems.py =====
+Secret CMEMS belum ada – dilewati.
+===== 05_cmems.py selesai dalam 0 s =====
 ===== 10_process.py =====
 /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/xarray/core/dataarray.py:6442: FutureWarning: Behaviour of argmin/argmax with neither dim nor axis argument will change to return a dict of indices of each dimension. To get a single, flat index, please use np.argmin(da.data) or np.argmax(da.data) instead of da.argmin() or da.argmax().
   result = self.variable.argmin(dim, axis, keep_attrs, skipna)
 /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/xarray/core/dataarray.py:6442: FutureWarning: Behaviour of argmin/argmax with neither dim nor axis argument will change to return a dict of indices of each dimension. To get a single, flat index, please use np.argmin(da.data) or np.argmax(da.data) instead of da.argmin() or da.argmax().
   result = self.variable.argmin(dim, axis, keep_attrs, skipna)
-/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py:648: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py:652: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
   doy = s21.index.dayofyear.values
 Traceback (most recent call last):
   File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 21, in w
     fn()
-  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 755, in tide_gauges
-    ii = st.y.idxmax()
-         ^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/series.py", line 2863, in idxmax
-    iloc = self.argmax(axis, skipna, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/base.py", line 868, in argmax
-    result = nanops.nanargmax(  # type: ignore[assignment]
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/nanops.py", line 1587, in nanargmax
-    result = values.argmax(axis)
-             ^^^^^^^^^^^^^^^^^^^
-ValueError: attempt to get argmax of an empty sequence
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in tide_gauges
+    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in <lambda>
+    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan
+                                 ~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'dist_track_km'
 --- track_stats
 --- era5
 --- sst
@@ -72,6 +170,13 @@ nesdisVHNSQchlaDaily (92, 294, 428)
 erdMH1chla1day (92, 265, 385)
 --- east_monsoon
 --- tide_gauges
+saum {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.2603988492798415, 'resid_raw_max_cm': 10.667295682879264, 'ib_at_max_cm': 1.7088466214070241, 'wind_at_max_cm': -0.057576932796412426, 'msl_min_hpa': 1004.745361328125} {'a_ib': np.float64(0.29840630417823444), 'b_taux': np.float64(-0.02923566755645954), 'c_tauy': np.float64(0.04645462556899836), 'r2': 0.061182677482277015}
+brom {'t_max_resid': '2021-04-06 15:00:00', 'resid_lp_max_cm': 14.349790875366553, 'resid_raw_max_cm': 52.04879260775006, 'ib_at_max_cm': 1.2138431948683057, 'wind_at_max_cm': 9.189496690281066, 'msl_min_hpa': 1004.3173217773438} {'a_ib': np.float64(-7.905362688012971), 'b_taux': np.float64(-2.8041018275042164), 'c_tauy': np.float64(-6.817226724781865), 'r2': 0.1800853160004624}
+darw {'t_max_resid': '2021-04-02 00:00:00', 'resid_lp_max_cm': 5.699499923299787, 'resid_raw_max_cm': 37.84801113166723, 'ib_at_max_cm': 2.253625059572087, 'wind_at_max_cm': 0.1506615740681562, 'msl_min_hpa': 1004.8623657226562} {'a_ib': np.float64(0.03007177669017524), 'b_taux': np.float64(0.01626943668724082), 'c_tauy': np.float64(-0.49341888785030213), 'r2': 0.12010873391440358}
+uh166 {'t_max_resid': '2021-04-06 12:00:00', 'resid_lp_max_cm': 17.992096060172532, 'resid_raw_max_cm': 47.289530937380995, 'ib_at_max_cm': 1.3304835567093853, 'wind_at_max_cm': 1.202209577440118, 'msl_min_hpa': 1004.3173217773438} {'a_ib': np.float64(1.0664733202286643), 'b_taux': np.float64(0.20837405770411224), 'c_tauy': np.float64(-1.73820886169314), 'r2': 0.5018469491409534}
+uh168 {'t_max_resid': '2021-04-02 00:00:00', 'resid_lp_max_cm': 5.878167625987342, 'resid_raw_max_cm': 37.94820671992696, 'ib_at_max_cm': 2.253625059572087, 'wind_at_max_cm': 0.12055888977628502, 'msl_min_hpa': 1004.8623657226562} {'a_ib': np.float64(0.07348202443354811), 'b_taux': np.float64(0.017972031263065714), 'c_tauy': np.float64(-0.47167742863621964), 'r2': 0.1260920752230137}
+uh420 {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.206493922711089, 'resid_raw_max_cm': 10.588064204074088, 'ib_at_max_cm': 1.7088466214070241, 'wind_at_max_cm': -0.09314991607939803, 'msl_min_hpa': 1004.745361328125} {'a_ib': np.float64(0.23209923235305918), 'b_taux': np.float64(-0.04243813008790187), 'c_tauy': np.float64(-0.0006921749483822539), 'r2': 0.052559318518230924}
+--- kupang_estimate
 --- sla
 --- scenario_h8
 {
@@ -96,11 +201,15 @@ erdMH1chla1day (92, 265, 385)
   "wE_max_m_day": 129.65735870042414,
   "wE_median_core_m_day": 35.2994190783418,
   "pmin_hpa": 988.4157104492188,
-  "eta_max_m": 70.72187742992625,
-  "eta_max_casebox_m": 68.05503891254949,
+  "eta_max_m": 62.878751407524796,
+  "eta_max_casebox_m": 62.878751407524796,
+  "eta_max_casebox_lonlat": [
+   122.25,
+   -10.5
+  ],
   "eta_max_lonlat": [
-   123.25,
-   -8.0
+   122.25,
+   -10.5
   ]
  },
  "sst": {
@@ -425,6 +534,20 @@ erdMH1chla1day (92, 265, 385)
   "W1_eastmonsoon_min_minus_pre_C": -3.4214285714285744,
   "W1_days_below_pre_minus1C_JulSep": 92
  },
+ "kupang": {
+  "msl_pre_hpa": 1007.1345825195312,
+  "msl_min_hpa": 994.3334350585938,
+  "t_msl_min": "2021-04-04 07:00:00",
+  "dp_hpa": 12.8011474609375,
+  "ib_cm": 12.730810165405273,
+  "tau_into_bay_max_Nm2": 0.04827537760138512,
+  "t_tau_max": "2021-04-03 16:00:00",
+  "setup_cm": 0.40008434653282166,
+  "U10_max_ms": 16.451915740966797,
+  "L_km": 25,
+  "h_m": 30,
+  "bay_axis_deg": 60
+ },
  "h8": {
   "src_apr": "Argo 2902794_44",
   "src_jul": "Argo 5905418_105 (2021-08-23, 679 km dari W1)",
@@ -459,5 +582,5 @@ erdMH1chla1day (92, 265, 385)
   "ratio_cooling": 0.02688378832730991
  }
 }
-NOTES {'tide_gauges': 'GAGAL: n idxmax\n    iloc = self.argmax(axis, skipna, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/base.py", line 868, in argmax\n    result = nanops.nanargmax(  # type: ignore[assignment]\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/nanops.py", line 1587, in nanargmax\n    result = values.argmax(axis)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: attempt to get argmax of an empty sequence\n'}
+NOTES {'tide_gauges': 'GAGAL: /scripts/10_process.py", line 21, in w\n    fn()\n  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in tide_gauges\n    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in <lambda>\n    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan\n                                 ~~~~~~^^^^^^^^^^^^^^^^^\nKeyError: \'dist_track_km\'\n'}
 ===== 10_process.py selesai dalam 12 s =====

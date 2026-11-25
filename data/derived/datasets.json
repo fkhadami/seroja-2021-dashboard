@@ -13,7 +13,7 @@
   "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41",
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS, stride 3 (\u22480,03\u00b0)",
   "period": "2021-01-01 \u2013 2021-12-31, harian",
-  "download_utc": "2026-11-25 03:08"
+  "download_utc": "2026-11-25 03:22"
  },
  "MUR_mday": {
   "id": "jplMURSST41mday (MUR bulanan)",
@@ -21,7 +21,7 @@
   "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday",
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS, stride 10 (\u22480,1\u00b0)",
   "period": "2003\u20132020 bulanan (klimatologi)",
-  "download_utc": "2026-11-25 03:08"
+  "download_utc": "2026-11-25 03:22"
  },
  "OISST": {
   "id": "ncdcOisst21Agg_LonPM180 (NOAA OISST v2.1 AVHRR)",
@@ -29,7 +29,7 @@
   "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg_LonPM180",
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS (0,25\u00b0)",
   "period": "2021-03-01 \u2013 2021-05-31, harian",
-  "download_utc": "2026-11-25 03:08"
+  "download_utc": "2026-11-25 03:22"
  },
  "Argo": {
   "id": "ArgoFloats (Argo GDAC via Ifremer ERDDAP)",
@@ -37,7 +37,7 @@
   "url": "https://erddap.ifremer.fr/erddap/tabledap/ArgoFloats.csv",
   "domain": "110\u2013128\u00b0 BT, 6\u201320\u00b0 LS",
   "period": "2021-02-15 \u2013 2021-05-31",
-  "download_utc": "2026-11-25 03:20"
+  "download_utc": "2026-11-25 03:29"
  },
  "ERA5": {
   "id": "ERA5 hourly single levels via ARCO-ERA5 (full_37-1h-0p25deg-chunk-1.zarr-v3)",
@@ -65,7 +65,7 @@
   "domain": "stasiun: lemba=Lembar (Lombok), beno=Benoa (Bali), saum=Saumlaki, brom=Broome, darw=Darwin",
   "period": "2021-03-01 \u2013 2021-05-31",
   "note": "Kupang tidak tersedia di IOC; dipakai Rote (\u00b180 km barat daya Kupang) sebagai stasiun terdekat",
-  "download_utc": "2026-11-25 03:20"
+  "download_utc": "2026-11-25 03:29"
  },
  "CHL_nesdisVHNSQchlaDaily": {
   "id": "nesdisVHNSQchlaDaily (VIIRS SNPP L3 chlor_a OC3, science quality (NOAA STAR))",
@@ -74,7 +74,7 @@
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS",
   "period": "2021-03-01 \u2013 2021-05-31, harian",
   "files": 3,
-  "download_utc": "2026-11-25 03:09"
+  "download_utc": "2026-11-25 03:22"
  },
  "CHL_erdMH1chla1day": {
   "id": "erdMH1chla1day (MODIS Aqua L3 chlorophyll OCI R2022 (NASA OBPG))",
@@ -83,7 +83,7 @@
   "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS",
   "period": "2021-03-01 \u2013 2021-05-31, harian",
   "files": 3,
-  "download_utc": "2026-11-25 03:09"
+  "download_utc": "2026-11-25 03:22"
  },
  "UHSLC": {
   "id": "UHSLC Fast Delivery hourly (csv/fast/hourly)",
@@ -92,6 +92,6 @@
   "domain": "stasiun: Prigi (125), Benoa (163), Broome (166), Darwin (168), Lembar (419), Saumlaki (420)",
   "period": "2021-03-01 \u2013 2021-05-31, per jam",
   "note": "Kupang & Rote tidak ada di UHSLC; IOC Rote tidak berisi data",
-  "download_utc": "2026-11-25 03:20"
+  "download_utc": "2026-11-25 03:29"
  }
 }
