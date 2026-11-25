@@ -727,7 +727,8 @@ def tide_gauges():
         if okm.sum() > 100:
             seg = ri.interpolate().bfill().ffill().values
             lp = signal.filtfilt(b, a, seg); lp[~okm] = np.nan
-        o = dict(sensor=sen, valid_frac=frac, t=[x.strftime("%Y-%m-%dT%H") for x in h.index], raw=h.round(3).values,
+        o = dict(name=mt["name"], lon=mt["lon"], lat=mt["lat"], source=mt["source"],
+                 dist_track_km=float(np.nanmin(dist_km(trh.lon.values, trh.lat.values, mt["lon"], mt["lat"]))), sensor=sen, valid_frac=frac, t=[x.strftime("%Y-%m-%dT%H") for x in h.index], raw=h.round(3).values,
                  pred=np.round(pred, 3), resid=np.round(resid, 3), lowpass=np.round(lp, 3),
                  harmonics=[dict(name=n, A_cm=round(float(A) * 100, 1), g_deg=round(float(gg), 1))
                             for n, A, gg in zip(coef.name, coef.A, coef.g)])
@@ -765,13 +766,11 @@ def tide_gauges():
             o["storm"] = dict(t_max_resid=str(ii), resid_lp_max_cm=float(st.y.max() * 100), resid_raw_max_cm=float(r.loc["2021-04-02":"2021-04-08"].max() * 100),
                               ib_at_max_cm=float(dfr.ib.loc[ii] * 100), wind_at_max_cm=float(ws.loc[ii] * 100),
                               msl_min_hpa=float(pm.loc["2021-04-02":"2021-04-08"].min()))
-        o.update(name=mt["name"], lon=mt["lon"], lat=mt["lat"], source=mt["source"])
-        o["dist_track_km"] = float(np.nanmin(dist_km(trh.lon.values, trh.lat.values, mt["lon"], mt["lat"])))
         out[code] = o
         print(code, o.get("storm"), o.get("regression"))
     dump("tide.json", out)
     if out:
-        key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan
+        key = min([c for c in out if "storm" in out[c]] or list(out), key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan dgn data badai
         o = out[key]
         calc["rote_sealevel"] = dict(station=key, name=o["name"], source=o["source"], dist_track_km=o["dist_track_km"],
                                      **o.get("storm", {}), **o.get("regression", {}),
