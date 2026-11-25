@@ -1,104 +1,3 @@
-===== 03_erddap.py =====
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-03-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-04-01T12:00:00Z):1:(2021-04-30T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-18.0)][(112.0):2:(128.0)]
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/noaacwNPPN20S3ASCIDINEOF2kmDaily.nc?chlor_a[(2021-05-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):2:(-1 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>502 Proxy Error</title>
-</head><body>
-<h1>Proxy Error</h1>
-<p>The proxy server received an invalid
-response from an upstream server.<br />
-The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
-===== 03_erddap.py selesai dalam 399 s =====
 ===== 04_argo_tide.py =====
 waik tidak ada data IOC untuk periode ini
 lemba 115023 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0117, 'stime': '2021-04-21 02:28:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:34:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:40:00', 'sensor': 'bat'}]
@@ -133,7 +32,7 @@ contoh properti: {'name': 'Pohnpei', 'timezone_name': 'Pacific/Pohnpei', 'uhslc_
 ===== 06_uhslc.py selesai dalam 3 s =====
 ===== 05_cmems.py =====
 Secret CMEMS belum ada – dilewati.
-===== 05_cmems.py selesai dalam 0 s =====
+===== 05_cmems.py selesai dalam 1 s =====
 ===== 10_process.py =====
 /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/xarray/core/dataarray.py:6442: FutureWarning: Behaviour of argmin/argmax with neither dim nor axis argument will change to return a dict of indices of each dimension. To get a single, flat index, please use np.argmin(da.data) or np.argmax(da.data) instead of da.argmin() or da.argmax().
   result = self.variable.argmin(dim, axis, keep_attrs, skipna)
@@ -141,16 +40,6 @@ Secret CMEMS belum ada – dilewati.
   result = self.variable.argmin(dim, axis, keep_attrs, skipna)
 /home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py:652: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
   doy = s21.index.dayofyear.values
-Traceback (most recent call last):
-  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 21, in w
-    fn()
-  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in tide_gauges
-    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in <lambda>
-    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan
-                                 ~~~~~~^^^^^^^^^^^^^^^^^
-KeyError: 'dist_track_km'
 --- track_stats
 --- era5
 --- sst
@@ -170,12 +59,12 @@ nesdisVHNSQchlaDaily (92, 294, 428)
 erdMH1chla1day (92, 265, 385)
 --- east_monsoon
 --- tide_gauges
-saum {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.2603988492798415, 'resid_raw_max_cm': 10.667295682879264, 'ib_at_max_cm': 1.7088466214070241, 'wind_at_max_cm': -0.057576932796412426, 'msl_min_hpa': 1004.745361328125} {'a_ib': np.float64(0.29840630417823444), 'b_taux': np.float64(-0.02923566755645954), 'c_tauy': np.float64(0.04645462556899836), 'r2': 0.061182677482277015}
-brom {'t_max_resid': '2021-04-06 15:00:00', 'resid_lp_max_cm': 14.349790875366553, 'resid_raw_max_cm': 52.04879260775006, 'ib_at_max_cm': 1.2138431948683057, 'wind_at_max_cm': 9.189496690281066, 'msl_min_hpa': 1004.3173217773438} {'a_ib': np.float64(-7.905362688012971), 'b_taux': np.float64(-2.8041018275042164), 'c_tauy': np.float64(-6.817226724781865), 'r2': 0.1800853160004624}
-darw {'t_max_resid': '2021-04-02 00:00:00', 'resid_lp_max_cm': 5.699499923299787, 'resid_raw_max_cm': 37.84801113166723, 'ib_at_max_cm': 2.253625059572087, 'wind_at_max_cm': 0.1506615740681562, 'msl_min_hpa': 1004.8623657226562} {'a_ib': np.float64(0.03007177669017524), 'b_taux': np.float64(0.01626943668724082), 'c_tauy': np.float64(-0.49341888785030213), 'r2': 0.12010873391440358}
-uh166 {'t_max_resid': '2021-04-06 12:00:00', 'resid_lp_max_cm': 17.992096060172532, 'resid_raw_max_cm': 47.289530937380995, 'ib_at_max_cm': 1.3304835567093853, 'wind_at_max_cm': 1.202209577440118, 'msl_min_hpa': 1004.3173217773438} {'a_ib': np.float64(1.0664733202286643), 'b_taux': np.float64(0.20837405770411224), 'c_tauy': np.float64(-1.73820886169314), 'r2': 0.5018469491409534}
-uh168 {'t_max_resid': '2021-04-02 00:00:00', 'resid_lp_max_cm': 5.878167625987342, 'resid_raw_max_cm': 37.94820671992696, 'ib_at_max_cm': 2.253625059572087, 'wind_at_max_cm': 0.12055888977628502, 'msl_min_hpa': 1004.8623657226562} {'a_ib': np.float64(0.07348202443354811), 'b_taux': np.float64(0.017972031263065714), 'c_tauy': np.float64(-0.47167742863621964), 'r2': 0.1260920752230137}
-uh420 {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.206493922711089, 'resid_raw_max_cm': 10.588064204074088, 'ib_at_max_cm': 1.7088466214070241, 'wind_at_max_cm': -0.09314991607939803, 'msl_min_hpa': 1004.745361328125} {'a_ib': np.float64(0.23209923235305918), 'b_taux': np.float64(-0.04243813008790187), 'c_tauy': np.float64(-0.0006921749483822539), 'r2': 0.052559318518230924}
+saum {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.260398849279972, 'resid_raw_max_cm': 10.667295682879319, 'ib_at_max_cm': 1.7088466214072648, 'wind_at_max_cm': -0.057576932796107115, 'msl_min_hpa': 1004.745361328125} {'a_ib': np.float64(0.2984063041782751), 'b_taux': np.float64(-0.029235667556334572), 'c_tauy': np.float64(0.04645462556906093), 'r2': 0.06118267748227224}
+brom {'t_max_resid': '2021-04-06 15:00:00', 'resid_lp_max_cm': 14.349790875368228, 'resid_raw_max_cm': 52.048792607749974, 'ib_at_max_cm': 1.2138431948683792, 'wind_at_max_cm': 9.189496690280047, 'msl_min_hpa': 1004.3173217773438} {'a_ib': np.float64(-7.905362688007701), 'b_taux': np.float64(-2.8041018275034393), 'c_tauy': np.float64(-6.817226724781479), 'r2': 0.180085316000412}
+darw {'t_max_resid': '2021-04-02 00:00:00', 'resid_lp_max_cm': 5.699499923300004, 'resid_raw_max_cm': 37.84801113166709, 'ib_at_max_cm': 2.253625059572939, 'wind_at_max_cm': 0.15066157406832928, 'msl_min_hpa': 1004.8623657226562} {'a_ib': np.float64(0.03007177669026005), 'b_taux': np.float64(0.016269436687172487), 'c_tauy': np.float64(-0.49341888785014915), 'r2': 0.12010873391437382}
+uh166 {'t_max_resid': '2021-04-06 12:00:00', 'resid_lp_max_cm': 17.99209606017205, 'resid_raw_max_cm': 47.289530937380995, 'ib_at_max_cm': 1.3304835567093534, 'wind_at_max_cm': 1.2022095774401764, 'msl_min_hpa': 1004.3173217773438} {'a_ib': np.float64(1.0664733202285517), 'b_taux': np.float64(0.20837405770410847), 'c_tauy': np.float64(-1.7382088616926805), 'r2': 0.5018469491409348}
+uh168 {'t_max_resid': '2021-04-02 00:00:00', 'resid_lp_max_cm': 5.878167625986885, 'resid_raw_max_cm': 37.948206719926915, 'ib_at_max_cm': 2.253625059572939, 'wind_at_max_cm': 0.12055888977564229, 'msl_min_hpa': 1004.8623657226562} {'a_ib': np.float64(0.07348202443342988), 'b_taux': np.float64(0.01797203126310137), 'c_tauy': np.float64(-0.4716774286363455), 'r2': 0.1260920752230429}
+uh420 {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.20649392271105, 'resid_raw_max_cm': 10.588064204074076, 'ib_at_max_cm': 1.7088466214072648, 'wind_at_max_cm': -0.09314991607949527, 'msl_min_hpa': 1004.745361328125} {'a_ib': np.float64(0.23209923235321483), 'b_taux': np.float64(-0.04243813008795239), 'c_tauy': np.float64(-0.000692174948364857), 'r2': 0.05255931851830675}
 --- kupang_estimate
 --- sla
 --- scenario_h8
@@ -534,53 +423,91 @@ uh420 {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.20649392271108
   "W1_eastmonsoon_min_minus_pre_C": -3.4214285714285744,
   "W1_days_below_pre_minus1C_JulSep": 92
  },
- "kupang": {
-  "msl_pre_hpa": 1007.1345825195312,
-  "msl_min_hpa": 994.3334350585938,
-  "t_msl_min": "2021-04-04 07:00:00",
-  "dp_hpa": 12.8011474609375,
-  "ib_cm": 12.730810165405273,
-  "tau_into_bay_max_Nm2": 0.04827537760138512,
-  "t_tau_max": "2021-04-03 16:00:00",
-  "setup_cm": 0.40008434653282166,
-  "U10_max_ms": 16.451915740966797,
-  "L_km": 25,
-  "h_m": 30,
-  "bay_axis_deg": 60
+ "rote_sealevel": {
+  "station": "brom",
+  "name": "Broome",
+  "source": "IOC SLMF",
+  "dist_track_km": 699.3235300024875,
+  "t_max_resid": "2021-04-06 15:00:00",
+  "resid_lp_max_cm": 14.349790875368228,
+  "resid_raw_max_cm": 52.048792607749974,
+  "ib_at_max_cm": 1.2138431948683792,
+  "wind_at_max_cm": 9.189496690280047,
+  "msl_min_hpa": 1004.3173217773438,
+  "a_ib": -7.905362688007701,
+  "b_taux": -2.8041018275034393,
+  "c_tauy": -6.817226724781479,
+  "r2": 0.180085316000412,
+  "M2_cm": 229.8,
+  "K1_cm": 29.2
  },
- "h8": {
-  "src_apr": "Argo 2902794_44",
-  "src_jul": "Argo 5905418_105 (2021-08-23, 679 km dari W1)",
-  "impulse_Nsm2": 42104.70703125,
-  "eta_m": 26.96346947297739,
-  "apr": {
-   "sst0": 29.844,
-   "mld0": 24.0,
-   "z20": 141.52695809388518,
-   "c1": 2.5058826034747312,
-   "h_mix": 56.0,
-   "dT_mix": -1.0328192914701937,
-   "h_mixupw": 52.0,
-   "dT_mixupw": -2.393431134935387,
-   "T_after": 27.450568865064614,
-   "T_at_50m": 27.321304347826086,
-   "T_at_100m": 23.456173076923076
+ "tide_stations": {
+  "lemba": {
+   "name": "Lembar (Lombok)",
+   "dist_track_km": 480.41116696279994,
+   "source": "IOC SLMF"
   },
-  "jul": {
-   "sst0": 27.101950000000002,
-   "mld0": 86.0,
-   "z20": 144.02248486595562,
-   "c1": 2.6280753633932883,
-   "h_mix": 86.0,
-   "dT_mix": -0.006164075887394205,
-   "h_mixupw": 86.0,
-   "dT_mixupw": -0.06434449600759606,
-   "T_after": 27.037605503992406,
-   "T_at_50m": 27.1006,
-   "T_at_100m": 25.7776
+  "beno": {
+   "name": "Benoa (Bali)",
+   "dist_track_km": 553.172514045813,
+   "source": "IOC SLMF"
   },
-  "ratio_cooling": 0.02688378832730991
- }
-}
-NOTES {'tide_gauges': 'GAGAL: /scripts/10_process.py", line 21, in w\n    fn()\n  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in tide_gauges\n    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 774, in <lambda>\n    key = min(out, key=lambda c: out[c]["dist_track_km"])   # stasiun terdekat lintasan\n                                 ~~~~~~^^^^^^^^^^^^^^^^^\nKeyError: \'dist_track_km\'\n'}
-===== 10_process.py selesai dalam 12 s =====
+  "saum": {
+   "name": "Saumlaki",
+   "dist_track_km": 871.901628327165,
+   "source": "IOC SLMF",
+   "t_max_resid": "2021-04-08 05:00:00",
+   "resid_lp_max_cm": 5.260398849279972,
+   "resid_raw_max_cm": 10.667295682879319,
+   "ib_at_max_cm": 1.7088466214072648,
+   "wind_at_max_cm": -0.057576932796107115,
+   "msl_min_hpa": 1004.745361328125
+  },
+  "brom": {
+   "name": "Broome",
+   "dist_track_km": 699.3235300024875,
+   "source": "IOC SLMF",
+   "t_max_resid": "2021-04-06 15:00:00",
+   "resid_lp_max_cm": 14.349790875368228,
+   "resid_raw_max_cm": 52.048792607749974,
+   "ib_at_max_cm": 1.2138431948683792,
+   "wind_at_max_cm": 9.189496690280047,
+   "msl_min_hpa": 1004.3173217773438
+  },
+  "darw": {
+   "name": "Darwin",
+   "dist_track_km": 792.3278261125506,
+   "source": "IOC SLMF",
+   "t_max_resid": "2021-04-02 00:00:00",
+   "resid_lp_max_cm": 5.699499923300004,
+   "resid_raw_max_cm": 37.84801113166709,
+   "ib_at_max_cm": 2.253625059572939,
+   "wind_at_max_cm": 0.15066157406832928,
+   "msl_min_hpa": 1004.8623657226562
+  },
+  "uh125": {
+   "name": "Prigi (UHSLC 125)",
+   "dist_track_km": 852.1745165739311,
+   "source": "UHSLC fast delivery"
+  },
+  "uh163": {
+   "name": "Benoa (UHSLC 163)",
+   "dist_track_km": 555.1022748123108,
+   "source": "UHSLC fast delivery"
+  },
+  "uh166": {
+   "name": "Broome (UHSLC 166)",
+   "dist_track_km": 699.3853452917862,
+   "source": "UHSLC fast delivery",
+   "t_max_resid": "2021-04-06 12:00:00",
+   "resid_lp_max_cm": 17.99209606017205,
+   "resid_raw_max_cm": 47.289530937380995,
+   "ib_at_max_cm": 1.3304835567093534,
+   "wind_at_max_cm": 1.2022095774401764,
+   "msl_min_hpa": 1004.3173217773438
+  },
+  "uh168": {
+   "name": "Darwin (UHSLC 168)",
+   "dist_track_km": 792.4175
+NOTES {}
+===== 10_process.py selesai dalam 17 s =====
