@@ -1,33 +1,194 @@
-===== 00_probe.py =====
-{
- "run_utc": "2026-11-25T02:38:06",
- "ibtracs_SI": {
-  "url": "https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.SI.list.v04r01.csv",
-  "status": 200,
-  "head": "SID,SEASON,NUMBER,BASIN,SUBBASIN,NAME,ISO_TIME,NATURE,LAT,LON,WMO_WIND,WMO_PRES,WMO_AGENCY,TRACK_TYPE,DIST2LAND,LANDFALL,IFLAG,USA_AGENCY,USA_ATCF_ID,USA_LAT,USA_LON,USA_RECORD,USA_STATUS,USA_WIND,USA_PRES,USA_SSHS,USA_R34_NE,USA_R34_SE,USA_R34_SW,USA_R34_NW,USA_R50_NE,USA_R50_SE,USA_R50_SW,USA_R50_"
- },
- "erddap_mur": {
-  "url": "https://coastwatch.pfeg.noaa.gov/erddap/search/index.csv?page=1&itemsPerPage=40&searchFor=jplMURSST41",
-  "status": 200,
-  "head": "griddap,Subset,tabledap,Make A Graph,wms,files,Accessible,Title,Summary,FGDC,ISO 19115,Info,Background Info,RSS,Email,Institution,Dataset ID\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/jplMURSST41/request,,public,\"Multi-scale Ultra-high Resolution (MUR) SST Analysis fv04.1, Global, 0.01\\u00b0, 2002-present, Daily\",\"This is a merged, multi-sensor L4 Foundation Sea Surface Temperature (SST) analysis product from Jet Propulsion Laboratory (JPL). This daily, global, Multi-scale, Ultra-high Resolution (MUR) Sea Surface Temperature (SST) 1-km data set, Version 4.1, is produced at JPL under the NASA MEaSUREs program. For details, see https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1 . This dataset is part of the Group for High-Resolution Sea Surface Temperature (GHRSST) project. The data for the most recent 7 days is usually revised everyday.  The data for other days is sometimes revised.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][latitude][longitude]):\\nanalysed_sst (Analysed Sea Surface Temperature, degree_C)\\nanalysis_error (Estimated Error Standard Deviation of analysed_sst, degree_C)\\nmask (Sea/Land Field Composite Mask)\\nsea_ice_fraction (Sea Ice Area Fraction, 1)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/jplMURSST41_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/jplMURSST41_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/jplMURSST41/index.csv,https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1,https://coastwatch.pfeg.noaa.gov/erddap/rss/jplMURSST41.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=jplMURSST41&showErrors=false&email=,NASA JPL,jplMURSST41\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/jplMURSST41mday/request,,public,\"Multi-scale Ultra-high Resolution (MUR) SST Analysis fv04.1, Global, 0.01\\u00b0, 2002-present, Monthly\",\"A monthly mean Sea Surface Temperature (SST) product created by NOAA NMFS SWFSC ERD based on the daily, global, Multi-scale, Ultra-high Resolution (MUR) Sea Surface Temperature (SST) 1-km data set, Version 4.1, which is produced at the NASA Jet Propulsion Laboratory (JPL) under the NASA MEaSUREs program. For details of the source dataset, see https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1 . The source dataset is part of the Group for High-Resolution Sea Surface Temperature (GHRSST) project.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][latitude][longitude]):\\nsst (Sea Surface Temperature Monthly Mean, degree_C)\\nnobs (Number of Observations)\\nmask (Sea/Land Field Composite Mask)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/jplMURSST41mday_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/jplMURSST41mday_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/jplMURSST41mday/index.csv,https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1,https://coastwatch.pfeg.noaa.gov/erddap/rss/jplMURSST41mday.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=jplMURSST41mday&showErrors=false&email=,NOAA ERD and CoastWatch West Coast Regional Node,jplMURSST41mday\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41clim,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41clim.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/jplMURSST41clim/request,,public,\"Multi-scale Ultra-high Resolution (MUR) SST Daily Climatology 2003-2014, fv04.1, Global, 0.01\\u00b0\",\"This JPL MUR SST daily climatology v4.1 (2003-2014) is from  ftp://mariana.jpl.nasa.gov/mur_sst/tmchin/seasonal/ and is based on the Jet Propulsion Laboratory's (JPL) Multi-scale Ultra-high Resolution (MUR), merged, multi-sensor L4 v4.1 Foundation SST analysis product (part of the Group for High-Resolution Sea Surface Temperature (GHRSST) project).\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [dayOfYear][latitude][longitude]):\\nmean_sst (2003-2014 Climatological Mean Sea Surface Temperature, degree_C)\\nstandard_deviation (standard deviation of mean_sst, degree_C)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/jplMURSST41clim_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/jplMURSST41clim_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/jplMURSST41clim/index.csv,https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1,https://coastwatch.pfeg.noaa.gov/erddap/rss/jplMURSST41clim.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=jplMURSST41clim&showErrors=false&email=,NOAA NMFS SWFSC ERD and NOAA NESDIS CoastWatch WCRN,jplMURSST41clim\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41anom1day,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41anom1day.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/jplMURSST41anom1day/request,,public,\"Multi-scale Ultra-high Resolution (MUR) SST Analysis Anomaly fv04.1, Global, 0.01\\u00b0, 2002-present, Daily\",\"A daily Sea Surface Temperature (SST) Anomaly product created by ERD based on JPL MUR's climatology (2003-2014) of the Jet Propulsion Laboratory's (JPL) Multi-scale Ultra-high Resolution (MUR), merged, multi-sensor L4 v4.1 Foundation SST analysis product (part of the Group for High-Resolution Sea Surface Temperature (GHRSST) project).\\n        \\nThe data for the most recent 4 days is usually revised everyday.  The data for other days is sometimes revised.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][latitude][longitude]):\\nsstAnom (sea surface temperature anomaly, degree_C)\\nmask (sea/land field composite mask)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/jplMURSST41anom1day_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/met"
- },
- "erddap_ostia": {
-  "url": "https://coastwatch.pfeg.noaa.gov/erddap/search/index.csv?page=1&itemsPerPage=40&searchFor=OSTIA",
-  "status": 200,
-  "head": "griddap,Subset,tabledap,Make A Graph,wms,files,Accessible,Title,Summary,FGDC,ISO 19115,Info,Background Info,RSS,Email,Institution,Dataset ID\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/ecocast,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/ecocast.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/ecocast/request,,public,\"Relative Bycatch:Target Catch Probability Product (daily), EcoCast Project \",\"The Relative Bycatch:Target Catch Probability Product is produced using a data-driven, multi-species predictive habitat modelling framework. First, boosted regression tree models were fit to determine the habitat preferences of the target species, broadbill swordfish (Xiphias gladius), and three bycatch-sensitive species that interact with the California drift gillnet fishery (leatherback sea turtle (Dermochelys coricea), blue shark (Prionace glauca), California sea lion (Zalophus californianus)). Then, individual species weightings were set to reflect the level of bycatch and management concern for each species. Prediction layers for each species were then combined into a single surface by multiplying the layer by the species weighting, summing the layers, and then re-calculating the range of values in the final predictive surface from -1 (low catch & high bycatch probabilities) to 1 (high catch & low bycatch probabilities).\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][latitude][longitude]):\\necocast (EcoCast Relative Bycatch-Target Catch Probability Product, 1)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/ecocast_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/ecocast_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/ecocast/index.csv,https://coastwatch.pfeg.noaa.gov/ecocast,https://coastwatch.pfeg.noaa.gov/erddap/rss/ecocast.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=ecocast&showErrors=false&email=,NOAA NMFS SWFSC ERD,ecocast\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/ecocast_Lon0360,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/ecocast_Lon0360.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/ecocast_Lon0360/request,,public,\"Relative Bycatch:Target Catch Probability Product (daily), EcoCast Project, Lon0360\",\"The Relative Bycatch:Target Catch Probability Product is produced using a data-driven, multi-species predictive habitat modelling framework. First, boosted regression tree models were fit to determine the habitat preferences of the target species, broadbill swordfish (Xiphias gladius), and three bycatch-sensitive species that interact with the California drift gillnet fishery (leatherback sea turtle (Dermochelys coricea), blue shark (Prionace glauca), California sea lion (Zalophus californianus)). Then, individual species weightings were set to reflect the level of bycatch and management concern for each species. Prediction layers for each species were then combined into a single surface by multiplying the layer by the species weighting, summing the layers, and then re-calculating the range of values in the final predictive surface from -1 (low catch & high bycatch probabilities) to 1 (high catch & low bycatch probabilities).\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][latitude][longitude]):\\necocast (EcoCast Relative Bycatch-Target Catch Probability Product, 1)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/ecocast_Lon0360_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/ecocast_Lon0360_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/ecocast_Lon0360/index.csv,https://coastwatch.pfeg.noaa.gov/ecocast,https://coastwatch.pfeg.noaa.gov/erddap/rss/ecocast_Lon0360.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=ecocast_Lon0360&showErrors=false&email=,NOAA NMFS SWFSC ERD,ecocast_Lon0360\n,,https://coastwatch.pfeg.noaa.gov/erddap/tabledap/ecocast_inputs,https://coastwatch.pfeg.noaa.gov/erddap/tabledap/ecocast_inputs.graph,,,public,Ecocast species weightings and environmental data dates,\"The dataset contains the species weightings and the dates of the environmental data used for each EcoCast Map dataset (https://coastwatch.pfeg.noaa.gov/erddap/griddap/ecocast)\\n\\ncdm_data_type = Grid\\nVARIABLES:\\ntime (Centered Time, seconds since 1970-01-01T00:00:00Z)\\ndate\\nblueshark (Blue Shark Bycatch Model Weighting)\\nbluesharkTRK (Blue Shark Tracking Model Weighting)\\nsealions (California Sea Lions Tracking Model Weighting)\\nleatherbacks (Leatherback Turtles Model Weighting)\\nswordfish (Swordfish Model Weighting)\\nsst_time (Date of Sea Surface Temperature Data, seconds since 1970-01-01T00:00:00Z)\\nchl_time (Date of Chlorophyll-a Data, seconds since 1970-01-01T00:00:00Z)\\neke_time (Date of Eddy Kinetic Energy Data, seconds since 1970-01-01T00:00:00Z)\\nssh_time (Date of Sea Surface Height Data, seconds since 1970-01-01T00:00:00Z)\\nwind_time (Date of Wind Data, seconds since 1970-01-01T00:00:00Z)\\n\",,,https://coastwatch.pfeg.noaa.gov/erddap/info/ecocast_inputs/index.csv,https://coastwatch.pfeg.noaa.gov/ecocast,https://coastwatch.pfeg.noaa.gov/erddap/rss/ecocast_inputs.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=ecocast_inputs&showErrors=false&email=,NOAA NMFS SWFSC ERD,ecocast_inputs\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisBLENDEDsstDLDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisBLENDEDsstDLDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisBLENDEDsstDLDaily/request,,public,\"Sea-Surface Temperature, NOAA Geo-polar Blended Analysis Diurnal Correction (Day+Night), GHRSST, Near Real-Time, Global 5km, 2019-Present, Daily\",\"Analysed blended sea surface temperature over the global ocean using day and night input data. An SST estimation scheme which combines multi-satellite retrievals of sea surface temperature datasets available from polar orbiters, geostationary InfraRed (IR) and microwave sensors into a single"
- },
- "erddap_chl_viirs": {
-  "url": "https://coastwatch.pfeg.noaa.gov/erddap/search/index.csv?page=1&itemsPerPage=40&searchFor=VIIRS%20chlorophyll%20daily",
-  "status": 200,
-  "head": "griddap,Subset,tabledap,Make A Graph,wms,files,Accessible,Title,Summary,FGDC,ISO 19115,Info,Background Info,RSS,Email,Institution,Dataset ID\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNnoaa20chlaDaily/request,,public,\"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present,  Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRS) Level-3 (WW00), Near Real-Time, Chlorophyll, Global, Daily, processed by NOAA. EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, OC3 Algorithm, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNnoaa20chlaDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNnoaa20chlaDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNnoaa20chlaDaily/index.csv,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/near-real-time/viirs-snpp.html,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNnoaa20chlaDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNnoaa20chlaDaily&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNnoaa20chlaDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily_Lon0360,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily_Lon0360.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNnoaa20chlaDaily_Lon0360/request,,public,\"Chlorophyll, NOAA NOAA-20 VIIRS, Near Real-Time, Global 4km, Level 3, 2017-present,  Daily, Lon0360\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRS) Level-3 (WW00), Near Real-Time, Chlorophyll, Global, Daily, processed by NOAA. EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, OC3 Algorithm, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNnoaa20chlaDaily_Lon0360_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNnoaa20chlaDaily_Lon0360_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNnoaa20chlaDaily_Lon0360/index.csv,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/near-real-time/viirs-snpp.html,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNnoaa20chlaDaily_Lon0360.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNnoaa20chlaDaily_Lon0360&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNnoaa20chlaDaily_Lon0360\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNchlaDaily/request,,public,\"Chlorophyll, NOAA S-NPP VIIRS, Near Real-Time, Global 4km, Level 3, 2017 to 2026-11-02,  Daily\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRS) Level-3 (WW00), Near Real-Time, Chlorophyll, Global, Daily, processed by NOAA. EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, OC3 Algorithm, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNchlaDaily_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNchlaDaily_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNchlaDaily/index.csv,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/near-real-time/viirs-snpp.html,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNchlaDaily.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNchlaDaily&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNchlaDaily\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaDaily_Lon0360,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNchlaDaily_Lon0360.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNchlaDaily_Lon0360/request,,public,\"Chlorophyll, NOAA S-NPP VIIRS, Near Real-Time, Global 4km, Level 3, 2017 to 2026-11-02,  Daily, Lon0360\",\"Visible and Infrared Imager/Radiometer Suite/Suomi-NPP (VIIRS) Level-3 (WW00), Near Real-Time, Chlorophyll, Global, Daily, processed by NOAA. EXPERIMENTAL.\\n\\ncdm_data_type = Grid\\nVARIABLES (all of which use the dimensions [time][altitude][latitude][longitude]):\\nchlor_a (Chlorophyll Concentration, OC3 Algorithm, mg m^-3)\\n\",https://coastwatch.pfeg.noaa.gov/erddap/metadata/fgdc/xml/nesdisVHNchlaDaily_Lon0360_fgdc.xml,https://coastwatch.pfeg.noaa.gov/erddap/metadata/iso19115/xml/nesdisVHNchlaDaily_Lon0360_iso19115.xml,https://coastwatch.pfeg.noaa.gov/erddap/info/nesdisVHNchlaDaily_Lon0360/index.csv,https://coastwatch.noaa.gov/cw/satellite-data-products/ocean-color/near-real-time/viirs-snpp.html,https://coastwatch.pfeg.noaa.gov/erddap/rss/nesdisVHNchlaDaily_Lon0360.rss,https://coastwatch.pfeg.noaa.gov/erddap/subscriptions/add.html?datasetID=nesdisVHNchlaDaily_Lon0360&showErrors=false&email=,NOAA NESDIS CoastWatch,nesdisVHNchlaDaily_Lon0360\nhttps://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily,,,https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.graph,https://coastwatch.pfeg.noaa.gov/erddap/wms/nesdisVHNSQchlaDaily/request,,public,\"Chlorophyll, NOAA S-NPP VIIRS, Science Quality, Global 4km, Level 3, 2012 to 2026-11-02, Daily\",\"Level-3 Standard Mapped Image (SMI), Global, 4km, Chlorophyll, Daily composite data from the Visible and Infrared Imager/Radiometer Suite (VIIRS). These are science quality data with a 15-day latency. The data, processed by the NOAA/STAR Ocean Color Team, are produced from MSL12 v1.2 using OC-SDR v04 and were release by CoastWatch as of 2017-08-07. VIIRS is a multi-discipli"
- },
- "erddap_chl_occci": {
-  "url": "https://coastwatch.pfeg.noaa.gov/erddap/search/index.csv?page=1&itemsPerPage=40&searchFor=OC-CCI%20chlorophyll",
-  "status": 404,
-  "head": "Error {\n    code=404;\n    message=\"Not Found: Resource not found: Your query produced no matching results. Check the spelling of the word(s) you searched for. Try using fewer search words.\";\n}\n"
- },
- "argo_ifremer": {
-  "url": "https://erddap.ifremer.fr/erddap/tabledap/ArgoFloats.csv?platform_number,time,longitude,latitude&longitude>=115&longitude<=128&latitude>=-16&latitude<=-7&time>=2021-03-01&time<=2021-05-31&distinct()",
-  "status": 200,
-  "head": "platform_number,time,longitude,latitude\n,UTC,degrees_east,degrees_north\n2902785,2021-04-14T06:30:00Z,115.243,-14.61\n2902785,2021-04-24T07:09:00Z,115.496,-14.715\n2902
-===== 00_probe.py selesai dalam 148 s =====
+===== 01_ibtracs.py =====
+SID: <ArrowStringArray>
+['2021093S11122']
+Length: 1, dtype: str n = 77
+                   ISO_TIME   LAT    LON  BOM_WIND  USA_WIND  BOM_PRES  BOM_RMW  USA_RMW  STORM_SPEED
+162336  2021-04-02 12:00:00 -11.1  122.1      20.0       NaN    1002.0      NaN      NaN          1.0
+162337  2021-04-02 15:00:00 -11.1  122.2      23.0       NaN    1002.0      NaN      NaN          1.0
+162338  2021-04-02 18:00:00 -11.0  122.2      25.0       NaN    1002.0      NaN      NaN          2.0
+162339  2021-04-02 21:00:00 -10.9  122.3      25.0       NaN    1003.0      NaN      NaN          4.0
+162340  2021-04-03 00:00:00 -10.7  122.4      25.0       NaN    1003.0      NaN      NaN          5.0
+162341  2021-04-03 03:00:00 -10.6  122.7      25.0       NaN    1002.0      NaN      NaN          7.0
+162342  2021-04-03 06:00:00 -10.6  123.1      25.0      25.0    1001.0      NaN     60.0          8.0
+162343  2021-04-03 09:00:00 -10.6  123.5      28.0      28.0    1001.0      NaN     60.0          6.0
+162344  2021-04-03 12:00:00 -10.7  123.7      30.0      30.0    1001.0      NaN     60.0          3.0
+162345  2021-04-03 15:00:00 -10.7  123.8      30.0      30.0     999.0      NaN     53.0          1.0
+162346  2021-04-03 18:00:00 -10.6  123.8      30.0      30.0     997.0      NaN     45.0          1.0
+162347  2021-04-03 21:00:00 -10.6  123.8      33.0      30.0     996.0      NaN     45.0          1.0
+162348  2021-04-04 00:00:00 -10.6  123.8      35.0      30.0     995.0      NaN     45.0          1.0
+162349  2021-04-04 03:00:00 -10.5  123.7      35.0      33.0     995.0      NaN     45.0          2.0
+162350  2021-04-04 06:00:00 -10.4  123.7      35.0      35.0     995.0      NaN     45.0          3.0
+162351  2021-04-04 09:00:00 -10.3  123.5      35.0      38.0     995.0      NaN     38.0          4.0
+162352  2021-04-04 12:00:00 -10.3  123.3      35.0      40.0     995.0     30.0     30.0          3.0
+162353  2021-04-04 15:00:00 -10.3  123.2      38.0      43.0     993.0     25.0     28.0          2.0
+162354  2021-04-04 18:00:00 -10.4  123.1      40.0      45.0     990.0     19.0     25.0          4.0
+162355  2021-04-04 21:00:00 -10.5  122.8      43.0      45.0     991.0     19.0     25.0          7.0
+162356  2021-04-05 00:00:00 -10.7  122.5      45.0      45.0     991.0     19.0     25.0          6.0
+162357  2021-04-05 03:00:00 -10.8  122.2      48.0      45.0     989.0     19.0     25.0          5.0
+162358  2021-04-05 06:00:00 -10.9  122.0      50.0      45.0     987.0     19.0     25.0          5.0
+162359  2021-04-05 09:00:00 -10.9  121.7      50.0      48.0     988.0     19.0     25.0          6.0
+162360  2021-04-05 12:00:00 -11.1  121.4      50.0      50.0     988.0     19.0     25.0          8.0
+162361  2021-04-05 15:00:00 -11.1  120.9      53.0      50.0     987.0     19.0     25.0          9.0
+162362  2021-04-05 18:00:00 -11.2  120.5      55.0      50.0     985.0     19.0     25.0          8.0
+162363  2021-04-05 21:00:00 -11.1  120.1      58.0      55.0     983.0     19.0     25.0          6.0
+162364  2021-04-06 00:00:00 -11.1  119.8      60.0      60.0     980.0     19.0     25.0          5.0
+162365  2021-04-06 03:00:00 -11.3  119.6      53.0      55.0     984.0     19.0     25.0          5.0
+162366  2021-04-06 06:00:00 -11.5  119.5      45.0      50.0     988.0     19.0     25.0          5.0
+162367  2021-04-06 09:00:00 -11.7  119.3      43.0      48.0     991.0     25.0     25.0          5.0
+162368  2021-04-06 12:00:00 -12.0  119.2      40.0      45.0     993.0     30.0     25.0          5.0
+162369  2021-04-06 15:00:00 -12.2  119.1      38.0      43.0     995.0      NaN     25.0          6.0
+162370  2021-04-06 18:00:00 -12.5  119.0      35.0      40.0     997.0      NaN     25.0         10.0
+162371  2021-04-06 21:00:00 -12.9  118.4      33.0      40.0     999.0      NaN     25.0         14.0
+162372  2021-04-07 00:00:00 -13.3  117.8      30.0      40.0    1000.0      NaN     25.0         15.0
+162373  2021-04-07 03:00:00 -13.8  117.2      30.0      40.0    1000.0      NaN     25.0         14.0
+162374  2021-04-07 06:00:00 -14.2  116.7      30.0      40.0    1000.0      NaN     25.0         13.0
+162375  2021-04-07 09:00:00 -14.6  116.2      30.0      43.0    1000.0      NaN     25.0         12.0
+162376  2021-04-07 12:00:00 -14.9  115.7      30.0      45.0    1000.0      NaN     25.0         15.0
+162377  2021-04-07 15:00:00 -15.4  115.0      30.0      45.0    1000.0      NaN     25.0         17.0
+162378  2021-04-07 18:00:00 -15.8  114.2      30.0      45.0     999.0      NaN     25.0         18.0
+162379  2021-04-07 21:00:00 -15.9  113.2      33.0      43.0     997.0      NaN     20.0         17.0
+162380  2021-04-08 00:00:00 -16.1  112.4      35.0      40.0     994.0      NaN     15.0         13.0
+162381  2021-04-08 03:00:00 -16.4  112.0      35.0      40.0     994.0      NaN     25.0          9.0
+162382  2021-04-08 06:00:00 -16.8  111.8      35.0      40.0     993.0      NaN     35.0          9.0
+162383  2021-04-08 09:00:00 -17.2  111.6      35.0      40.0     993.0      NaN     35.0          9.0
+162384  2021-04-08 12:00:00 -17.6  111.4      35.0      40.0     993.0      NaN     35.0          9.0
+162385  2021-04-08 15:00:00 -18.1  111.2      35.0      40.0     993.0      NaN     40.0         10.0
+162386  2021-04-08 18:00:00 -18.6  111.1      35.0      40.0     993.0     19.0     45.0         11.0
+162387  2021-04-08 21:00:00 -19.0  110.6      38.0      43.0     991.0     22.0     45.0         12.0
+162388  2021-04-09 00:00:00 -19.3  110.1      40.0      45.0     989.0     24.0     45.0         10.0
+162389  2021-04-09 03:00:00 -19.6  109.7      43.0      48.0     988.0     27.0     45.0          8.0
+162390  2021-04-09 06:00:00 -19.8  109.5      45.0      50.0     986.0     30.0     45.0          6.0
+162391  2021-04-09 09:00:00 -19.9  109.2      45.0      53.0     985.0     30.0     35.0          5.0
+162392  2021-04-09 12:00:00 -20.1  109.0      45.0      55.0     984.0     30.0     25.0          6.0
+162393  2021-04-09 15:00:00 -20.3  108.6      48.0      58.0     983.0     30.0     23.0          7.0
+162394  2021-04-09 18:00:00 -20.5  108.4      50.0      60.0     981.0     30.0     20.0          5.0
+162395  2021-04-09 21:00:00 -20.5  108.1      50.0      58.0     981.0     30.0     20.0          4.0
+162396  2021-04-10 00:00:00 -20.5  108.0      50.0      55.0     980.0     30.0     20.0          4.0
+162397  2021-04-10 03:00:00 -20.7  107.8      50.0      58.0     980.0     30.0     20.0          5.0
+162398  2021-04-10 06:00:00 -21.0  107.9      50.0      60.0     980.0     30.0     20.0          7.0
+162399  2021-04-10 09:00:00 -21.3  108.2      50.0      58.0     980.0     30.0     20.0         11.0
+162400  2021-04-10 12:00:00 -21.7  108.8      50.0      55.0     980.0     30.0     20.0         12.0
+162401  2021-04-10 15:00:00 -22.0  109.2      53.0      58.0     979.0     30.0     20.0         13.0
+162402  2021-04-10 18:00:00 -22.6  109.7      55.0      60.0     977.0     30.0     20.0         15.0
+162403  2021-04-10 21:00:00 -23.4  110.0      55.0      63.0     978.0     30.0     23.0         19.0
+162404  2021-04-11 00:00:00 -24.3  110.5      55.0      65.0     978.0     30.0     25.0         21.0
+162405  2021-04-11 03:00:00 -25.2  111.1      60.0      70.0     974.0     25.0     16.0         23.0
+162406  2021-04-11 06:00:00 -26.2  112.0      65.0      75.0     970.0     19.0      7.0         26.0
+162407  2021-04-11 09:00:00 -27.2  113.1      65.0      75.0     969.0     15.0      6.0         30.0
+162408  2021-04-11 12:00:00 -28.3  114.4      65.0      75.0     967.0     10.0      5.0         33.0
+162409  2021-04-11 15:00:00 -29.4  115.9      55.0      68.0     973.0     10.0     10.0         35.0
+162410  2021-04-11 18:00:00 -30.6  117.4      45.0      60.0     979.0     15.0     15.0         37.0
+162411  2021-04-11 21:00:00 -32.0  118.9      35.0      50.0     986.0      NaN     15.0         41.0
+162412  2021-04-12 00:00:00 -33.6  120.7      25.0      40.0     992.0      NaN     15.0         42.0
+===== 01_ibtracs.py selesai dalam 4 s =====
+===== 03_erddap.py =====
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-01-01T09:00:00Z):1:(2021-01-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-02-01T09:00:00Z):1:(2021-02-28T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-03-01T09:00:00Z):1:(2021-03-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-04-01T09:00:00Z):1:(2021-04-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-05-01T09:00:00Z):1:(2021-05-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-06-01T09:00:00Z):1:(2021-06-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-07-01T09:00:00Z):1:(2021-07-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-08-01T09:00:00Z):1:(2021-08-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-09-01T09:00:00Z):1:(2021-09-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-10-01T09:00:00Z):1:(2021-10-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-11-01T09:00:00Z):1:(2021-11-30T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.nc?analysed_sst[(2021-12-01T09:00:00Z):1:(2021-12-31T09:00:00Z)][(-18.0):3:(-7.0)][(112.0):3:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday.nc?sst[(2003-01-16T00:00:00Z):1:(2020-12-16T00:00:00Z)][(-18.0):10:(-7.0)][(112.0):10:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg_LonPM180.nc?sst[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-18.0):1:(-7.0)][(112.0):1:(128.0)]
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
+  HTTP 404 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNnoaa20chlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(1 :: 
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-100">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="Sorry, but you&#039;ve gone too deep.. The page you have requested cannot be found. Here are your opt
+  https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0):1:(128.0)]
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+  HTTP 502 https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisVHNSQchlaDaily.nc?chlor_a[(2021-03-01T12:00:00Z):1:(2021-05-31T12:00:00Z)][(0.0)][(-7.0):1:(-18.0)][(112.0 :: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>502 Proxy Error</title>
+</head><body>
+<h1>Proxy Error</h1>
+<p>The proxy server received an invalid
+response from an upstream server.<br />
+The proxy server could not handle the request<p>Reason: <strong>Error reading from remot
+===== 03_erddap.py selesai dalam 626 s =====
+===== 04_argo_tide.py =====
+Traceback (most recent call last):
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/04_argo_tide.py", line 37, in <module>
+    d = pd.read_csv(fo)
+        ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 423, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 2721, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 3006, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 107, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 735, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+!!!!! 04_argo_tide.py GAGAL/timeout
+===== 04_argo_tide.py selesai dalam 6 s =====
+===== 05_cmems.py =====
+Secret CMEMS belum ada – dilewati.
+===== 05_cmems.py selesai dalam 0 s =====
+===== 02_era5.py =====
+<xarray.Dataset> Size: 269MB
+Dimensions:    (time: 2208, latitude: 49, longitude: 69)
+Coordinates:
+  * time       (time) datetime64[ns] 18kB 2021-03-01 ... 2021-05-31T23:00:00
+  * latitude   (latitude) float32 196B -6.5 -6.75 -7.0 ... -18.0 -18.25 -18.5
+  * longitude  (longitude) float32 276B 111.5 111.8 112.0 ... 128.0 128.2 128.5
+Data variables:
+    u10        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    v10        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    msl        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    sst        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    sshf       (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    slhf       (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    ssr        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    str        (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+    tp         (time, latitude, longitude) float32 30MB dask.array<chunksize=(1, 49, 69), meta=np.ndarray>
+Attributes:
+    last_updated:           2026-11-23 08:13:32.129789+00:00
+    valid_time_start:       1940-01-01
+    valid_time_stop:        2026-06-30
+    valid_time_stop_era5t:  2026-11-17
+selesai 2021-03 744
+selesai 2021-04 720
+selesai 2021-05 744
+tersimpan data/raw/era5_hourly.nc 156.034257 MB
+===== 02_era5.py selesai dalam 268 s =====

@@ -1,0 +1,61 @@
+{
+ "IBTrACS": {
+  "id": "IBTrACS v04r01, ibtracs.SI.list",
+  "version": "v04r01",
+  "url": "https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.SI.list.v04r01.csv",
+  "domain": "Cekungan South Indian; difilter NAME=SEROJA, SEASON=2021",
+  "period": "2021-04-02 12:00:00 \u2013 2021-04-12 00:00:00",
+  "download_utc": "2026-11-25 02:43"
+ },
+ "MUR": {
+  "id": "jplMURSST41 (MUR SST v4.1, JPL/GHRSST)",
+  "version": "fv04.1",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41",
+  "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS, stride 3 (\u22480,03\u00b0)",
+  "period": "2021-01-01 \u2013 2021-12-31, harian",
+  "download_utc": "2026-11-25 02:48"
+ },
+ "MUR_mday": {
+  "id": "jplMURSST41mday (MUR bulanan)",
+  "version": "fv04.1",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday",
+  "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS, stride 10 (\u22480,1\u00b0)",
+  "period": "2003\u20132020 bulanan (klimatologi)",
+  "download_utc": "2026-11-25 02:51"
+ },
+ "OISST": {
+  "id": "ncdcOisst21Agg_LonPM180 (NOAA OISST v2.1 AVHRR)",
+  "version": "v2.1",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg_LonPM180",
+  "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS (0,25\u00b0)",
+  "period": "2021-03-01 \u2013 2021-05-31, harian",
+  "download_utc": "2026-11-25 02:51"
+ },
+ "Argo": {
+  "id": "ArgoFloats (Argo GDAC via Ifremer ERDDAP)",
+  "version": "GDAC snapshot saat unduh",
+  "url": "https://erddap.ifremer.fr/erddap/tabledap/ArgoFloats.csv",
+  "domain": "110\u2013128\u00b0 BT, 6\u201320\u00b0 LS",
+  "period": "2021-02-15 \u2013 2021-05-31",
+  "download_utc": "2026-11-25 02:54"
+ },
+ "ERA5": {
+  "id": "ERA5 hourly single levels via ARCO-ERA5 (full_37-1h-0p25deg-chunk-1.zarr-v3)",
+  "version": "ERA5 (ECMWF), ARCO v3",
+  "url": "gs://gcp-public-data-arco-era5/ar/full_37-1h-0p25deg-chunk-1.zarr-v3",
+  "domain": "111.5\u2013128.5\u00b0 BT, -18.5\u2013-6.5\u00b0 LS (0,25\u00b0)",
+  "period": "2021-03-01 \u2013 2021-05-31, per jam",
+  "vars": [
+   "u10",
+   "v10",
+   "msl",
+   "sst",
+   "sshf",
+   "slhf",
+   "ssr",
+   "str",
+   "tp"
+  ],
+  "download_utc": "2026-11-25 02:58"
+ }
+}
