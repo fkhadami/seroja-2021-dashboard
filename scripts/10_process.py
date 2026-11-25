@@ -443,7 +443,7 @@ def local_profile(k, lo, la, t0="2021-03-25", t1="2021-04-01"):
         T = sl.thetao.dropna("depth"); S_ = sl.so.dropna("depth")
         if T.size > 5:
             pr = profile_props(T.depth.values, T.values, S_.interp(depth=T.depth).values)
-            pr["src"] = "GLORYS12"; return pr
+            pr["src"] = f"GLORYS12 ({pd.Timestamp(t0).strftime('%d %b')}–{pd.Timestamp(t1).strftime('%d %b')})"; return pr
     if PRE_PROFILE:
         pr = dict(PRE_PROFILE); pr["src"] = "Argo " + calc.get("argo_pair", {}).get("pre", {}).get("id", ""); return pr
     return None
@@ -509,9 +509,12 @@ GL = None
 @block
 def glorys():
     global GL
-    if not have("glorys_2021.nc"):
+    if not have("glorys_MarApr.nc"):
         print("GLORYS belum ada (secret CMEMS)"); return
-    GL = xr.open_dataset(P("glorys_2021.nc"))
+    GL = xr.open_dataset(P("glorys_MarApr.nc"))
+    if have("glorys_Jul.nc"):
+        J = xr.open_dataset(P("glorys_Jul.nc")).reindex_like(GL.isel(time=0, drop=True), method="nearest", tolerance=0.01)
+        GL = xr.concat([GL, J], "time", data_vars="all", join="outer")
     ds = GL
     mld = ds.mlotst.sel(time=slice("2021-03-25", "2021-05-15"))
     dump("map_glorys.json", dict(lon=ds.longitude.values[::2], lat=ds.latitude.values[::2],
@@ -821,8 +824,8 @@ def scenario_h8():
     hb = calc["heat_budget"]["W1"]; lo, la = POINTS["W1"]["lonlat"]
     A_ = local_profile("W1", lo, la)
     J = None; jsrc = None
-    if GL is not None:
-        J = local_profile("W1", lo, la, "2021-07-25", "2021-07-31"); jsrc = "GLORYS12 25–31 Jul 2021"
+    if GL is not None and pd.Timestamp(GL.time.values[-1]) >= pd.Timestamp("2021-07-25"):
+        J = local_profile("W1", lo, la, "2021-07-25", "2021-07-31"); jsrc = "GLORYS12 25–31 Jul 2021 di W1"
     elif have("argo_2021JA.csv"):
         a = pd.read_csv(P("argo_2021JA.csv"), skiprows=[1]); a["time"] = pd.to_datetime(a.time).dt.tz_localize(None)
         a = a[(a.temp_qc.astype(str).str[0].isin(["1", "2"])) & a.pres.notna() & a.temp.notna()]
