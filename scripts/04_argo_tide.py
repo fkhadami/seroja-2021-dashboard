@@ -38,9 +38,12 @@ for code, name in STATIONS.items():
                 frames.append(pd.DataFrame(r.json()))
             except Exception as e:
                 print(code, a, "gagal parse", e, r.text[:200])
+        frames = [f for f in frames if len(f)]
         if frames:
             pd.concat(frames).to_csv(fo, index=False)
-    if os.path.exists(fo):
+        else:
+            print(code, "tidak ada data IOC untuk periode ini")
+    if os.path.exists(fo) and os.path.getsize(fo) > 10:
         d = pd.read_csv(fo)
         print(code, len(d), d.columns.tolist(), d.head(3).to_dict("records"))
         meta[code] = name
