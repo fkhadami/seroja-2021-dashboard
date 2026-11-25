@@ -37,7 +37,7 @@
   "url": "https://erddap.ifremer.fr/erddap/tabledap/ArgoFloats.csv",
   "domain": "110\u2013128\u00b0 BT, 6\u201320\u00b0 LS",
   "period": "2021-02-15 \u2013 2021-05-31",
-  "download_utc": "2026-11-25 03:03"
+  "download_utc": "2026-11-25 03:20"
  },
  "ERA5": {
   "id": "ERA5 hourly single levels via ARCO-ERA5 (full_37-1h-0p25deg-chunk-1.zarr-v3)",
@@ -62,10 +62,10 @@
   "id": "IOC Sea Level Station Monitoring Facility (VLIZ/IOC-UNESCO), data mentah tanpa QC",
   "version": "real-time raw",
   "url": "https://www.ioc-sealevelmonitoring.org/service.php",
-  "domain": "stasiun: lemba=Lembar (Lombok), beno=Benoa (Bali), brom=Broome, darw=Darwin",
+  "domain": "stasiun: lemba=Lembar (Lombok), beno=Benoa (Bali), saum=Saumlaki, brom=Broome, darw=Darwin",
   "period": "2021-03-01 \u2013 2021-05-31",
   "note": "Kupang tidak tersedia di IOC; dipakai Rote (\u00b180 km barat daya Kupang) sebagai stasiun terdekat",
-  "download_utc": "2026-11-25 03:04"
+  "download_utc": "2026-11-25 03:20"
  },
  "CHL_nesdisVHNSQchlaDaily": {
   "id": "nesdisVHNSQchlaDaily (VIIRS SNPP L3 chlor_a OC3, science quality (NOAA STAR))",
@@ -84,5 +84,14 @@
   "period": "2021-03-01 \u2013 2021-05-31, harian",
   "files": 3,
   "download_utc": "2026-11-25 03:09"
+ },
+ "UHSLC": {
+  "id": "UHSLC Fast Delivery hourly (csv/fast/hourly)",
+  "version": "fast delivery",
+  "url": "https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/",
+  "domain": "stasiun: Prigi (125), Benoa (163), Broome (166), Darwin (168), Lembar (419), Saumlaki (420)",
+  "period": "2021-03-01 \u2013 2021-05-31, per jam",
+  "note": "Kupang & Rote tidak ada di UHSLC; IOC Rote tidak berisi data",
+  "download_utc": "2026-11-25 03:20"
  }
 }

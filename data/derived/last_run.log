@@ -1,68 +1,463 @@
-===== 00_probe4.py =====
-[
- {
-  "id": "125",
-  "name": "b'Prigi'",
-  "lat": -8.286499977111816,
-  "lon": 111.72722625732422,
-  "t0": "2007-02-25",
-  "t1": "2026-09-30"
+===== 04_argo_tide.py =====
+waik tidak ada data IOC untuk periode ini
+lemba 115023 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0117, 'stime': '2021-04-21 02:28:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:34:00', 'sensor': 'bat'}, {'slevel': 0.0117, 'stime': '2021-04-21 02:40:00', 'sensor': 'bat'}]
+beno 144701 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0118, 'stime': '2021-04-16 03:52:00', 'sensor': 'bat'}, {'slevel': 0.0116, 'stime': '2021-04-16 03:58:00', 'sensor': 'bat'}, {'slevel': 0.0118, 'stime': '2021-04-16 04:04:00', 'sensor': 'bat'}]
+saum 286199 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0125, 'stime': '2021-03-01 00:02:00', 'sensor': 'bat'}, {'slevel': 0.0125, 'stime': '2021-03-01 00:08:00', 'sensor': 'bat'}, {'slevel': 0.0125, 'stime': '2021-03-01 00:14:00', 'sensor': 'bat'}]
+brom 132157 ['slevel', 'stime', 'sensor'] [{'slevel': 3.049, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 3.08, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 3.111, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
+darw 132183 ['slevel', 'stime', 'sensor'] [{'slevel': 5.867, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 5.841, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 5.814, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
+===== 04_argo_tide.py selesai dalam 33 s =====
+===== 06_uhslc.py =====
+contoh properti: {'name': 'Pohnpei', 'timezone_name': 'Pacific/Pohnpei', 'uhslc_id': 1, 'uhslc_code': 'deke', 'ssc_id': 'deke', 'gloss_id': 115, 'country': 'Micronesia, Federated States of', 'country_code': '583', 'country_code_alpha': 'FM', 'fd_span': {'oldest': '2001-12-17', 'latest': '2026-09-30'}, 'rq_span': {'oldest': '1969-05-08', 'latest': '2021-12-31'}, 'rq_basin': 'pacific', 'rq_versions': {'a': {'begin': '1969-05-08', 'end': '1971-02-28', 'coordinates': [158.2333, 6.9833]}, 'b': {'begin': '1974-04-21', 'end': '2004-12-31', 'coordinates': [158.2433, 6.9867]}, 'c': {'begin': '2001-12-16', 'end': '2021-12-31', 'coordinates': [158.1967, 6.9783]}}}
+  HTTP 404 https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/h158.csv :: <!DOCTYPE html>
+<html class="avada-html-layout-wide avada-html-header-position-top" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name=
+  HTTP 404 https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/h160.csv :: <!DOCTYPE html>
+<html class="avada-html-layout-wide avada-html-header-position-top" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name=
+  HTTP 404 https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/h165.csv :: <!DOCTYPE html>
+<html class="avada-html-layout-wide avada-html-header-position-top" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name=
+417 Sadeng data 2021 tidak cukup 0
+418 Waikelo data 2021 tidak cukup 0
+['Prigi (125)', 'Benoa (163)', 'Broome (166)', 'Darwin (168)', 'Lembar (419)', 'Saumlaki (420)']
+===== 06_uhslc.py selesai dalam 4 s =====
+===== 10_process.py =====
+/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/xarray/core/dataarray.py:6442: FutureWarning: Behaviour of argmin/argmax with neither dim nor axis argument will change to return a dict of indices of each dimension. To get a single, flat index, please use np.argmin(da.data) or np.argmax(da.data) instead of da.argmin() or da.argmax().
+  result = self.variable.argmin(dim, axis, keep_attrs, skipna)
+/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/xarray/core/dataarray.py:6442: FutureWarning: Behaviour of argmin/argmax with neither dim nor axis argument will change to return a dict of indices of each dimension. To get a single, flat index, please use np.argmin(da.data) or np.argmax(da.data) instead of da.argmin() or da.argmax().
+  result = self.variable.argmin(dim, axis, keep_attrs, skipna)
+/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py:648: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+  doy = s21.index.dayofyear.values
+Traceback (most recent call last):
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 21, in w
+    fn()
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py", line 755, in tide_gauges
+    ii = st.y.idxmax()
+         ^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/series.py", line 2863, in idxmax
+    iloc = self.argmax(axis, skipna, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/base.py", line 868, in argmax
+    result = nanops.nanargmax(  # type: ignore[assignment]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/nanops.py", line 1587, in nanargmax
+    result = values.argmax(axis)
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: attempt to get argmax of an empty sequence
+--- track_stats
+--- era5
+--- sst
+--- choose_points
+--- argo
+--- argo_pre_post
+--- pre_jump
+--- glorys
+GLORYS belum ada (secret CMEMS)
+--- inertial_and_froude
+--- mixing_entrainment
+--- point_series
+--- heat_budget
+--- recovery
+--- chlorophyll
+nesdisVHNSQchlaDaily (92, 294, 428)
+erdMH1chla1day (92, 265, 385)
+--- east_monsoon
+--- tide_gauges
+--- sla
+--- scenario_h8
+{
+ "track": {
+  "t_first_in_box": "2021-04-02 12:00:00",
+  "t_last_in_box": "2021-04-07 10:00:00",
+  "vmax_in_box_ms": 30.86664,
+  "pmin_in_box_hpa": 980.0,
+  "rmw_median_km": 46.3,
+  "Uh_median_ms": 2.57222,
+  "Uh_min_ms": 0.51444,
+  "Uh_max_ms": 7.71666,
+  "closest_Kupang_km": 16.899410080985973,
+  "closest_Kupang_time": "2021-04-04 09:00:00",
+  "closest_Rote_km": 12.989024748372536,
+  "closest_Rote_time": "2021-04-03 06:00:00"
  },
- {
-  "id": "163",
-  "name": "b'Benoa'",
-  "lat": -8.746430397033691,
-  "lon": 115.20986938476562,
-  "t0": "2006-01-24",
-  "t1": "2026-09-30"
+ "era5_storm": {
+  "U10max_ms": 24.24669075012207,
+  "taumax_Nm2": 1.4575512409210205,
+  "curl_min_Nm3": -4.358002053222685e-05,
+  "wE_max_m_day": 129.65735870042414,
+  "wE_median_core_m_day": 35.2994190783418,
+  "pmin_hpa": 988.4157104492188,
+  "eta_max_m": 70.72187742992625,
+  "eta_max_casebox_m": 68.05503891254949,
+  "eta_max_lonlat": [
+   123.25,
+   -8.0
+  ]
  },
- {
-  "id": "166",
-  "name": "b'Broome'",
-  "lat": -18.001699447631836,
-  "lon": 122.21829986572266,
-  "t0": "1986-07-12",
-  "t1": "2026-09-30"
+ "sst": {
+  "cooling_max_C": -3.367999999999995,
+  "cooling_max_lonlat": [
+   125.16999816894531,
+   -8.15999984741211
+  ],
+  "cooling_max_date": "2021-04-05",
+  "cooling_max_casebox_C": -3.2754285714285736,
+  "cooling_max_casebox_lonlat": [
+   123.55000305175781,
+   -10.770000457763672
+  ],
+  "area_cooling_gt1C_km2": 1149397.2990709422
  },
- {
-  "id": "168",
-  "name": "b'Darwin'",
-  "lat": -12.471699714660645,
-  "lon": 130.84669494628906,
-  "t0": "1984-01-01",
-  "t1": "2026-09-30"
+ "coldwake_side": {
+  "mean_left_0_150km_C": -1.7345760191348718,
+  "mean_right_0_150km_C": -1.6359583853963375,
+  "x_of_min_km": 87.5,
+  "stronger_side": "kiri",
+  "Uh_median_ms": 3.08666,
+  "t0": "2021-04-05T00:00",
+  "t1": "2021-04-07T06:00"
  },
- {
-  "id": "417",
-  "name": "b'Sadeng'",
-  "lat": -8.190194129943848,
-  "lon": 110.79798126220703,
-  "t0": "2008-07-18",
-  "t1": "2016-04-13"
+ "coldwake_side_slow": {
+  "mean_left_0_150km_C": -2.1524862708255146,
+  "mean_right_0_150km_C": -1.893933225633706,
+  "x_of_min_km": 37.5,
+  "stronger_side": "kiri",
+  "Uh_median_ms": 1.54333,
+  "t0": "2021-04-03T00:00",
+  "t1": "2021-04-04T21:00"
  },
- {
-  "id": "418",
-  "name": "b'Waikelo'",
-  "lat": -9.399999618530273,
-  "lon": 119.23300170898438,
-  "t0": "2008-04-11",
-  "t1": "2019-11-10"
+ "argo_pair": {
+  "float": 2902794,
+  "pre": {
+   "id": "2902794_44",
+   "time": "2021-04-02 21:24:00",
+   "lon": 113.138,
+   "lat": -15.664
+  },
+  "post": {
+   "id": "2902794_45",
+   "time": "2021-04-12 21:58:00",
+   "lon": 113.047,
+   "lat": -15.621
+  },
+  "dmin_track_km": 27.067605544179788,
+  "mld_pre": 24.0,
+  "mld_post": 50.0,
+  "sst_pre": 29.844,
+  "sst_post": 29.246,
+  "z20_pre": 141.52695809388518,
+  "z20_post": 134.94117647058823,
+  "c1_mode": 2.5058826034747312,
+  "c1_2layer": 2.1446415040912044,
+  "gprime": 0.03249901815892494,
+  "N2_max": 0.0005297017471694916,
+  "N2_max_depth": 138.0,
+  "dT_jump_C": 2.0665000000000013
  },
- {
-  "id": "419",
-  "name": "b'Lembar'",
-  "lat": -8.730890274047852,
-  "lon": 116.07225799560547,
-  "t0": "2008-09-22",
-  "t1": "2026-09-30"
+ "inertial": {
+  "f_10S": -2.5325197527300454e-05,
+  "T_inertial_h": 68.91670835391795
  },
- {
-  "id": "420",
-  "name": "b'Saumlaki'",
-  "lat": -7.9814910888671875,
-  "lon": 131.29058837890625,
-  "t0": "2008-10-01",
-  "t1": "2026-09-30"
+ "froude": {
+  "c1_ms": 2.5058826034747312,
+  "c1_src": "Argo 2902794_44",
+  "Uh_ms": 2.57222,
+  "ratio": 1.0264726673281834,
+  "Uh_slow_ms": 1.54333,
+  "ratio_slow": 0.6158828022749242,
+  "Uh_fast_ms": 3.08666,
+  "ratio_fast": 1.2317656045498484,
+  "R1_km": 98.94819579485612,
+  "wake_wavelength_km": 765.8008092277357
+ },
+ "entrainment": {
+  "tau_peak_Nm2": 0.6570141911506653,
+  "t_peak": "2021-04-08 00:00:00",
+  "impulse_Nsm2": 21595.482421875,
+  "window_h": 22.1619621952449,
+  "h0_m": 24.0,
+  "h_after_m": 42.0,
+  "dSST_entrain_C": -0.5319488123558287,
+  "U_ml_ms": 0.5016372223432056,
+  "eta_local_m": 4.168960144845167,
+  "h_after_with_upwelling_m": 42.0,
+  "dSST_entrain_upw_C": -0.698022414851259
+ },
+ "heat_budget": {
+  "W1": {
+   "profile_src": "Argo 2902794_44",
+   "h0_m": 24.0,
+   "t_min": "2021-04-06",
+   "days": 4,
+   "dT_obs": -3.2754285714285736,
+   "flux": -0.8020659779530126,
+   "rain": -0.03376495608941052,
+   "entrainment": -1.0328192914701937,
+   "upwelling": -1.3606118434651933,
+   "residual": -0.04616650245076359,
+   "impulse_Nsm2": 42104.70703125,
+   "eta_m": 26.96346947297739,
+   "h_after_mix": 56.0,
+   "h_after_mixupw": 52.0,
+   "Qnet_mean_Wm2": -206.3050079345703,
+   "rain_total_mm": 263.9086608886719,
+   "ssr_mean_Wm2": 109.54759216308594,
+   "ssr_pre_mean_Wm2": 183.23388671875,
+   "frac_atm": 0.255182158858032
+  },
+  "T0": {
+   "profile_src": "Argo 2902794_44",
+   "h0_m": 24.0,
+   "t_min": "2021-04-07",
+   "days": 5,
+   "dT_obs": -2.5678571428571466,
+   "flux": -0.8390036880819935,
+   "rain": -0.048340959105079774,
+   "entrainment": -1.1097367480372498,
+   "upwelling": -3.8155888939490374,
+   "residual": 3.244813146316214,
+   "impulse_Nsm2": 46832.8984375,
+   "eta_m": 56.51891227198753,
+   "h_after_mix": 58.0,
+   "h_after_mixupw": 56.0,
+   "Qnet_mean_Wm2": -175.96487426757812,
+   "rain_total_mm": 377.8355407714844,
+   "ssr_mean_Wm2": 120.83122253417969,
+   "ssr_pre_mean_Wm2": 189.16310119628906,
+   "frac_atm": 0.34555841615073735
+  },
+  "L100": {
+   "profile_src": "Argo 2902794_44",
+   "h0_m": 24.0,
+   "t_min": "2021-04-04",
+   "days": 2,
+   "dT_obs": -1.7641428571428612,
+   "flux": -0.4042254824052,
+   "rain": -0.027077426798704077,
+   "entrainment": -0.7234775791789936,
+   "upwelling": -0.6145229417051432,
+   "residual": 0.005160572945179798,
+   "impulse_Nsm2": 25981.3984375,
+   "eta_m": 20.567937036224436,
+   "h_after_mix": 48.0,
+   "h_after_mixupw": 40.0,
+   "Qnet_mean_Wm2": -190.0208282470703,
+   "rain_total_mm": 211.63864135742188,
+   "ssr_mean_Wm2": 54.50015640258789,
+   "ssr_pre_mean_Wm2": 204.6605224609375,
+   "frac_atm": 0.24448298359602572
+  },
+  "R100": {
+   "profile_src": "Argo 2902794_44",
+   "h0_m": 24.0,
+   "t_min": "2021-04-04",
+   "days": 2,
+   "dT_obs": -2.098428571428574,
+   "flux": -0.5004704036514049,
+   "rain": -0.0294825860382664,
+   "entrainment": -0.5198825394698616,
+   "upwelling": -0.280765979437426,
+   "residual": -0.7678270628316151,
+   "impulse_Nsm2": 20415.896484375,
+   "eta_m": 11.228680714225774,
+   "h_after_mix": 42.0,
+   "h_after_mixupw": 38.0,
+   "Qnet_mean_Wm2": -235.26425170898438,
+   "rain_total_mm": 230.43748474121094,
+   "ssr_mean_Wm2": 68.70130157470703,
+   "ssr_pre_mean_Wm2": 193.10186767578125,
+   "frac_atm": 0.2525475476770164
+  },
+  "KPG": {
+   "profile_src": "Argo 2902794_44",
+   "h0_m": 24.0,
+   "t_min": "2021-04-06",
+   "days": 4,
+   "dT_obs": -2.306142857142852,
+   "flux": -0.42829561709150926,
+   "rain": -0.00885369292132771,
+   "entrainment": -0.31286296271484204,
+   "upwelling": -0.165673002935943,
+   "residual": -1.3904575814792302,
+   "impulse_Nsm2": 14426.8203125,
+   "eta_m": 9.34597912468289,
+   "h_after_mix": 36.0,
+   "h_after_mixupw": 32.0,
+   "Qnet_mean_Wm2": -110.16490936279297,
+   "rain_total_mm": 69.20093536376953,
+   "ssr_mean_Wm2": 151.98341369628906,
+   "ssr_pre_mean_Wm2": 205.97994995117188,
+   "frac_atm": 0.18955864276094067
+  },
+  "ROTE": {
+   "profile_src": "Argo 2902794_44",
+   "h0_m": 24.0,
+   "t_min": "2021-04-07",
+   "days": 5,
+   "dT_obs": -2.4498571428571445,
+   "flux": -0.29561664323410153,
+   "rain": -0.010024134268598325,
+   "entrainment": -0.12915415019762833,
+   "upwelling": 0.014846316137536064,
+   "residual": -2.0299085312943523,
+   "impulse_Nsm2": 8248.3642578125,
+   "eta_m": 4.619308238001143,
+   "h_after_mix": 30.0,
+   "h_after_mixupw": 26.0,
+   "Qnet_mean_Wm2": -61.99989700317383,
+   "rain_total_mm": 78.34916687011719,
+   "ssr_mean_Wm2": 149.0127410888672,
+   "ssr_pre_mean_Wm2": 193.0277099609375,
+   "frac_atm": 0.12475861231085764
+  }
+ },
+ "recovery": {
+  "W1": {
+   "dmin_vs_clim": -3.217081976894962,
+   "tmin": "2021-04-06",
+   "t_efold_days": 4,
+   "t50_days": 3,
+   "t90_days": 12,
+   "days_below_1C": 13,
+   "days_below_05C": 39
+  },
+  "T0": {
+   "dmin_vs_clim": -2.503522888746131,
+   "tmin": "2021-04-07",
+   "t_efold_days": 9,
+   "t50_days": 6,
+   "t90_days": 24,
+   "days_below_1C": 15,
+   "days_below_05C": 43
+  },
+  "L100": {
+   "dmin_vs_clim": -1.7758094319286433,
+   "tmin": "2021-04-04",
+   "t_efold_days": 6,
+   "t50_days": 5,
+   "t90_days": 11,
+   "days_below_1C": 5,
+   "days_below_05C": 14
+  },
+  "R100": {
+   "dmin_vs_clim": -2.0336581497543955,
+   "tmin": "2021-04-04",
+   "t_efold_days": 11,
+   "t50_days": 6,
+   "t90_days": 22,
+   "days_below_1C": 12,
+   "days_below_05C": 25
+  },
+  "ROTE": {
+   "dmin_vs_clim": -2.35086589401878,
+   "tmin": "2021-04-06",
+   "t_efold_days": 8,
+   "t50_days": 5,
+   "t90_days": 42,
+   "days_below_1C": 12,
+   "days_below_05C": 44
+  },
+  "KPG": {
+   "dmin_vs_clim": -2.2704256620626855,
+   "tmin": "2021-04-06",
+   "t_efold_days": 27,
+   "t50_days": 27,
+   "t90_days": 80,
+   "days_below_1C": 42,
+   "days_below_05C": 78
+  }
+ },
+ "chl": {
+  "base_mgm3": 0.09772470593452454,
+  "peak_mgm3": 0.24365569651126862,
+  "ratio": 2.493286566393126,
+  "peak_date": "2021-04-06",
+  "sst_min_date": "2021-04-06",
+  "lag_days": 0,
+  "decay_half_days": 5,
+  "wake_pixels": 20717,
+  "valid_median": 10551.5,
+  "product": "nesdisVHNSQchlaDaily",
+  "lag_after_sstmin_days": 0
+ },
+ "chl_all": {
+  "nesdisVHNSQchlaDaily": {
+   "base_mgm3": 0.09772470593452454,
+   "peak_mgm3": 0.24365569651126862,
+   "ratio": 2.493286566393126,
+   "peak_date": "2021-04-06",
+   "sst_min_date": "2021-04-06",
+   "lag_days": 0,
+   "decay_half_days": 5,
+   "wake_pixels": 20717,
+   "valid_median": 10551.5
+  },
+  "erdMH1chla1day": {
+   "base_mgm3": 0.10306274890899658,
+   "peak_mgm3": 0.3376186937093735,
+   "ratio": 3.2758557023109054,
+   "peak_date": "2021-04-07",
+   "sst_min_date": "2021-04-06",
+   "lag_days": 1,
+   "decay_half_days": 2,
+   "wake_pixels": 16895,
+   "valid_median": 4959.5
+  }
+ },
+ "east_monsoon": {
+  "W1_clim_cooling_C": -2.889295850789363,
+  "W1_clim_days_below_05": 180,
+  "W1_seroja_days_below_05": 39,
+  "W1_seroja_cooling_vs_clim_C": -3.217081976894962,
+  "clim_box_cooling_C": -3.2573108673095703,
+  "clim_box_months_below_halfdeg": 6,
+  "box_2021_min_anom_Apr": -1.2284218775841964,
+  "W1_seroja_cooling_C": -3.2754285714285736,
+  "W1_eastmonsoon_min_minus_pre_C": -3.4214285714285744,
+  "W1_days_below_pre_minus1C_JulSep": 92
+ },
+ "h8": {
+  "src_apr": "Argo 2902794_44",
+  "src_jul": "Argo 5905418_105 (2021-08-23, 679 km dari W1)",
+  "impulse_Nsm2": 42104.70703125,
+  "eta_m": 26.96346947297739,
+  "apr": {
+   "sst0": 29.844,
+   "mld0": 24.0,
+   "z20": 141.52695809388518,
+   "c1": 2.5058826034747312,
+   "h_mix": 56.0,
+   "dT_mix": -1.0328192914701937,
+   "h_mixupw": 52.0,
+   "dT_mixupw": -2.393431134935387,
+   "T_after": 27.450568865064614,
+   "T_at_50m": 27.321304347826086,
+   "T_at_100m": 23.456173076923076
+  },
+  "jul": {
+   "sst0": 27.101950000000002,
+   "mld0": 86.0,
+   "z20": 144.02248486595562,
+   "c1": 2.6280753633932883,
+   "h_mix": 86.0,
+   "dT_mix": -0.006164075887394205,
+   "h_mixupw": 86.0,
+   "dT_mixupw": -0.06434449600759606,
+   "T_after": 27.037605503992406,
+   "T_at_50m": 27.1006,
+   "T_at_100m": 25.7776
+  },
+  "ratio_cooling": 0.02688378832730991
  }
-] 329
-===== 00_probe4.py selesai dalam 24 s =====
+}
+NOTES {'tide_gauges': 'GAGAL: n idxmax\n    iloc = self.argmax(axis, skipna, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/base.py", line 868, in argmax\n    result = nanops.nanargmax(  # type: ignore[assignment]\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/pandas/core/nanops.py", line 1587, in nanargmax\n    result = values.argmax(axis)\n             ^^^^^^^^^^^^^^^^^^^\nValueError: attempt to get argmax of an empty sequence\n'}
+===== 10_process.py selesai dalam 12 s =====

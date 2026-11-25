@@ -1,0 +1,79 @@
+{
+ "lemba": {
+  "name": "Lembar (Lombok)",
+  "lon": 116.0723,
+  "lat": -8.7309,
+  "file": "ioc_lemba_2021MAM.csv",
+  "source": "IOC SLMF"
+ },
+ "beno": {
+  "name": "Benoa (Bali)",
+  "lon": 115.2166,
+  "lat": -8.7666,
+  "file": "ioc_beno_2021MAM.csv",
+  "source": "IOC SLMF"
+ },
+ "saum": {
+  "name": "Saumlaki",
+  "lon": 131.2906,
+  "lat": -7.9827,
+  "file": "ioc_saum_2021MAM.csv",
+  "source": "IOC SLMF"
+ },
+ "brom": {
+  "name": "Broome",
+  "lon": 122.2186,
+  "lat": -18.0008,
+  "file": "ioc_brom_2021MAM.csv",
+  "source": "IOC SLMF"
+ },
+ "darw": {
+  "name": "Darwin",
+  "lon": 130.8458,
+  "lat": -12.4719,
+  "file": "ioc_darw_2021MAM.csv",
+  "source": "IOC SLMF"
+ },
+ "uh125": {
+  "name": "Prigi (UHSLC 125)",
+  "lon": 111.72723,
+  "lat": -8.2865,
+  "file": "uhslc_125_2021MAM.csv",
+  "source": "UHSLC fast delivery"
+ },
+ "uh163": {
+  "name": "Benoa (UHSLC 163)",
+  "lon": 115.20987,
+  "lat": -8.74643,
+  "file": "uhslc_163_2021MAM.csv",
+  "source": "UHSLC fast delivery"
+ },
+ "uh166": {
+  "name": "Broome (UHSLC 166)",
+  "lon": 122.2183,
+  "lat": -18.0017,
+  "file": "uhslc_166_2021MAM.csv",
+  "source": "UHSLC fast delivery"
+ },
+ "uh168": {
+  "name": "Darwin (UHSLC 168)",
+  "lon": 130.8467,
+  "lat": -12.4717,
+  "file": "uhslc_168_2021MAM.csv",
+  "source": "UHSLC fast delivery"
+ },
+ "uh419": {
+  "name": "Lembar (UHSLC 419)",
+  "lon": 116.07226,
+  "lat": -8.73089,
+  "file": "uhslc_419_2021MAM.csv",
+  "source": "UHSLC fast delivery"
+ },
+ "uh420": {
+  "name": "Saumlaki (UHSLC 420)",
+  "lon": 131.290596,
+  "lat": -7.981491,
+  "file": "uhslc_420_2021MAM.csv",
+  "source": "UHSLC fast delivery"
+ }
+}
