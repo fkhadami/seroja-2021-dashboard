@@ -52,9 +52,16 @@ if f:
                 url=E + "ncdcOisst21Agg_LonPM180", domain=f"{LON0}–{LON1}° BT, {LAT0}–{LAT1}° LS (0,25°)",
                 period="2021-03-01 – 2021-05-31, harian")
 
-for dsid in ["nesdisVHNnoaa20chlaDaily", "nesdisVHNSQchlaDaily"]:
-    f = grid(dsid, "chlor_a", "2021-03-01T12:00:00Z", "2021-05-31T12:00:00Z", extra="[(0.0)]", lat_desc=True,
-             fname=os.path.join(RAW, f"{dsid}_2021MAM.nc"))
-    if f:
-        log_dataset("CHL_" + dsid, id=dsid + " (VIIRS L3 chlor_a OC3, NOAA NESDIS, NRT)", version="NRT L3 4 km",
-                    url=E + dsid, domain=f"{LON0}–{LON1}° BT, {LAT0}–{LAT1}° LS (4 km)", period="2021-03-01 – 2021-05-31, harian")
+# Klorofil: per bulan untuk menghindari 502. SNPP science quality, MODIS Aqua, dan DINEOF gap-filled (VIIRS+OLCI)
+CHL = [("nesdisVHNSQchlaDaily", "chlor_a", "[(0.0)]", True, 1, "VIIRS SNPP L3 chlor_a OC3, science quality (NOAA STAR)"),
+       ("erdMH1chla1day", "chlorophyll", "", True, 1, "MODIS Aqua L3 chlorophyll OCI R2022 (NASA OBPG)"),
+       ("noaacwNPPN20S3ASCIDINEOF2kmDaily", "chlor_a", "[(0.0)]", True, 2, "DINEOF gap-filled VIIRS SNPP+NOAA-20+OLCI S-3A, 2 km (NOAA STAR)")]
+for dsid, var, extra, desc, stride, title in CHL:
+    fs = []
+    for a, b in [("2021-03-01", "2021-03-31"), ("2021-04-01", "2021-04-30"), ("2021-05-01", "2021-05-31")]:
+        f = grid(dsid, var, a + "T12:00:00Z", b + "T12:00:00Z", extra=extra, lat_desc=desc, stride=stride,
+                 fname=os.path.join(RAW, f"{dsid}_{a[:7]}.nc"))
+        if f: fs.append(f)
+    if fs:
+        log_dataset("CHL_" + dsid, id=dsid + " (" + title + ")", version=title, url=E + dsid,
+                    domain=f"{LON0}–{LON1}° BT, {LAT0}–{LAT1}° LS", period="2021-03-01 – 2021-05-31, harian", files=len(fs))
