@@ -195,9 +195,9 @@ async function addPointMarkers(group, clickable) {
       .bindTooltip(`<b>${k}</b> · ${p.name}<br>${fmt(p.lonlat[0], 2)}° BT, ${fmt(-p.lonlat[1], 2)}° LS`);
     if (clickable) m.on("click", () => showPoint(k)); group.addLayer(m);
   }
-  if (TD) for (const k of Object.keys(TD)) { const [x, y, n] = TIDE_LL[k];
+  if (TD) for (const k of Object.keys(TD)) { const x = TD[k].lon, y = TD[k].lat, n = TD[k].name; TIDE_LL[k] = [x, y, n];
     const m = L.marker([y, x], {icon: L.divIcon({className: "", html: `<div style="width:12px;height:12px;background:#b26b00;border:2px solid #fff;transform:rotate(45deg)"></div>`, iconAnchor: [6, 6]})})
-      .bindTooltip(`<b>Stasiun pasut ${n}</b> (IOC: ${k})`);
+      .bindTooltip(`<b>Stasiun pasut ${n}</b><br>${TD[k].source} · ${fmt(TD[k].dist_track_km, 0)} km dari lintasan`);
     if (clickable) m.on("click", () => showTide(k)); group.addLayer(m); }
   if (AR) for (const w of ["pre", "post"]) { const a = AR.meta[w];
     const m = L.circleMarker([a.lat, a.lon], {radius: 6, color: "#000", weight: 1.5, fillColor: w === "pre" ? "#fdd835" : "#e65100", fillOpacity: 1})
@@ -221,7 +221,7 @@ async function initStations() {
 }
 async function showTide(k) {
   const d = (await load("tide.json"))[k]; const v = $("#stview"); const pas = await passage();
-  v.innerHTML = `<h3>Stasiun pasut ${TIDE_LL[k][2]} <span class="tag">IOC ${k}${d.sensor ? " · sensor " + d.sensor : ""}</span> <span class="tag">data valid ${fmt(d.valid_frac * 100, 0)}%</span></h3>
+  v.innerHTML = `<h3>Stasiun pasut ${d.name} <span class="tag">${d.source}${d.sensor ? " · sensor " + d.sensor : ""}</span> <span class="tag">${fmt(d.dist_track_km, 0)} km dari lintasan</span> <span class="tag">data valid ${fmt(d.valid_frac * 100, 0)}%</span></h3>
   <div id="c1" class="chart"></div><div id="c2" class="chart" style="margin-top:10px"></div>
   <div class="cols two"><div><h3>Konstanta harmonik (UTide, Mar–Mei 2021)</h3><table class="tbl" id="hm"></table></div>
   <div><div id="c3" class="chart"></div><div id="c4" class="chart" style="margin-top:10px"></div></div></div><p class="small" id="tnote"></p>`;
@@ -238,6 +238,7 @@ async function showTide(k) {
     LAY({title: {text: "Spektrum daya (Welch)", font: {size: 13}}, xaxis: {type: "log", title: "siklus/hari"}, yaxis: {type: "log", title: "m²/cpd"}, hovermode: "closest"}), PL);
   if (d.lagcorr) Plotly.newPlot("c4", [{x: d.lagcorr.lag_h, y: d.lagcorr.r, mode: "lines", line: {color: "#0b5f8a"}, name: "r"}],
     LAY({title: {text: "Lag-korelasi residu terfilter vs inverse barometer", font: {size: 13}}, xaxis: {title: "lag (jam, + = muka laut tertinggal)"}, yaxis: {title: "r"}, hovermode: "closest"}), PL);
+  if (!d.storm) $("#tnote").innerHTML = "Data selama siklon (2–8 Apr) tidak cukup untuk menghitung residu badai.";
   if (d.storm) $("#tnote").innerHTML = tpl(`Saat siklon (2–8 Apr): residu terfilter maksimum <b>{s.resid_lp_max_cm:1} cm</b> pada {s.t_max_resid:0}; kontribusi inverse barometer saat itu {s.ib_at_max_cm:1} cm, kontribusi angin (regresi) {s.wind_at_max_cm:1} cm. Tekanan minimum ERA5 di stasiun {s.msl_min_hpa:1} hPa. Regresi 15 Mar–30 Apr: koefisien IB {r.a_ib:2}, R² = {r.r2:2}.`, {s: d.storm, r: d.regression}).replace("{s.t_max_resid:0}", d.storm.t_max_resid);
 }
 const _lp = new Map();
@@ -259,10 +260,17 @@ async function showPoint(k) {
     LAY({title: {text: "Tegangan angin dan Ekman pumping (ERA5, 3-jam)", font: {size: 13}}, yaxis: {title: "N/m²"}, yaxis2: {title: "m/hari", overlaying: "y", side: "right"},
       xaxis: {range: ["2021-03-28", "2021-04-20"]}, shapes: [vline(pas)]}), PL);
   if (B) { const s = B.series;
-    Plotly.newPlot("p3", [{x: s.t, y: s.flux, type: "bar", name: "Fluks panas permukaan"}, {x: s.t, y: s.rain, type: "bar", name: "Hujan"},
-      {x: s.t, y: s.upw, type: "bar", name: "Upwelling (w_E·ΔT/h)"}, {x: s.t, y: s.resid, type: "bar", name: "Entrainment + adveksi (residu)"},
-      {x: s.t, y: s.dTdt, mode: "lines+markers", name: "dT/dt terukur", line: {color: "#000"}}],
-      LAY({barmode: "relative", title: {text: `Budget panas lapisan campuran (°C/hari), h = ${fmt(B.h_m, 0)} m, ΔT = ${fmt(B.dT_jump_C, 2)} °C`, font: {size: 13}}, shapes: [vline(pas)]}), PL); }
+    Plotly.newPlot("p3", [{x: s.t, y: s.sst_anom, name: "ΔSST terukur (MUR, relatif 25–31 Mar)", line: {color: "#b2182b", width: 2}},
+      {x: s.t, y: s.atm_cum, name: "ΔSST jika hanya fluks permukaan (kumulatif, h tetap)", line: {color: "#6a51a3", dash: "dash"}}],
+      LAY({title: {text: `Terukur vs atmosfer saja (°C) · profil ${B.profile_src}, h₀ = ${fmt(B.h0_m, 0)} m`, font: {size: 13}}, shapes: [vline(pas)]}), PL);
+    v.insertAdjacentHTML("beforeend", `<table class="tbl"><tr><th>Komponen (2 Apr → ${B.t_min})</th><th>°C</th></tr>` +
+      [["Terukur (MUR)", B.dT_obs], ["Fluks permukaan", B.flux], ["Hujan", B.rain], ["Entrainment (Ri bulk)", B.entrainment], ["Upwelling Ekman (η = " + fmt(B.eta_m, 0) + " m)", B.upwelling], ["Residu (adveksi, 3-D, galat)", B.residual]]
+        .map(r => `<tr><td>${r[0]}</td><td class="n">${fmt(r[1], 2)}</td></tr>`).join("") + "</table>"); }
+  const AN = (await load("anom_points.json"))?.[k];
+  if (AN) { v.insertAdjacentHTML("beforeend", '<div id="p4" class="chart" style="margin-top:10px"></div>');
+    Plotly.newPlot("p4", [{x: AN.t, y: AN.a, name: "anomali SST relatif klimatologi 2003–2020 (dinolkan 25–31 Mar)", line: {color: "#0b5f8a"}}],
+      LAY({title: {text: "Pemulihan: anomali terhadap klimatologi musiman (°C)", font: {size: 13}}, xaxis: {range: ["2021-03-01", "2021-06-30"]}, shapes: [vline(pas),
+        {type: "line", xref: "paper", x0: 0, x1: 1, y0: -0.5, y1: -0.5, line: {color: "#999", dash: "dot", width: 1}}]}), PL); }
 }
 async function showArgo(target = "stview") {
   const A = await load("argo_pair.json"); if (!A) return; const m = A.meta;
@@ -288,18 +296,20 @@ async function initPred() {
     ["Curl tegangan angin (besar, di bawah inti)", P.curl_scale_Nm3 * 1e6, C.era5_storm ? Math.abs(C.era5_storm.curl_min_Nm3) * 1e6 : null, "10⁻⁶ N m⁻³", 1, "curl"],
     ["Ekman pumping maksimum w_E", P.wE_m_per_day, C.era5_storm?.wE_max_m_day, "m/hari", 0, "wE"],
     ["Kecepatan translasi siklon U_h (median di kotak kasus)", A.Uh, C.track?.Uh_median_ms, "m/s", 1, "Uh"],
-    ["Perpindahan termoklin η (maks., kotak kasus)", P.thermocline_uplift_m, C.era5_storm?.eta_max_casebox_m, "m", 0, "eta"],
+    ["Perpindahan termoklin η (maks., kotak kasus, ERA5)", P.thermocline_uplift_m, C.era5_storm?.eta_max_casebox_m, "m", 0, "eta"],
     ["Kecepatan gelombang internal mode-1 c₁", P.c1_ms, C.froude?.c1_ms, "m/s", 2, "c1"],
     ["Rasio U_h/c₁", P.Uh_over_c1, C.froude?.ratio, "–", 2, "froude"],
     ["MLD setelah siklon (Argo terukur)", P.MLD_after_m, C.argo_pair?.mld_post, "m", 0, "mld"],
     ["MLD setelah siklon (model Ri bulk + data)", P.MLD_after_m, C.entrainment?.h_after_m, "m", 0, "mldmodel"],
     ["Pendinginan SST maksimum (kotak kasus, MUR)", P.dSST_entrainment_C + P.dSST_surface_flux_C, C.sst?.cooling_max_casebox_C, "°C", 2, "cool"],
     ["Pendinginan oleh fluks permukaan (W1, 2–12 Apr)", P.dSST_surface_flux_C, C.heat_budget?.W1?.flux, "°C", 2, "flux"],
-    ["Inverse barometer di Rote saat residu maks.", P.eta_IB_cm, C.rote_sealevel?.ib_at_max_cm, "cm", 1, "ib"],
-    ["Setup angin di Rote saat residu maks.", P.eta_wind_setup_cm, C.rote_sealevel?.wind_at_max_cm, "cm", 1, "setup"],
-    ["e-folding pemulihan SST (W1)", P.SST_recovery_efold_days, C.recovery?.W1?.efold_days, "hari", 0, "recov"],
+    ["Inverse barometer di Kupang (Δp ERA5)", P.eta_IB_cm, C.kupang?.ib_cm, "cm", 1, "ib"],
+    ["Setup angin Teluk Kupang (τ ERA5)", P.eta_wind_setup_cm, C.kupang?.setup_cm, "cm", 1, "setup"],
+    ["Residu muka laut terfilter, stasiun terdekat (" + (C.rote_sealevel?.name ?? "–") + ")", P.eta_IB_cm + P.eta_wind_setup_cm, C.rote_sealevel?.resid_lp_max_cm, "cm", 1, "tg"],
+    ["e-folding pemulihan SST (W1, vs klimatologi)", P.SST_recovery_efold_days, C.recovery?.W1?.t_efold_days, "hari", 0, "recov"],
     ["Jeda puncak klorofil setelah SST terdingin", P.chl_lag_days, C.chl?.lag_after_sstmin_days, "hari", 0, "chl"],
     ["Pendinginan musim timur (klimatologi kotak kasus)", P.east_monsoon_dSST_C, C.east_monsoon?.clim_box_cooling_C, "°C", 2, "em"],
+    ["Lama pendinginan musim timur (W1, < −0,5 °C)", P.east_monsoon_duration_days, C.east_monsoon?.W1_clim_days_below_05, "hari", 0, "emdur"],
   ];
   const tb = $("#predtab");
   tb.innerHTML = "<tr><th>Besaran</th><th>Prediksi B1</th><th>Dari data</th><th>Selisih</th><th>Satuan</th><th>Penjelasan</th></tr>";
@@ -317,8 +327,8 @@ async function initClaim() {
     const atm = hb.flux + hb.rain, frac = atm / hb.dT_obs;
     const [lab, col] = frac < 0.3 ? ["SALAH", "#b2182b"] : frac < 0.7 ? ["BENAR SEBAGIAN", "#b26b00"] : ["BENAR", "#1b7f4b"];
     $("#verdict").innerHTML = `<span class="vbadge" style="background:${col}">${lab}</span> ` + tpl(N.verdict || "", {c: C, f: {frac, atm}});
-    Plotly.newPlot("budgetbar", ["W1", "T0", "L100", "R100", "ROTE", "KPG"].filter(k => C.heat_budget?.[k]).map((k, i) => null).length ? [
-      ...[["flux", "Fluks permukaan"], ["rain", "Hujan"], ["upwelling", "Upwelling Ekman"], ["entrain_resid", "Entrainment + adveksi (residu)"]].map(([kk, nn]) => ({
+    Plotly.newPlot("budgetbar", Object.keys(C.heat_budget).length ? [
+      ...[["flux", "Fluks permukaan"], ["rain", "Hujan"], ["entrainment", "Entrainment"], ["upwelling", "Upwelling Ekman"], ["residual", "Residu"]].map(([kk, nn]) => ({
         type: "bar", name: nn, x: Object.keys(C.heat_budget), y: Object.values(C.heat_budget).map(r => r[kk])})),
       {type: "scatter", mode: "markers", name: "ΔT terukur (MUR)", x: Object.keys(C.heat_budget), y: Object.values(C.heat_budget).map(r => r.dT_obs), marker: {color: "#000", size: 10, symbol: "diamond"}}] : [],
       LAY({barmode: "relative", yaxis: {title: "°C (kumulatif 2–12 Apr)"}, hovermode: "closest"}), PL);
@@ -384,15 +394,17 @@ async function initCalc() {
 
   // B: muka laut pantai
   const rs = C.rote_sealevel || {}, bxb = $("#calcB");
-  const dp0 = rs.msl_min_hpa ? Math.max(1, Math.round(1010 - rs.msl_min_hpa)) : 10;
-  const b = {dp: slider(bxb, "bP", "Penurunan tekanan Δp (hPa)", 0, 60, 1, dp0, 0), W: slider(bxb, "bW", "Angin ke arah pantai (m/s)", 0, 40, 1, Math.round(es.U10max_ms ? es.U10max_ms / 2 : 12), 0),
+  const kp = C.kupang || {};
+  const dp0 = kp.dp_hpa != null ? Math.max(1, Math.round(kp.dp_hpa)) : 10;
+  const b = {dp: slider(bxb, "bP", "Penurunan tekanan Δp (hPa)", 0, 60, 1, dp0, 0), W: slider(bxb, "bW", "Angin ke arah teluk (m/s)", 0, 40, 1, Math.round(kp.U10_max_ms ?? 12), 0),
     L: slider(bxb, "bL", "Panjang fetch / lebar paparan L (km)", 2, 100, 1, 20, 0), h: slider(bxb, "bH", "Kedalaman rata-rata h (m)", 5, 100, 1, 30, 0)};
   const runB = () => { const dp = +b.dp.value, W = +b.W.value, L = +b.L.value * 1e3, h = +b.h.value;
     const cd = Math.min(W < 11 ? 1.2e-3 : (0.49 + 0.065 * W) * 1e-3, 2.4e-3), tau = 1.2 * cd * W * W, ib = dp * 100 / (1025 * 9.81) * 100, su = tau * L / (1025 * 9.81 * h) * 100;
     $("#outB").innerHTML = [["Inverse barometer Δp/(ρg)", fmt(ib, 1) + " cm"], ["τ angin", fmt(tau, 2) + " N/m²"], ["Setup angin τL/(ρgh)", fmt(su, 1) + " cm"], ["Total (tanpa pasut & gelombang)", fmt(ib + su, 1) + " cm"]]
       .map(([a, c]) => `<span>${a}</span><span class="n">${c}</span>`).join(""); };
   Object.values(b).forEach(i => i.addEventListener("input", runB)); runB();
-  $("#calcBnote").innerHTML = rs.resid_lp_max_cm != null ? tpl("Pembanding terukur di Rote: residu terfilter maksimum {r.resid_lp_max_cm:1} cm, tekanan minimum ERA5 {r.msl_min_hpa:1} hPa. Δp bawaan = 1010 hPa − tekanan minimum ERA5 di Rote.", {r: rs}) : "";
+  $("#calcBnote").innerHTML = tpl("Nilai bawaan dari ERA5 di Teluk Kupang: Δp = {k.dp_hpa:1} hPa (tekanan pra-siklon {k.msl_pre_hpa:1} → minimum {k.msl_min_hpa:1} hPa), U10 maksimum {k.U10_max_ms:1} m/s. L dan h adalah asumsi geometri teluk. Tidak ada data pasut terbuka di Kupang/Rote untuk April 2021.", {k: kp}) +
+    (rs.resid_lp_max_cm != null ? tpl(" Pembanding terukur terdekat: {r.name}, {r.dist_track_km:0} km dari lintasan, residu terfilter maksimum {r.resid_lp_max_cm:1} cm.", {r: rs}) : "");
 }
 
 /* ---------- panel 7 ---------- */
@@ -400,11 +412,12 @@ async function initH8() {
   const C = (await load("calc.json"))?.calc || {}, H = C.h8, N = window.NARR || {}, P = await load("h8_profiles.json");
   if (!H) { $("#h8text").innerHTML = "<p>Belum ada data profil Juli.</p>"; return; }
   $("#h8text").innerHTML = tpl(N.h8 || "", {h: H, c: C});
-  $("#h8tab").innerHTML = "<tr><th></th><th>April (Seroja, pra-siklon)</th><th>Akhir Juli (musim timur)</th></tr>" +
-    [["Profil Argo", H.profile ? "–" : "", H.profile + " (" + H.time.slice(0, 10) + ")"], ["SST awal (°C)", fmt(H.sst_apr, 2), fmt(H.sst_jul, 2)], ["MLD awal (m)", fmt(H.mld_apr, 0), fmt(H.mld_jul, 0)],
-      ["Isoterm 20 °C (m)", fmt(H.z20_apr, 0), fmt(H.z20_jul, 0)], ["MLD setelah siklon (m)", fmt(H.h_after_apr, 0), fmt(H.h_after_jul, 0)],
-      ["Pendinginan SST (°C)", fmt(H.dSST_apr, 2), fmt(H.dSST_jul, 2)], ["SST setelah siklon (°C)", fmt(H.T_after_apr, 2), fmt(H.T_after_jul, 2)]]
-      .map(r => `<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td></tr>`).join("");
+  const r = [["Sumber profil", H.src_apr, H.src_jul], ["SST awal (°C)", fmt(H.apr.sst0, 2), fmt(H.jul.sst0, 2)], ["MLD awal (m)", fmt(H.apr.mld0, 0), fmt(H.jul.mld0, 0)],
+    ["Isoterm 20 °C (m)", fmt(H.apr.z20, 0), fmt(H.jul.z20, 0)], ["Suhu di 50 m (°C)", fmt(H.apr.T_at_50m, 2), fmt(H.jul.T_at_50m, 2)],
+    ["c₁ mode-1 (m/s)", fmt(H.apr.c1, 2), fmt(H.jul.c1, 2)], ["MLD setelah siklon, mixing saja (m)", fmt(H.apr.h_mix, 0), fmt(H.jul.h_mix, 0)],
+    ["ΔSST mixing saja (°C)", fmt(H.apr.dT_mix, 2), fmt(H.jul.dT_mix, 2)], ["ΔSST mixing + upwelling η (°C)", fmt(H.apr.dT_mixupw, 2), fmt(H.jul.dT_mixupw, 2)],
+    ["SST setelah siklon (°C)", fmt(H.apr.T_after, 2), fmt(H.jul.T_after, 2)]];
+  $("#h8tab").innerHTML = "<tr><th></th><th>April (Seroja, pra-siklon)</th><th>Akhir Juli (musim timur)</th></tr>" + r.map(x => `<tr><td>${x[0]}</td><td class="n">${x[1]}</td><td class="n">${x[2]}</td></tr>`).join("");
   if (P) Plotly.newPlot("h8chart", [{x: P.apr.T, y: P.apr.z, name: "April (pra-Seroja)", line: {color: "#b2182b", width: 2}}, {x: P.jul.T, y: P.jul.z, name: "Juli (musim timur)", line: {color: "#2166ac", width: 2}}],
     LAY({yaxis: {autorange: "reversed", title: "kedalaman (m)", range: [300, 0]}, xaxis: {title: "suhu (°C)"}, hovermode: "closest"}), PL);
 }
@@ -437,10 +450,11 @@ async function initSummary() {
 /* ---------- panel 2 grafik ---------- */
 async function initMapCharts() {
   const X = await load("crosstrack.json"), T = await load("track.json"), C = (await load("calc.json"))?.calc || {};
-  if (X) Plotly.newPlot("xtrack", [{x: X.x_km, y: X.dsst, mode: "lines+markers", line: {color: "#2166ac"}, name: "ΔSST"}],
+  if (X) Plotly.newPlot("xtrack", [{x: X.x_km, y: X.dsst, mode: "lines+markers", line: {color: "#2166ac"}, name: "fase bergerak 5–7 Apr"},
+    ...(X.dsst_slow ? [{x: X.x_km, y: X.dsst_slow, mode: "lines+markers", line: {color: "#b2182b", dash: "dot"}, name: "fase diam 3–4 Apr"}] : [])],
     LAY({xaxis: {title: "jarak tegak lurus lintasan (km) · kiri (+) / kanan (−)", zeroline: true}, yaxis: {title: "pendinginan maks. (°C)"}, hovermode: "closest",
       shapes: [{type: "line", x0: 0, x1: 0, yref: "paper", y0: 0, y1: 1, line: {color: "#000"}}]}), PL);
-  if (C.coldwake_side) $("#xtrack-note").innerHTML = tpl("Rata-rata 0–150 km di kiri lintasan {c.coldwake_side.mean_left_0_150km_C:2} °C vs kanan {c.coldwake_side.mean_right_0_150km_C:2} °C; pendinginan terbesar pada x = {c.coldwake_side.x_of_min_km:0} km (3–9 Apr).", {c: C});
+  if (C.coldwake_side) $("#xtrack-note").innerHTML = tpl("Fase bergerak (U_h ≈ {c.coldwake_side.Uh_median_ms:1} m/s): 0–150 km kiri {c.coldwake_side.mean_left_0_150km_C:2} °C vs kanan {c.coldwake_side.mean_right_0_150km_C:2} °C, minimum di x = {c.coldwake_side.x_of_min_km:0} km. Fase diam (U_h ≈ {c.coldwake_side_slow.Uh_median_ms:1} m/s): kiri {c.coldwake_side_slow.mean_left_0_150km_C:2} vs kanan {c.coldwake_side_slow.mean_right_0_150km_C:2} °C. Kiri = sisi kiri bila menghadap arah gerak. Di belahan bumi selatan arus inersia berputar berlawanan arah jarum jam; di sisi kiri lintasan vektor angin juga berputar berlawanan arah jarum jam terhadap waktu, sehingga beresonansi dan mengaduk lebih kuat.", {c: C});
   if (T) Plotly.newPlot("trackchart", [{x: T.time, y: T.vmax_ms, name: "V_max (m/s)", line: {color: "#b2182b"}}, {x: T.time, y: T.pmin_hpa, name: "p_min (hPa)", yaxis: "y2", line: {color: "#2166ac"}},
     {x: T.time, y: T.speed_ms, name: "U_h translasi (m/s)", line: {color: "#1b7f4b", dash: "dot"}}],
     LAY({yaxis: {title: "m/s"}, yaxis2: {title: "hPa", overlaying: "y", side: "right"}}), PL);
