@@ -37,7 +37,7 @@
   "url": "https://erddap.ifremer.fr/erddap/tabledap/ArgoFloats.csv",
   "domain": "110\u2013128\u00b0 BT, 6\u201320\u00b0 LS",
   "period": "2021-02-15 \u2013 2021-05-31",
-  "download_utc": "2026-11-25 03:31"
+  "download_utc": "2026-11-25 04:54"
  },
  "ERA5": {
   "id": "ERA5 hourly single levels via ARCO-ERA5 (full_37-1h-0p25deg-chunk-1.zarr-v3)",
@@ -65,7 +65,7 @@
   "domain": "stasiun: lemba=Lembar (Lombok), beno=Benoa (Bali), saum=Saumlaki, brom=Broome, darw=Darwin",
   "period": "2021-03-01 \u2013 2021-05-31",
   "note": "Kupang tidak tersedia di IOC; dipakai Rote (\u00b180 km barat daya Kupang) sebagai stasiun terdekat",
-  "download_utc": "2026-11-25 03:31"
+  "download_utc": "2026-11-25 04:54"
  },
  "CHL_nesdisVHNSQchlaDaily": {
   "id": "nesdisVHNSQchlaDaily (VIIRS SNPP L3 chlor_a OC3, science quality (NOAA STAR))",
@@ -93,5 +93,45 @@
   "period": "2021-03-01 \u2013 2021-05-31, per jam",
   "note": "Kupang & Rote tidak ada di UHSLC; IOC Rote tidak berisi data",
   "download_utc": "2026-11-25 03:31"
+ },
+ "GLORYS": {
+  "id": "cmems_mod_glo_phy_my_0.083deg_P1D-m",
+  "version": "CMEMS (lihat ID)",
+  "url": "https://data.marine.copernicus.eu/product/cmems_mod_glo_phy_my_0.083deg_P1D-m",
+  "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS, 0\u2013400 m",
+  "period": "2021-03-20 \u2013 2021-04-30, harian",
+  "vars": [
+   "thetao",
+   "so",
+   "mlotst"
+  ],
+  "download_utc": "2026-11-25 05:07"
+ },
+ "GLORYS_Jul": {
+  "id": "cmems_mod_glo_phy_my_0.083deg_P1D-m",
+  "version": "CMEMS (lihat ID)",
+  "url": "https://data.marine.copernicus.eu/product/cmems_mod_glo_phy_my_0.083deg_P1D-m",
+  "domain": "117.0\u2013126.0\u00b0 BT, -15.0\u2013-8.0\u00b0 LS, 0\u2013400 m",
+  "period": "2021-07-20 \u2013 2021-08-05, harian",
+  "vars": [
+   "thetao",
+   "so",
+   "mlotst"
+  ],
+  "download_utc": "2026-11-25 05:07"
+ },
+ "SLA": {
+  "id": "cmems_obs-sl_glo_phy-ssh_my_allsat-l4-duacs-0.125deg_P1D",
+  "version": "CMEMS (lihat ID)",
+  "url": "https://data.marine.copernicus.eu/product/cmems_obs-sl_glo_phy-ssh_my_allsat-l4-duacs-0.125deg_P1D",
+  "domain": "112.0\u2013128.0\u00b0 BT, -18.0\u2013-7.0\u00b0 LS",
+  "period": "2021-03-01 \u2013 2021-05-31, harian",
+  "vars": [
+   "sla",
+   "ugosa",
+   "vgosa",
+   "adt"
+  ],
+  "download_utc": "2026-11-25 05:08"
  }
 }

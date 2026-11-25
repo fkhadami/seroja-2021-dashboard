@@ -5,40 +5,45 @@ beno 144701 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0118, 'stime': '2021-04-
 saum 286199 ['slevel', 'stime', 'sensor'] [{'slevel': 0.0125, 'stime': '2021-03-01 00:02:00', 'sensor': 'bat'}, {'slevel': 0.0125, 'stime': '2021-03-01 00:08:00', 'sensor': 'bat'}, {'slevel': 0.0125, 'stime': '2021-03-01 00:14:00', 'sensor': 'bat'}]
 brom 132157 ['slevel', 'stime', 'sensor'] [{'slevel': 3.049, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 3.08, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 3.111, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
 darw 132183 ['slevel', 'stime', 'sensor'] [{'slevel': 5.867, 'stime': '2021-03-01 00:00:00', 'sensor': 'aqu'}, {'slevel': 5.841, 'stime': '2021-03-01 00:01:00', 'sensor': 'aqu'}, {'slevel': 5.814, 'stime': '2021-03-01 00:02:00', 'sensor': 'aqu'}]
-===== 04_argo_tide.py selesai dalam 2 s =====
+===== 04_argo_tide.py selesai dalam 3 s =====
 ===== 06_uhslc.py =====
-contoh properti: {'name': 'Pohnpei', 'timezone_name': 'Pacific/Pohnpei', 'uhslc_id': 1, 'uhslc_code': 'deke', 'ssc_id': 'deke', 'gloss_id': 115, 'country': 'Micronesia, Federated States of', 'country_code': '583', 'country_code_alpha': 'FM', 'fd_span': {'oldest': '2001-12-17', 'latest': '2026-09-30'}, 'rq_span': {'oldest': '1969-05-08', 'latest': '2021-12-31'}, 'rq_basin': 'pacific', 'rq_versions': {'a': {'begin': '1969-05-08', 'end': '1971-02-28', 'coordinates': [158.2333, 6.9833]}, 'b': {'begin': '1974-04-21', 'end': '2004-12-31', 'coordinates': [158.2433, 6.9867]}, 'c': {'begin': '2001-12-16', 'end': '2021-12-31', 'coordinates': [158.1967, 6.9783]}}}
-  HTTP 404 https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/h158.csv :: <!DOCTYPE html>
-<html class="avada-html-layout-wide avada-html-header-position-top" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name=
-  HTTP 404 https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/h160.csv :: <!DOCTYPE html>
-<html class="avada-html-layout-wide avada-html-header-position-top" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name=
-  HTTP 404 https://uhslc.soest.hawaii.edu/data/csv/fast/hourly/h165.csv :: <!DOCTYPE html>
-<html class="avada-html-layout-wide avada-html-header-position-top" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name=
-417 Sadeng data 2021 tidak cukup 0
-418 Waikelo data 2021 tidak cukup 0
-['Prigi (125)', 'Benoa (163)', 'Broome (166)', 'Darwin (168)', 'Lembar (419)', 'Saumlaki (420)']
-===== 06_uhslc.py selesai dalam 3 s =====
+  error ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='uhslc.soest.hawaii.edu', port=443): Max retries exceeded with url: /data/meta.geojson (Caused by ConnectTimeoutError(<HTTPSConnection(host='uhslc.soest.hawaii.edu', port=443) at 0x7ff4789f25d0>, 'Connection to uhslc.soest.hawaii.edu timed out. (connect timeout=300)'))")) (percobaan 1)
+  error ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='uhslc.soest.hawaii.edu', port=443): Max retries exceeded with url: /data/meta.geojson (Caused by ConnectTimeoutError(<HTTPSConnection(host='uhslc.soest.hawaii.edu', port=443) at 0x7ff4789f3210>, 'Connection to uhslc.soest.hawaii.edu timed out. (connect timeout=300)'))")) (percobaan 2)
+  error ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='uhslc.soest.hawaii.edu', port=443): Max retries exceeded with url: /data/meta.geojson (Caused by ConnectTimeoutError(<HTTPSConnection(host='uhslc.soest.hawaii.edu', port=443) at 0x7ff4789fc210>, 'Connection to uhslc.soest.hawaii.edu timed out. (connect timeout=300)'))")) (percobaan 3)
+  error ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='uhslc.soest.hawaii.edu', port=443): Max retries exceeded with url: /data/meta.geojson (Caused by ConnectTimeoutError(<HTTPSConnection(host='uhslc.soest.hawaii.edu', port=443) at 0x7ff4789fd210>, 'Connection to uhslc.soest.hawaii.edu timed out. (connect timeout=300)'))")) (percobaan 4)
+Traceback (most recent call last):
+  File "/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/06_uhslc.py", line 7, in <module>
+    meta = get(B + "data/meta.geojson").json()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'json'
+!!!!! 06_uhslc.py GAGAL/timeout
+===== 06_uhslc.py selesai dalam 588 s =====
 ===== 05_cmems.py =====
-Secret CMEMS belum ada – dilewati.
-===== 05_cmems.py selesai dalam 1 s =====
+INFO - 2026-11-25T05:04:50Z - Selected dataset version: "202311"
+INFO - 2026-11-25T05:04:50Z - Selected dataset part: "default"
+WARNING - 2026-11-25T05:04:50Z - Some of your subset selection [0.0, 400.0] for the depth dimension exceed the dataset coordinates [0.49402499198913574, 5727.9169921875]
+  0%|          | [00:00<?]  0%|          | [00:13<1:04:21]  3%|▎         | [00:13<05:47]    6%|▋         | [00:13<01:54]  8%|▊         | [00:25<04:25] 15%|█▍        | [00:25<01:37] 18%|█▊        | [00:38<02:37] 20%|██        | [00:38<02:02] 23%|██▎       | [00:38<01:26] 27%|██▋       | [00:50<01:22] 27%|██▋       | [00:50<02:05] 30%|██▉       | [00:50<01:37] 31%|███▏      | [00:51<01:18] 34%|███▍      | [00:51<00:56] 37%|███▋      | [01:02<01:51] 39%|███▉      | [01:03<01:28] 43%|████▎     | [01:03<00:50] 46%|████▋     | [01:09<01:05] 47%|████▋     | [01:11<01:06] 49%|████▉     | [01:15<01:15] 53%|█████▎    | [01:21<01:12] 55%|█████▌    | [01:22<00:54] 57%|█████▋    | [01:27<01:03] 60%|█████▉    | [01:27<00:44] 61%|██████▏   | [01:33<01:05] 64%|██████▍   | [01:34<00:45] 67%|██████▋   | [01:39<00:44] 69%|██████▉   | [01:39<00:29] 71%|███████   | [01:45<00:46] 73%|███████▎  | [01:46<00:32] 76%|███████▋  | [01:50<00:31] 80%|████████  | [01:57<00:29] 86%|████████▌ | [02:02<00:17] 88%|████████▊ | [02:03<00:11] 90%|████████▉ | [02:09<00:15] 92%|█████████▏| [02:09<00:08] 95%|█████████▌| [02:10<00:03] 96%|█████████▋| [02:10<00:02] 98%|█████████▊| [02:12<00:01]100%|██████████| [02:12<00:00]
+INFO - 2026-11-25T05:07:06Z - Total size of the download: 125.52 MB.
+INFO - 2026-11-25T05:07:10Z - Selected dataset version: "202311"
+INFO - 2026-11-25T05:07:10Z - Selected dataset part: "default"
+WARNING - 2026-11-25T05:07:10Z - Some of your subset selection [0.0, 400.0] for the depth dimension exceed the dataset coordinates [0.49402499198913574, 5727.9169921875]
+ok cmems_mod_glo_phy_my_0.083deg_P1D-m
+gagal cmems_mod_glo_phy_myint_0.083deg_P1D-m DatasetNotFound('cmems_mod_glo_phy_myint_0.083deg_P1D-m Please check that the dataset exists and the input datasetID is correct.')
+  0%|          | [00:00<?]  0%|          | [00:05<31:08]  7%|▋         | [00:06<01:02]  9%|▉         | [00:09<01:27] 12%|█▏        | [00:10<01:03] 19%|█▉        | [00:14<00:51] 21%|██▏       | [00:14<00:40] 24%|██▎       | [00:14<00:31] 26%|██▌       | [00:15<00:24] 28%|██▊       | [00:19<00:48] 31%|███       | [00:19<00:35] 33%|███▎      | [00:19<00:26] 36%|███▌      | [00:19<00:20] 38%|███▊      | [00:23<00:42] 40%|███▉      | [00:24<00:37] 46%|████▌     | [00:28<00:37] 53%|█████▎    | [00:29<00:19] 55%|█████▌    | [00:33<00:28] 57%|█████▋    | [00:33<00:23] 65%|██████▍   | [00:38<00:20] 67%|██████▋   | [00:38<00:15] 69%|██████▉   | [00:38<00:12] 72%|███████▏  | [00:38<00:09] 74%|███████▍  | [00:42<00:17] 77%|███████▋  | [00:43<00:12] 81%|████████  | [00:43<00:06] 84%|████████▍ | [00:43<00:03] 88%|████████▊ | [00:43<00:01] 93%|█████████▎| [00:43<00:00] 97%|█████████▋| [00:43<00:00]100%|██████████| [00:43<00:00]
+INFO - 2026-11-25T05:07:57Z - Total size of the download: 18.35 MB.
+INFO - 2026-11-25T05:07:59Z - Selected dataset version: "202411"
+INFO - 2026-11-25T05:07:59Z - Selected dataset part: "default"
+ok cmems_mod_glo_phy_my_0.083deg_P1D-m
+  0%|          | [00:00<?]  1%|          | [00:02<04:58] 11%|█         | [00:03<00:19] 22%|██▏       | [00:03<00:10] 26%|██▌       | [00:04<00:10] 36%|███▌      | [00:05<00:07] 41%|████▏     | [00:06<00:06] 47%|████▋     | [00:06<00:06] 55%|█████▌    | [00:07<00:04] 61%|██████    | [00:07<00:03] 72%|███████▏  | [00:08<00:02] 76%|███████▌  | [00:09<00:02] 86%|████████▌ | [00:09<00:01] 91%|█████████▏| [00:09<00:00] 97%|█████████▋| [00:10<00:00]100%|██████████| [00:10<00:00]
+INFO - 2026-11-25T05:08:11Z - Total size of the download: 15.84 MB.
+ok cmems_obs-sl_glo_phy-ssh_my_allsat-l4-duacs-0.125deg_P1D
+===== 05_cmems.py selesai dalam 205 s =====
 ===== 10_process.py =====
 /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/xarray/core/dataarray.py:6442: FutureWarning: Behaviour of argmin/argmax with neither dim nor axis argument will change to return a dict of indices of each dimension. To get a single, flat index, please use np.argmin(da.data) or np.argmax(da.data) instead of da.argmin() or da.argmax().
   result = self.variable.argmin(dim, axis, keep_attrs, skipna)
 /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/xarray/core/dataarray.py:6442: FutureWarning: Behaviour of argmin/argmax with neither dim nor axis argument will change to return a dict of indices of each dimension. To get a single, flat index, please use np.argmin(da.data) or np.argmax(da.data) instead of da.argmin() or da.argmax().
   result = self.variable.argmin(dim, axis, keep_attrs, skipna)
-/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py:652: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
+/home/runner/work/seroja-2021-dashboard/seroja-2021-dashboard/scripts/10_process.py:655: Pandas4Warning: DatetimeIndex.dayofyear is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_year instead.
   doy = s21.index.dayofyear.values
 --- track_stats
 --- era5
@@ -48,7 +53,6 @@ Secret CMEMS belum ada – dilewati.
 --- argo_pre_post
 --- pre_jump
 --- glorys
-GLORYS belum ada (secret CMEMS)
 --- inertial_and_froude
 --- mixing_entrainment
 --- point_series
@@ -161,20 +165,39 @@ uh420 {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.20649392271105
   "N2_max_depth": 138.0,
   "dT_jump_C": 2.0665000000000013
  },
+ "glorys_vs_argo": {
+  "mld_glorys": 34.0,
+  "mld_argo": 24.0,
+  "z20_glorys": 160.25842488469726,
+  "z20_argo": 141.52695809388518,
+  "sst_glorys": 29.7341170502267,
+  "sst_argo": 29.844,
+  "c1_glorys": 1.6648746211466878,
+  "c1_argo": 2.5058826034747312
+ },
+ "profile_W1": {
+  "src": "GLORYS12 (25 Mar\u201301 Apr)",
+  "mld": 20.0,
+  "z20": 150.2575183715979,
+  "sst": 29.841455173653017,
+  "c1_mode": 1.7072410000269445,
+  "N2_max": 0.0005754589875179208,
+  "N2_max_depth": 16.0
+ },
  "inertial": {
   "f_10S": -2.5325197527300454e-05,
   "T_inertial_h": 68.91670835391795
  },
  "froude": {
-  "c1_ms": 2.5058826034747312,
-  "c1_src": "Argo 2902794_44",
+  "c1_ms": 1.7072410000269445,
+  "c1_src": "GLORYS12 (25 Mar\u201301 Apr)",
   "Uh_ms": 2.57222,
-  "ratio": 1.0264726673281834,
+  "ratio": 1.5066531321350671,
   "Uh_slow_ms": 1.54333,
-  "ratio_slow": 0.6158828022749242,
+  "ratio_slow": 0.903990707800271,
   "Uh_fast_ms": 3.08666,
-  "ratio_fast": 1.2317656045498484,
-  "R1_km": 98.94819579485612,
+  "ratio_fast": 1.807981415600542,
+  "R1_km": 67.41274172438521,
   "wake_wavelength_km": 765.8008092277357
  },
  "entrainment": {
@@ -192,130 +215,130 @@ uh420 {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.20649392271105
  },
  "heat_budget": {
   "W1": {
-   "profile_src": "Argo 2902794_44",
-   "h0_m": 24.0,
+   "profile_src": "GLORYS12 (25 Mar\u201301 Apr)",
+   "h0_m": 20.0,
    "t_min": "2021-04-06",
    "days": 4,
    "dT_obs": -3.2754285714285736,
-   "flux": -0.8020659779530126,
-   "rain": -0.03376495608941052,
-   "entrainment": -1.0328192914701937,
-   "upwelling": -1.3606118434651933,
-   "residual": -0.04616650245076359,
+   "flux": -0.9624791735436151,
+   "rain": -0.04051794730729262,
+   "entrainment": -1.0348449396725243,
+   "upwelling": -1.7286696227651142,
+   "residual": 0.49108311185997255,
    "impulse_Nsm2": 42104.70703125,
    "eta_m": 26.96346947297739,
-   "h_after_mix": 56.0,
+   "h_after_mix": 52.0,
    "h_after_mixupw": 52.0,
    "Qnet_mean_Wm2": -206.3050079345703,
    "rain_total_mm": 263.9086608886719,
    "ssr_mean_Wm2": 109.54759216308594,
    "ssr_pre_mean_Wm2": 183.23388671875,
-   "frac_atm": 0.255182158858032
+   "frac_atm": 0.3062185906296384
   },
   "T0": {
-   "profile_src": "Argo 2902794_44",
-   "h0_m": 24.0,
+   "profile_src": "GLORYS12 (25 Mar\u201301 Apr)",
+   "h0_m": 30.0,
    "t_min": "2021-04-07",
    "days": 5,
    "dT_obs": -2.5678571428571466,
-   "flux": -0.8390036880819935,
-   "rain": -0.048340959105079774,
-   "entrainment": -1.1097367480372498,
-   "upwelling": -3.8155888939490374,
-   "residual": 3.244813146316214,
+   "flux": -0.6712029504655949,
+   "rain": -0.03867276728406382,
+   "entrainment": -0.660496718167149,
+   "upwelling": -3.801628496708581,
+   "residual": 2.604143789768242,
    "impulse_Nsm2": 46832.8984375,
    "eta_m": 56.51891227198753,
-   "h_after_mix": 58.0,
-   "h_after_mixupw": 56.0,
+   "h_after_mix": 56.0,
+   "h_after_mixupw": 54.0,
    "Qnet_mean_Wm2": -175.96487426757812,
    "rain_total_mm": 377.8355407714844,
    "ssr_mean_Wm2": 120.83122253417969,
    "ssr_pre_mean_Wm2": 189.16310119628906,
-   "frac_atm": 0.34555841615073735
+   "frac_atm": 0.2764467329205899
   },
   "L100": {
-   "profile_src": "Argo 2902794_44",
-   "h0_m": 24.0,
+   "profile_src": "GLORYS12 (25 Mar\u201301 Apr)",
+   "h0_m": 32.0,
    "t_min": "2021-04-04",
    "days": 2,
    "dT_obs": -1.7641428571428612,
-   "flux": -0.4042254824052,
-   "rain": -0.027077426798704077,
-   "entrainment": -0.7234775791789936,
-   "upwelling": -0.6145229417051432,
-   "residual": 0.005160572945179798,
+   "flux": -0.3031691118039,
+   "rain": -0.020308070099028058,
+   "entrainment": -0.28502143394680246,
+   "upwelling": -0.2683058795217228,
+   "residual": -0.8873383617714079,
    "impulse_Nsm2": 25981.3984375,
    "eta_m": 20.567937036224436,
-   "h_after_mix": 48.0,
-   "h_after_mixupw": 40.0,
+   "h_after_mix": 46.0,
+   "h_after_mixupw": 38.0,
    "Qnet_mean_Wm2": -190.0208282470703,
    "rain_total_mm": 211.63864135742188,
    "ssr_mean_Wm2": 54.50015640258789,
    "ssr_pre_mean_Wm2": 204.6605224609375,
-   "frac_atm": 0.24448298359602572
+   "frac_atm": 0.1833622376970193
   },
   "R100": {
-   "profile_src": "Argo 2902794_44",
-   "h0_m": 24.0,
+   "profile_src": "GLORYS12 (25 Mar\u201301 Apr)",
+   "h0_m": 22.0,
    "t_min": "2021-04-04",
    "days": 2,
    "dT_obs": -2.098428571428574,
-   "flux": -0.5004704036514049,
-   "rain": -0.0294825860382664,
-   "entrainment": -0.5198825394698616,
-   "upwelling": -0.280765979437426,
-   "residual": -0.7678270628316151,
+   "flux": -0.54596771307426,
+   "rain": -0.03216282113265425,
+   "entrainment": -0.45591576463042927,
+   "upwelling": -0.34501734253092664,
+   "residual": -0.7193649300603038,
    "impulse_Nsm2": 20415.896484375,
    "eta_m": 11.228680714225774,
-   "h_after_mix": 42.0,
-   "h_after_mixupw": 38.0,
+   "h_after_mix": 38.0,
+   "h_after_mixupw": 34.0,
    "Qnet_mean_Wm2": -235.26425170898438,
    "rain_total_mm": 230.43748474121094,
    "ssr_mean_Wm2": 68.70130157470703,
    "ssr_pre_mean_Wm2": 193.10186767578125,
-   "frac_atm": 0.2525475476770164
+   "frac_atm": 0.2755064156476543
   },
   "KPG": {
-   "profile_src": "Argo 2902794_44",
-   "h0_m": 24.0,
+   "profile_src": "GLORYS12 (25 Mar\u201301 Apr)",
+   "h0_m": 2.0,
    "t_min": "2021-04-06",
    "days": 4,
    "dT_obs": -2.306142857142852,
-   "flux": -0.42829561709150926,
-   "rain": -0.00885369292132771,
-   "entrainment": -0.31286296271484204,
-   "upwelling": -0.165673002935943,
-   "residual": -1.3904575814792302,
+   "flux": -5.139547405098111,
+   "rain": -0.10624431505593251,
+   "entrainment": -0.03283092945520849,
+   "upwelling": -0.8394130432398796,
+   "residual": 3.8118928357062796,
    "impulse_Nsm2": 14426.8203125,
    "eta_m": 9.34597912468289,
-   "h_after_mix": 36.0,
+   "h_after_mix": 26.0,
    "h_after_mixupw": 32.0,
    "Qnet_mean_Wm2": -110.16490936279297,
    "rain_total_mm": 69.20093536376953,
    "ssr_mean_Wm2": 151.98341369628906,
    "ssr_pre_mean_Wm2": 205.97994995117188,
-   "frac_atm": 0.18955864276094067
+   "frac_atm": 2.274703713131288
   },
   "ROTE": {
-   "profile_src": "Argo 2902794_44",
-   "h0_m": 24.0,
+   "profile_src": "GLORYS12 (25 Mar\u201301 Apr)",
+   "h0_m": 18.0,
    "t_min": "2021-04-07",
    "days": 5,
    "dT_obs": -2.4498571428571445,
-   "flux": -0.29561664323410153,
-   "rain": -0.010024134268598325,
-   "entrainment": -0.12915415019762833,
-   "upwelling": 0.014846316137536064,
-   "residual": -2.0299085312943523,
+   "flux": -0.39415552431213535,
+   "rain": -0.0133655123581311,
+   "entrainment": -0.144847193835286,
+   "upwelling": -0.06176409977336661,
+   "residual": -1.8357248125782255,
    "impulse_Nsm2": 8248.3642578125,
    "eta_m": 4.619308238001143,
-   "h_after_mix": 30.0,
-   "h_after_mixupw": 26.0,
+   "h_after_mix": 24.0,
+   "h_after_mixupw": 22.0,
    "Qnet_mean_Wm2": -61.99989700317383,
    "rain_total_mm": 78.34916687011719,
    "ssr_mean_Wm2": 149.0127410888672,
    "ssr_pre_mean_Wm2": 193.0277099609375,
-   "frac_atm": 0.12475861231085764
+   "frac_atm": 0.16634481641447685
   }
  },
  "recovery": {
@@ -489,25 +512,6 @@ uh420 {'t_max_resid': '2021-04-08 05:00:00', 'resid_lp_max_cm': 5.20649392271105
    "name": "Prigi (UHSLC 125)",
    "dist_track_km": 852.1745165739311,
    "source": "UHSLC fast delivery"
-  },
-  "uh163": {
-   "name": "Benoa (UHSLC 163)",
-   "dist_track_km": 555.1022748123108,
-   "source": "UHSLC fast delivery"
-  },
-  "uh166": {
-   "name": "Broome (UHSLC 166)",
-   "dist_track_km": 699.3853452917862,
-   "source": "UHSLC fast delivery",
-   "t_max_resid": "2021-04-06 12:00:00",
-   "resid_lp_max_cm": 17.99209606017205,
-   "resid_raw_max_cm": 47.289530937380995,
-   "ib_at_max_cm": 1.3304835567093534,
-   "wind_at_max_cm": 1.2022095774401764,
-   "msl_min_hpa": 1004.3173217773438
-  },
-  "uh168": {
-   "name": "Darwin (UHSLC 168)",
-   "dist_track_km": 792.4175
+ 
 NOTES {}
-===== 10_process.py selesai dalam 17 s =====
+===== 10_process.py selesai dalam 18 s =====
