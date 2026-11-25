@@ -98,6 +98,9 @@ def era5():
     beta = 2 * OMEGA * np.cos(np.radians(lat)) / R_E
     ds["wE"] = ds.curl / (rho0 * f) + beta * ds.taux / (rho0 * f ** 2)   # m/s, + = upwelling
     ds["Qnet"] = ds.sshf + ds.slhf + ds.ssr + ds.str
+    ocean = ds.sst.isel(time=0).notnull()
+    for v in ["curl", "wE", "Qnet"]:
+        ds[v] = ds[v].where(ocean)
     ERA = ds
     # statistik di bawah siklon (dalam 2×RMW dari pusat), 2021-04-02..04-10
     st = ERA.sel(time=slice("2021-04-02", "2021-04-10"))
@@ -120,7 +123,8 @@ def era5():
                               wE_median_core_m_day=float(sb.wEmax.median() * 86400), pmin_hpa=float(sb.pmin.min()))
     # perpindahan termoklin kumulatif η = ∫ w_E dt (2021-04-01..04-12)
     ww = ERA.wE.sel(time=slice("2021-04-01", "2021-04-12"))
-    eta = (ww * 3600).sum("time")
+    eta = (ww * 3600).sum("time", min_count=1)
+    eta = eta.where(ERA.sst.isel(time=0).notnull())
     ERA["eta"] = eta
     calc["era5_storm"]["eta_max_m"] = float(eta.max())
     box = eta.sel(longitude=slice(CASE_BOX[0], CASE_BOX[1]), latitude=slice(CASE_BOX[2], CASE_BOX[3]))
@@ -186,26 +190,29 @@ def sst():
     calc["sst"]["area_cooling_gt1C_km2"] = float(((dmin < -1).sum() * (0.03 * 111) ** 2 * np.cos(np.radians(-11))).values)
 
     # ---- asimetri kiri–kanan lintasan (sisi cold wake)
-    seg = trh.loc["2021-04-03":"2021-04-09"].dropna()
     lon2, lat2 = np.meshgrid(dmin.longitude.values, dmin.latitude.values)
-    xs = []; ds_ = []
-    for t, r in seg.iloc[::3].iterrows():
-        ex, ny = track_heading(t)
-        dx = (lon2 - r.lon) * 111.32 * math.cos(math.radians(r.lat)); dy = (lat2 - r.lat) * 110.57
-        along = dx * ex + dy * ny
-        cross = dx * (-ny) + dy * ex          # + = kiri (berlawanan jarum jam dari arah gerak)
-        m = np.abs(along) < 25
-        xs.append(cross[m]); ds_.append(dmin.values[m])
-    xs = np.concatenate(xs); vals = np.concatenate(ds_)
-    bins = np.arange(-300, 301, 25)
-    mid = (bins[:-1] + bins[1:]) / 2
-    prof = [float(np.nanmean(vals[(xs >= a) & (xs < b)])) if ((xs >= a) & (xs < b)).sum() > 5 else None for a, b in zip(bins[:-1], bins[1:])]
-    dump("crosstrack.json", dict(x_km=mid, dsst=prof, note="x>0 = kiri lintasan (menghadap arah gerak siklon)"))
-    pv = np.array([p if p is not None else np.nan for p in prof])
-    L = np.nanmean(pv[(mid > 0) & (mid <= 150)]); Rr = np.nanmean(pv[(mid < 0) & (mid >= -150)])
-    calc["coldwake_side"] = dict(mean_left_0_150km_C=float(L), mean_right_0_150km_C=float(Rr),
-                                 x_of_min_km=float(mid[np.nanargmin(pv)]), stronger_side="kiri" if L < Rr else "kanan")
-
+    bins = np.arange(-300, 301, 25); mid = (bins[:-1] + bins[1:]) / 2
+    def xprof(t0, t1):
+        seg = trh.loc[t0:t1].dropna(subset=["lat", "lon"])
+        xs, vs = [], []
+        for t, r in seg.iloc[::2].iterrows():
+            ex, ny = track_heading(t)
+            dx = (lon2 - r.lon) * 111.32 * math.cos(math.radians(r.lat)); dy = (lat2 - r.lat) * 110.57
+            along = dx * ex + dy * ny; cross = dx * (-ny) + dy * ex     # + = kiri (menghadap arah gerak)
+            m = np.abs(along) < 20
+            xs.append(cross[m]); vs.append(dmin.values[m])
+        xs = np.concatenate(xs); vs = np.concatenate(vs)
+        prof = [float(np.nanmean(vs[(xs >= a) & (xs < b)])) if np.isfinite(vs[(xs >= a) & (xs < b)]).sum() > 5 else None
+                for a, b in zip(bins[:-1], bins[1:])]
+        pv = np.array([p if p is not None else np.nan for p in prof])
+        Lm = np.nanmean(pv[(mid > 0) & (mid <= 150)]); Rm = np.nanmean(pv[(mid < 0) & (mid >= -150)])
+        return prof, dict(mean_left_0_150km_C=float(Lm), mean_right_0_150km_C=float(Rm), x_of_min_km=float(mid[np.nanargmin(pv)]),
+                          stronger_side="kiri" if Lm < Rm else "kanan", Uh_median_ms=float(seg.speed_ms.median()), t0=t0, t1=t1)
+    p_fast, s_fast = xprof("2021-04-05T00:00", "2021-04-07T06:00")
+    p_slow, s_slow = xprof("2021-04-03T00:00", "2021-04-04T21:00")
+    dump("crosstrack.json", dict(x_km=mid, dsst=p_fast, dsst_slow=p_slow, note="x>0 = kiri lintasan (menghadap arah gerak siklon)"))
+    calc["coldwake_side"] = s_fast
+    calc["coldwake_side_slow"] = s_slow
 
 
 # ------------------------------------------------------------ titik analisis (dipilih dari data)
@@ -337,11 +344,16 @@ PRE_PROFILE = {}
 def inertial_and_froude():
     f10 = 2 * OMEGA * math.sin(math.radians(10))
     calc["inertial"] = dict(f_10S=-f10, T_inertial_h=2 * math.pi / f10 / 3600)
-    if PRE_PROFILE and "track" in calc:
-        c1 = PRE_PROFILE["c1_mode"]
-        Uh = calc["track"]["Uh_median_ms"]
-        calc["froude"] = dict(c1_ms=c1, Uh_ms=Uh, ratio=Uh / c1, R1_km=c1 / f10 / 1e3,
-                              wake_wavelength_km=Uh * 2 * math.pi / f10 / 1e3)
+    src = calc.get("profile_W1", {}).get("src") if calc.get("profile_W1") else None
+    c1 = calc["profile_W1"]["c1_mode"] if src else (PRE_PROFILE.get("c1_mode") if PRE_PROFILE else None)
+    if c1 is None or "track" not in calc:
+        return
+    slow = trh.loc["2021-04-03T00":"2021-04-04T21"].speed_ms.median()
+    fast = trh.loc["2021-04-05T00":"2021-04-07T06"].speed_ms.median()
+    Uh = calc["track"]["Uh_median_ms"]
+    calc["froude"] = dict(c1_ms=c1, c1_src=src or "Argo " + calc["argo_pair"]["pre"]["id"], Uh_ms=Uh, ratio=Uh / c1,
+                          Uh_slow_ms=float(slow), ratio_slow=float(slow / c1), Uh_fast_ms=float(fast), ratio_fast=float(fast / c1),
+                          R1_km=c1 / f10 / 1e3, wake_wavelength_km=fast * 2 * math.pi / f10 / 1e3)
 
 
 @block
@@ -406,63 +418,114 @@ def point_series():
     dump("point_series.json", out)
 
 
+def ri_deepen(z, T, rho, h0, M, eta=0.0, Ric=0.65):
+    """Pendalaman lapisan campuran 1-D: profil digeser naik η, lalu dicampur sampai Ri bulk ≥ Ric."""
+    z = np.asarray(z); T = np.asarray(T, float); rho = np.asarray(rho, float)
+    if eta > 0:
+        T = np.interp(z + eta, z, T); rho = np.interp(z + eta, z, rho)
+    k0 = max(int(np.searchsorted(z, h0)), 1)
+    T = T.copy(); rho = rho.copy(); T[:k0] = T[0]; rho[:k0] = rho[0]
+    for k in range(k0, len(z) - 1):
+        h = z[k]; db = g * (rho[k + 1] - rho[:k + 1].mean()) / rho0; U = M / (rho0 * h)
+        if U <= 0 or db * h / U ** 2 >= Ric:
+            return float(h), float(T[:k + 1].mean())
+    return None, None
+
+
+def local_profile(k, lo, la, t0="2021-03-25", t1="2021-04-01"):
+    """Profil pra-siklon: GLORYS di titik (jika ada), selain itu profil Argo pra-siklon."""
+    if GL is not None:
+        sl = GL.sel(longitude=lo, latitude=la, method="nearest").sel(time=slice(t0, t1)).mean("time")
+        T = sl.thetao.dropna("depth"); S_ = sl.so.dropna("depth")
+        if T.size > 5:
+            pr = profile_props(T.depth.values, T.values, S_.interp(depth=T.depth).values)
+            pr["src"] = "GLORYS12"; return pr
+    if PRE_PROFILE:
+        pr = dict(PRE_PROFILE); pr["src"] = "Argo " + calc.get("argo_pair", {}).get("pre", {}).get("id", ""); return pr
+    return None
+
+
 @block
 def heat_budget():
-    """Budget panas lapisan campuran harian di titik cold wake:
-       dT/dt = Q/(ρ cp h)  +  [-w_E ΔT/h]  +  entrainment/residu (+adveksi horizontal diabaikan).
-       h dari Argo pra-siklon (atau GLORYS jika ada), ΔT = T_ml − T(h+20 m)."""
+    """Pemisahan pendinginan lapisan campuran di tiap titik (2 Apr → hari SST terdingin):
+       fluks permukaan ∫Q/(ρc_p h0) dt, hujan, entrainment (Ri bulk, impuls ∫τ dt ERA5),
+       upwelling (tambahan pendinginan bila profil digeser naik η = ∫w_E dt), residu (adveksi/3-D/galat)."""
     if MUR is None or ERA is None:
         return
     res = {}
     for k in ["W1", "T0", "L100", "R100", "KPG", "ROTE"]:
-        if k not in POINTS:
-            continue
+        if k not in POINTS: continue
         lo, la = POINTS[k]["lonlat"]
-        sst = nearest(MUR, lo, la).sel(time=slice("2021-03-28", "2021-04-25")).to_series()
-        e = ERA.sel(longitude=lo, latitude=la, method="nearest").sel(time=slice("2021-03-28", "2021-04-25"))
-        Q = e.Qnet.to_series().resample("1D").mean()
-        wE = e.wE.to_series().clip(lower=0).resample("1D").mean()
-        # rain: kehilangan panas oleh hujan (suhu hujan ≈ SST − 3 °C, orde besaran), ρw cw P ΔT
-        P_ = e.tp.to_series().resample("1D").sum() / 1000 / 86400          # m/s
-        Qrain = -1000 * 4186 * P_ * 3.0
-        h = GLORYS_MLD.get(k) if GLORYS_MLD.get(k) is not None else (PRE_PROFILE.get("mld") or 30.0)
-        dTjump = DT_JUMP.get(k, PRE_DT_JUMP.get("v", 1.5))
-        idx = sst.index.intersection(Q.index)
-        dTdt = sst.diff().reindex(idx)                                       # °C/hari
-        flux = (Q.reindex(idx) / (rho0 * cp * h) * 86400)
-        rain = (Qrain.reindex(idx) / (rho0 * cp * h) * 86400)
-        upw = -(wE.reindex(idx) * 86400) * dTjump / h
-        resid = dTdt - flux - rain - upw
-        win = slice("2021-04-02", "2021-04-12")
-        cum = lambda s: float(s.loc[win].sum())
-        res[k] = dict(h_m=h, dT_jump_C=dTjump, dT_obs=cum(dTdt), flux=cum(flux), rain=cum(rain), upwelling=cum(upw),
-                      entrain_resid=cum(resid),
-                      series=dict(t=[d.strftime("%Y-%m-%d") for d in idx], dTdt=dTdt.round(3).values, flux=flux.round(3).values,
-                                  rain=rain.round(3).values, upw=upw.round(3).values, resid=resid.round(3).values))
+        pr = local_profile(k, lo, la)
+        if pr is None: continue
+        sst = nearest(MUR, lo, la).to_series()
+        pre = sst.loc["2021-03-25":"2021-03-31"].mean()
+        tmin = sst.loc["2021-04-03":"2021-04-20"].idxmin()
+        t0 = pd.Timestamp("2021-04-02"); t1 = tmin + pd.Timedelta(hours=9)
+        e = ERA.sel(longitude=lo, latitude=la, method="nearest")
+        if not np.isfinite(float(e.Qnet.isel(time=0))):        # sel darat di ERA5 → cari sel laut terdekat
+            m = ERA.sst.isel(time=0).notnull()
+            dd = (ERA.longitude - lo) ** 2 + (ERA.latitude - la) ** 2
+            j, i = np.unravel_index(int(dd.where(m).argmin()), dd.shape)
+            e = ERA.isel(latitude=j, longitude=i)
+        w = e.sel(time=slice(t0, t1))
+        h0 = pr["mld"]
+        flux = float((w.Qnet * 3600).sum()) / (rho0 * cp * h0)
+        rain = float((-1000 * 4186 * (w.tp / 1000 / 3600) * 3.0 * 3600).sum()) / (rho0 * cp * h0)   # hujan ≈ 3 °C lebih dingin
+        tau = np.hypot(w.taux, w.tauy)
+        f = abs(2 * OMEGA * math.sin(math.radians(la)))
+        tp_ = pd.Timestamp(tau.idxmax("time").values); half = pd.Timedelta(seconds=math.pi / f / 2)
+        M = float((tau.sel(time=slice(tp_ - half, tp_ + half)) * 3600).sum())
+        eta = float((w.wE * 3600).sum())
+        hm, Tm = ri_deepen(pr["z"], pr["T"], pr["rho"], h0, M, 0.0)
+        hu, Tu = ri_deepen(pr["z"], pr["T"], pr["rho"], h0, M, max(eta, 0.0))
+        mix = (Tm - pr["T"][0]) if Tm is not None else np.nan
+        upw = ((Tu - pr["T"][0]) - mix) if Tu is not None else np.nan
+        obs = float(sst.loc[tmin] - pre)
+        resid = obs - flux - rain - mix - upw
+        daily = w.Qnet.to_series().resample("1D").mean()
+        res[k] = dict(profile_src=pr["src"], h0_m=h0, t_min=str(tmin.date()), days=(tmin - t0).days, dT_obs=obs, flux=flux, rain=rain,
+                      entrainment=mix, upwelling=upw, residual=resid, impulse_Nsm2=M, eta_m=eta, h_after_mix=hm, h_after_mixupw=hu,
+                      Qnet_mean_Wm2=float(w.Qnet.mean()), rain_total_mm=float(w.tp.sum()), ssr_mean_Wm2=float(w.ssr.mean()),
+                      ssr_pre_mean_Wm2=float(e.ssr.sel(time=slice("2021-03-25", "2021-03-31")).mean()),
+                      frac_atm=(flux + rain) / obs if obs < 0 else None)
+        s2 = sst.loc["2021-03-28":"2021-04-25"]
+        q = e.Qnet.to_series().resample("1D").mean().reindex(s2.index.normalize(), method="nearest")
+        res[k]["series"] = dict(t=[d.strftime("%Y-%m-%d") for d in s2.index], sst_anom=(s2 - pre).round(3).values,
+                                atm_cum=np.round(np.cumsum(np.where(s2.index >= t0, q.values, 0) * 86400 / (rho0 * cp * h0)), 3),
+                                Qnet_daily=np.round(q.values, 1))
     dump("heat_budget.json", res)
     calc["heat_budget"] = {k: {kk: v for kk, v in r.items() if kk != "series"} for k, r in res.items()}
 
 
 GLORYS_MLD, DT_JUMP, PRE_DT_JUMP = {}, {}, {}
+GL = None
 
 
 @block
 def glorys():
+    global GL
     if not have("glorys_2021.nc"):
         print("GLORYS belum ada (secret CMEMS)"); return
-    ds = xr.open_dataset(P("glorys_2021.nc"))
-    for k, p in POINTS.items():
-        lo, la = p["lonlat"]
-        s = ds.sel(longitude=lo, latitude=la, method="nearest").sel(time=slice("2021-03-25", "2021-03-31")).mean("time")
-        h = float(s.mlotst)
-        T = s.thetao.dropna("depth")
-        DT_JUMP[k] = float(T.isel(depth=0) - T.interp(depth=h + 20))
-        GLORYS_MLD[k] = h
-    # peta MLD & z20 & arus permukaan
+    GL = xr.open_dataset(P("glorys_2021.nc"))
+    ds = GL
     mld = ds.mlotst.sel(time=slice("2021-03-25", "2021-05-15"))
     dump("map_glorys.json", dict(lon=ds.longitude.values[::2], lat=ds.latitude.values[::2],
                                  time=[pd.Timestamp(t).strftime("%Y-%m-%d") for t in mld.time.values],
                                  mld=mld.values[:, ::2, ::2].round(1), units="m"))
+    # validasi GLORYS vs Argo pra-siklon (lokasi float)
+    if PRE_PROFILE:
+        lo, la = PRE_PROFILE["lonlat"]
+        g_ = ds.sel(longitude=lo, latitude=la, method="nearest").sel(time=calc["argo_pair"]["pre"]["time"][:10])
+        T = g_.thetao.dropna("depth")
+        gp = profile_props(T.depth.values, T.values, g_.so.dropna("depth").interp(depth=T.depth).values)
+        calc["glorys_vs_argo"] = dict(mld_glorys=gp["mld"], mld_argo=PRE_PROFILE["mld"], z20_glorys=gp["z20"], z20_argo=PRE_PROFILE["z20"],
+                                      sst_glorys=gp["sst"], sst_argo=PRE_PROFILE["sst"], c1_glorys=gp["c1_mode"], c1_argo=PRE_PROFILE["c1_mode"])
+    # profil pra-siklon di W1 untuk c1 lokal
+    if "W1" in POINTS:
+        pr = local_profile("W1", *POINTS["W1"]["lonlat"])
+        if pr: calc["profile_W1"] = dict(src=pr["src"], mld=pr["mld"], z20=pr["z20"], sst=pr["sst"], c1_mode=pr["c1_mode"],
+                                         N2_max=float(np.nanmax(pr["N2"])), N2_max_depth=float(pr["z"][np.nanargmax(pr["N2"])]))
 
 
 @block
@@ -474,63 +537,101 @@ def pre_jump():
 
 
 # ------------------------------------------------------------ pemulihan SST & jeda klorofil
+def clim_daily_at(lo, la, index):
+    """Klimatologi MUR bulanan 2003–2020 di titik, diinterpolasi ke tanggal (siklis)."""
+    cl = xr.open_dataset(P("mur_mday_2003_2020.nc")).sst
+    if float(cl.max()) > 200: cl = cl - 273.15
+    c = nearest(cl, lo, la).groupby("time.month").mean().values
+    mm = np.concatenate([[c[-1]], c, [c[0]]])
+    md = np.array([-15, 15, 45, 74, 105, 135, 166, 196, 227, 258, 288, 319, 349, 380])
+    return np.interp(index.day_of_year.values, md, mm)
+
+
 @block
-def recovery_chl():
+def recovery():
     out = {}
-    if MUR is not None:
-        from scipy.optimize import curve_fit
-        for k in ["W1", "T0", "L100", "ROTE", "KPG"]:
-            if k not in POINTS: continue
-            lo, la = POINTS[k]["lonlat"]
-            s = nearest(MUR, lo, la).to_series()
-            pre = s.loc["2021-03-25":"2021-03-31"].mean()
-            post = s.loc["2021-04-03":"2021-05-31"]
-            tmin = post.loc[:"2021-04-25"].idxmin(); dmin = post.loc[tmin] - pre
-            after = post.loc[tmin:]
-            x = (after.index - tmin).days.values.astype(float); y = after.values - pre
-            try:
-                fn = lambda x, a, tau, c: c + a * np.exp(-x / tau)
-                (a, tau, c), _ = curve_fit(fn, x[:40], y[:40], p0=[dmin, 10, 0], maxfev=10000)
-            except Exception:
-                tau, c = np.nan, np.nan
-            rec = after[after - pre >= 0.1 * dmin]
-            t90 = (rec.index[0] - tmin).days if len(rec) else None
-            out[k] = dict(pre=pre, dmin=dmin, tmin=str(tmin.date()), efold_days=tau, offset_C=c, t90_days=t90)
+    if MUR is None: return
+    for k in ["W1", "T0", "L100", "R100", "ROTE", "KPG"]:
+        if k not in POINTS: continue
+        lo, la = POINTS[k]["lonlat"]
+        s_ = nearest(MUR, lo, la).to_series()
+        if s_.isna().all(): continue
+        a = s_ - (clim_daily_at(lo, la, s_.index) if have("mur_mday_2003_2020.nc") else 0)
+        pre = a.loc["2021-03-25":"2021-03-31"].mean()
+        d = a - pre
+        tmin = d.loc["2021-04-03":"2021-04-20"].idxmin(); dmin = float(d.loc[tmin])
+        after = d.loc[tmin:"2021-06-30"]
+        def first(th):
+            x = after[after >= th]
+            return int((x.index[0] - tmin).days) if len(x) else None
+        out[k] = dict(dmin_vs_clim=dmin, tmin=str(tmin.date()), t_efold_days=first(dmin / math.e), t50_days=first(dmin / 2),
+                      t90_days=first(dmin * 0.1), days_below_1C=int((d.loc["2021-04-01":"2021-06-30"] < -1).sum()),
+                      days_below_05C=int((d.loc["2021-04-01":"2021-06-30"] < -0.5).sum()))
+        POINTS[k]["anom_series"] = dict(t=[x.strftime("%Y-%m-%d") for x in a.index], a=(a - pre).round(3).values)
     calc["recovery"] = out
-    # klorofil
-    fs = [P(f) for f in ["nesdisVHNnoaa20chlaDaily_2021MAM.nc", "nesdisVHNSQchlaDaily_2021MAM.nc"] if have(f)]
-    if not fs:
-        return
-    arrs = []
-    for f in fs:
-        d = xr.open_dataset(f).chlor_a.squeeze(drop=True)
+    dump("anom_points.json", {k: v.get("anom_series") for k, v in POINTS.items() if v.get("anom_series")})
+
+
+@block
+def chlorophyll():
+    prods = {"nesdisVHNSQchlaDaily": "chlor_a", "erdMH1chla1day": "chlorophyll", "noaacwNPPN20S3ASCIDINEOF2kmDaily": "chlor_a"}
+    got = {}
+    for dsid, var in prods.items():
+        fs = sorted(f for f in os.listdir(RAW) if f.startswith(dsid + "_2021-"))
+        if not fs: continue
+        d = xr.open_mfdataset([P(f) for f in fs], combine="by_coords")[var].squeeze(drop=True).load()
         d["time"] = pd.to_datetime(d.time.values).normalize()
-        arrs.append(d.sortby("latitude"))
-    chl = arrs[0] if len(arrs) == 1 else xr.concat(arrs, "sat").mean("sat", skipna=True)
-    chl = chl.where((chl > 0) & (chl < 50))
-    # komposit 3-hari bergulir untuk mengurangi celah awan, peta 0,12°
+        got[dsid] = d.sortby("latitude").where(lambda x: (x > 0.01) & (x < 30))
+        print(dsid, got[dsid].shape)
+    if not got: return
+    # peta: L3 VIIRS+MODIS digabung (rata-rata), komposit 3 hari; jika tidak ada pakai DINEOF
+    l3 = [got[k] for k in ["nesdisVHNSQchlaDaily", "erdMH1chla1day"] if k in got]
+    if l3:
+        base = l3[0]
+        l3 = [base] + [x.interp(latitude=base.latitude, longitude=base.longitude, method="nearest") for x in l3[1:]]
+        chl = xr.concat(l3, "sat").mean("sat", skipna=True) if len(l3) > 1 else l3[0]
+        src = "L3 " + " + ".join(k for k in ["nesdisVHNSQchlaDaily", "erdMH1chla1day"] if k in got)
+    else:
+        chl = got["noaacwNPPN20S3ASCIDINEOF2kmDaily"]; src = "DINEOF"
     c3 = chl.rolling(time=3, center=True, min_periods=1).mean()
-    cc = np.log10(c3).coarsen(latitude=3, longitude=3, boundary="trim").mean()
+    fac = max(1, int(round(0.12 / float(abs(chl.latitude[1] - chl.latitude[0])))))
+    cc = np.log10(c3).coarsen(latitude=fac, longitude=fac, boundary="trim").mean()
     sel = cc.sel(time=slice("2021-03-25", "2021-05-15"))
-    dump("map_chl.json", dict(lon=sel.longitude.values, lat=sel.latitude.values,
-                              time=[pd.Timestamp(t).strftime("%Y-%m-%d") for t in sel.time.values],
-                              log10chl=sel.round(3).values, units="log10(mg m⁻³), komposit 3-hari VIIRS NOAA-20+SNPP"))
-    # deret waktu klorofil wilayah cold wake (dmin < −1 °C) vs kontrol
-    if MUR is not None:
-        pre = MUR.sel(time=slice("2021-03-25", "2021-03-31")).mean("time")
-        dmin = (MUR.sel(time=slice("2021-04-03", "2021-04-25")) - pre).min("time")
-        m = dmin.interp(latitude=chl.latitude, longitude=chl.longitude) < -1.0
-        ts = chl.where(m).median(["latitude", "longitude"]).to_series()
-        nv = chl.where(m).count(["latitude", "longitude"]).to_series()
-        ts = ts.where(nv >= 30)
-        base = ts.loc["2021-03-15":"2021-04-02"].median()
+    dump("map_chl.json", dict(lon=sel.longitude.values, lat=sel.latitude.values, time=[pd.Timestamp(t).strftime("%Y-%m-%d") for t in sel.time.values],
+                              log10chl=sel.round(3).values, units=f"log10(mg m⁻³), komposit 3 hari, {src}"))
+    if "noaacwNPPN20S3ASCIDINEOF2kmDaily" in got:
+        dn = got["noaacwNPPN20S3ASCIDINEOF2kmDaily"]
+        dnc = np.log10(dn).coarsen(latitude=6, longitude=6, boundary="trim").mean().sel(time=slice("2021-03-25", "2021-05-15"))
+        dump("map_chl_dineof.json", dict(lon=dnc.longitude.values, lat=dnc.latitude.values, time=[pd.Timestamp(t).strftime("%Y-%m-%d") for t in dnc.time.values],
+                                         log10chl=dnc.round(3).values, units="log10(mg m⁻³), DINEOF gap-filled 2 km"))
+    # jeda respons di jejak dingin kotak kasus
+    if MUR is None: return
+    pre = MUR.sel(time=slice("2021-03-25", "2021-03-31")).mean("time")
+    dmn = (MUR.sel(time=slice("2021-04-03", "2021-04-20")) - pre)
+    out = {}
+    for dsid, d in got.items():
+        bx = d.sel(longitude=slice(CASE_BOX[0], CASE_BOX[1]), latitude=slice(CASE_BOX[2], CASE_BOX[3]))
+        m = dmn.min("time").interp(latitude=bx.latitude, longitude=bx.longitude) < -1.0
+        ts = bx.where(m).median(["latitude", "longitude"]).to_series()
+        nv = bx.where(m).count(["latitude", "longitude"]).to_series()
+        ts = ts.where(nv >= max(20, 0.05 * float(m.sum())))
+        base = ts.loc["2021-03-10":"2021-04-02"].median()
         sm = ts.rolling(5, center=True, min_periods=2).median()
-        pk = sm.loc["2021-04-04":"2021-05-10"].idxmax()
-        passage = pd.Timestamp(calc["sst"]["cooling_max_date"]) if "sst" in calc else pd.Timestamp("2021-04-05")
-        calc["chl"] = dict(base_mgm3=base, peak_mgm3=float(sm.loc[pk]), peak_date=str(pk.date()), ratio=float(sm.loc[pk] / base),
-                           lag_after_sstmin_days=(pk - passage).days, wake_pixels_median=float(nv.median()))
-        dump("chl_wake_series.json", dict(t=[d.strftime("%Y-%m-%d") for d in ts.index], chl=ts.round(3).values,
-                                          smooth=sm.round(3).values, nvalid=nv.values))
+        if sm.loc["2021-04-03":"2021-05-15"].notna().sum() < 3: continue
+        pk = sm.loc["2021-04-03":"2021-05-15"].idxmax()
+        tmin = dmn.where(dmn.min("time") < -1.0).sel(longitude=slice(CASE_BOX[0], CASE_BOX[1]), latitude=slice(CASE_BOX[2], CASE_BOX[3])).mean(["latitude", "longitude"]).to_series().idxmin()
+        half = sm.loc[pk:"2021-05-31"]; back = half[half <= base + 0.5 * (sm.loc[pk] - base)]
+        out[dsid] = dict(base_mgm3=float(base), peak_mgm3=float(sm.loc[pk]), ratio=float(sm.loc[pk] / base), peak_date=str(pk.date()),
+                         sst_min_date=str(tmin.date()), lag_days=int((pk - tmin).days),
+                         decay_half_days=int((back.index[0] - pk).days) if len(back) else None, wake_pixels=int(m.sum()),
+                         valid_median=float(nv.loc["2021-04-03":"2021-04-30"].median()))
+        out[dsid]["series"] = dict(t=[x.strftime("%Y-%m-%d") for x in ts.index], chl=ts.round(3).values, smooth=sm.round(3).values, n=nv.values)
+    dump("chl_wake_series.json", out)
+    best = "noaacwNPPN20S3ASCIDINEOF2kmDaily" if "noaacwNPPN20S3ASCIDINEOF2kmDaily" in out else (list(out)[0] if out else None)
+    if best:
+        calc["chl"] = {kk: v for kk, v in out[best].items() if kk != "series"}; calc["chl"]["product"] = best
+        calc["chl"]["lag_after_sstmin_days"] = calc["chl"]["lag_days"]
+        calc["chl_all"] = {k: {kk: v for kk, v in o.items() if kk != "series"} for k, o in out.items()}
 
 
 # ------------------------------------------------------------ musim timur vs Seroja
@@ -557,7 +658,14 @@ def east_monsoon():
     w = nearest(MUR, lo, la).to_series()
     w_pre = w.loc["2021-03-25":"2021-03-31"].mean()
     w_em = w.loc["2021-07-01":"2021-09-30"]
-    calc["east_monsoon"] = dict(
+    # durasi: pendinginan Seroja (relatif klimatologi) vs musim timur (siklus klimatologi)
+    wa = w - clim_daily_at(lo, la, w.index); wa = wa - wa.loc["2021-03-25":"2021-03-31"].mean()
+    seroja_days = int((wa.loc["2021-04-01":"2021-06-30"] < -0.5).sum())
+    cW = pd.Series(clim_daily_at(lo, la, pd.date_range("2021-01-01", "2021-12-31")), pd.date_range("2021-01-01", "2021-12-31"))
+    cW_amp = float(cW.loc["2021-07-01":"2021-09-30"].min() - cW.loc["2021-03-01":"2021-04-30"].mean())
+    cW_days = int((cW < cW.loc["2021-03-01":"2021-04-30"].mean() - 0.5).sum())
+    calc["east_monsoon"] = dict(W1_clim_cooling_C=cW_amp, W1_clim_days_below_05=cW_days, W1_seroja_days_below_05=seroja_days,
+        W1_seroja_cooling_vs_clim_C=float(wa.loc["2021-04-03":"2021-04-20"].min()),
         clim_box_cooling_C=em_cool, clim_box_months_below_halfdeg=em_months,
         box_2021_min_anom_Apr=float(pd.Series(an, s21.index).loc["2021-04-01":"2021-04-30"].min()),
         W1_seroja_cooling_C=float(calc["sst"]["cooling_max_casebox_C"]) if "sst" in calc else None,
@@ -674,45 +782,43 @@ def sla():
 
 @block
 def scenario_h8():
-    """H8: siklon identik (impuls momentum & w_E Seroja) lewat akhir Juli di atas profil musim timur."""
-    if not have("argo_2021JA.csv") or "entrainment" not in calc or not PRE_PROFILE:
+    """H8: siklon identik (impuls momentum & η Seroja di W1) melintas akhir Juli di atas profil musim timur."""
+    if "heat_budget" not in calc or "W1" not in calc["heat_budget"]:
         return
-    a = pd.read_csv(P("argo_2021JA.csv"), skiprows=[1])
-    a["time"] = pd.to_datetime(a.time).dt.tz_localize(None)
-    a = a[(a.temp_qc.astype(str).str[0].isin(["1", "2"])) & a.pres.notna() & a.temp.notna()]
-    lo0, la0 = PRE_PROFILE["lonlat"]
-    best = None
-    for (pn, cy), d in a.groupby(["platform_number", "cycle_number"]):
-        d = d.sort_values("pres")
-        if d.pres.min() > 10 or d.pres.max() < 300: continue
-        dd = dist_km(lo0, la0, d.longitude.iloc[0], d.latitude.iloc[0])
-        if best is None or dd < best[0]: best = (dd, pn, cy, d)
-    dd, pn, cy, d = best
-    J = profile_props(d.pres.values, d.temp.values, d.psal.values)
-    M = calc["entrainment"]["impulse_Nsm2"]; eta = calc["entrainment"]["eta_local_m"]
-    def deepen(z, T, rho, h0, eta):
-        if eta > 0:
-            T = np.interp(z + eta, z, T); rho = np.interp(z + eta, z, rho)
-        k0 = int(np.searchsorted(z, h0))
-        T = T.copy(); rho = rho.copy(); T[:k0] = T[0]; rho[:k0] = rho[0]
-        for k in range(k0, len(z) - 1):
-            h = z[k]; db = g * (rho[k + 1] - rho[:k + 1].mean()) / rho0; U = M / (rho0 * h)
-            if db * h / U ** 2 >= 0.65:
-                return h, float(T[:k + 1].mean())
-        return None, None
-    hJ, TJ = deepen(J["z"], J["T"], J["rho"], J["mld"], eta)
-    hA, TA = deepen(PRE_PROFILE["z"], PRE_PROFILE["T"], PRE_PROFILE["rho"], PRE_PROFILE["mld"], eta)
-    calc["h8"] = dict(profile=f"{int(pn)}_{int(cy)}", time=str(d.time.iloc[0]), lonlat=[float(d.longitude.iloc[0]), float(d.latitude.iloc[0])],
-                      dist_from_april_profile_km=float(dd), sst_jul=J["sst"], mld_jul=J["mld"], z20_jul=J["z20"],
-                      sst_apr=PRE_PROFILE["sst"], mld_apr=PRE_PROFILE["mld"], z20_apr=PRE_PROFILE["z20"],
-                      h_after_jul=hJ, dSST_jul=(TJ - J["T"][0]) if TJ else None, T_after_jul=TJ,
-                      h_after_apr=hA, dSST_apr=(TA - PRE_PROFILE["T"][0]) if TA else None, T_after_apr=TA,
-                      c1_jul=J["c1_mode"], impulse_Nsm2=M, eta_m=eta)
-    dump("h8_profiles.json", dict(jul={k: J[k] for k in ["z", "T", "N2"]}, apr={k: PRE_PROFILE[k] for k in ["z", "T", "N2"]}))
+    hb = calc["heat_budget"]["W1"]; lo, la = POINTS["W1"]["lonlat"]
+    A_ = local_profile("W1", lo, la)
+    J = None; jsrc = None
+    if GL is not None:
+        J = local_profile("W1", lo, la, "2021-07-25", "2021-07-31"); jsrc = "GLORYS12 25–31 Jul 2021"
+    elif have("argo_2021JA.csv"):
+        a = pd.read_csv(P("argo_2021JA.csv"), skiprows=[1]); a["time"] = pd.to_datetime(a.time).dt.tz_localize(None)
+        a = a[(a.temp_qc.astype(str).str[0].isin(["1", "2"])) & a.pres.notna() & a.temp.notna()]
+        best = None
+        for (pn, cy), d in a.groupby(["platform_number", "cycle_number"]):
+            d = d.sort_values("pres")
+            if d.pres.min() > 10 or d.pres.max() < 300: continue
+            dd = dist_km(lo, la, d.longitude.iloc[0], d.latitude.iloc[0])
+            if best is None or dd < best[0]: best = (dd, pn, cy, d)
+        if best:
+            dd, pn, cy, d = best
+            J = profile_props(d.pres.values, d.temp.values, d.psal.values)
+            jsrc = f"Argo {int(pn)}_{int(cy)} ({str(d.time.iloc[0])[:10]}, {dd:.0f} km dari W1)"
+    if J is None or A_ is None: return
+    M, eta = hb["impulse_Nsm2"], max(hb["eta_m"], 0.0)
+    res = {}
+    for nm, pr in [("apr", A_), ("jul", J)]:
+        hm, Tm = ri_deepen(pr["z"], pr["T"], pr["rho"], pr["mld"], M, 0.0)
+        hu, Tu = ri_deepen(pr["z"], pr["T"], pr["rho"], pr["mld"], M, eta)
+        res[nm] = dict(sst0=pr["sst"], mld0=pr["mld"], z20=pr["z20"], c1=pr["c1_mode"], h_mix=hm, dT_mix=(Tm - pr["T"][0]) if Tm else None,
+                       h_mixupw=hu, dT_mixupw=(Tu - pr["T"][0]) if Tu else None, T_after=Tu,
+                       T_at_50m=float(np.interp(50, pr["z"], pr["T"])), T_at_100m=float(np.interp(100, pr["z"], pr["T"])))
+    calc["h8"] = dict(src_apr=A_["src"], src_jul=jsrc, impulse_Nsm2=M, eta_m=eta, apr=res["apr"], jul=res["jul"],
+                      ratio_cooling=(res["jul"]["dT_mixupw"] / res["apr"]["dT_mixupw"]) if res["apr"]["dT_mixupw"] and res["jul"]["dT_mixupw"] else None)
+    dump("h8_profiles.json", dict(jul={k: J[k] for k in ["z", "T", "N2"]}, apr={k: A_[k] for k in ["z", "T", "N2"]}))
 
 
-for b in [track_stats, era5, sst, choose_points, argo, argo_pre_post, pre_jump, inertial_and_froude, mixing_entrainment,
-          glorys, point_series, heat_budget, recovery_chl, east_monsoon, tide_gauges, sla, scenario_h8]:
+for b in [track_stats, era5, sst, choose_points, argo, argo_pre_post, pre_jump, glorys, inertial_and_froude, mixing_entrainment,
+          point_series, heat_budget, recovery, chlorophyll, east_monsoon, tide_gauges, sla, scenario_h8]:
     b()
 
 dump("calc.json", dict(calc=calc, notes=notes))
